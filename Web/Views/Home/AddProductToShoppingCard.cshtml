@@ -1,0 +1,113 @@
+﻿@{
+    var ListProduct = ViewBag.ListProduct as List<Web.Models.ProductViewModel>;
+    var ListAmount = ViewBag.ListAmount as List<int>;
+    var ListId = ViewBag.ListId as List<int>;
+    decimal sumPrice = 0;
+}
+
+<input type="hidden" value="@ListId.Count" id="NumberOfShoppingCard" />
+
+<div id="dialogcart2" style="display: block">
+
+    <div id="dialogcart2_content">
+
+        <div class="close2" onclick="continueShopping()"></div><table width="100%" id="mainTable2" cellpadding="5" style="border-collapse: collapse; border-width: 1px ;float: left" cellspacing="0">
+            <tbody>
+                <tr style="background: #dddddd">
+                    <th>Sản phẩm</th>
+                    <th style="width: 60%">
+                        Tên sản phẩm
+                    </th>
+                    <th style="width: 10%">
+                        Mã sản phẩm
+                    </th>
+                    <th style="width: 10%">
+                        Giá
+                    </th>
+                    <th style="width: 5%">
+                        Số lượng
+                    </th>
+                    <th style="width: 15%">
+                        Tổng cộng
+                    </th>
+                </tr>
+
+                @if (ListProduct.Count > 0)
+                {
+                    @for (int x = 0; x < ListProduct.Count; x++)
+                {
+                        <tr>
+                            <td>
+                                <a href="">
+                                    <img alt="" src="@ListProduct[x].Images[0].ImageUrl" width="100" height="60">
+                                </a>
+                            </td>
+                            <td>
+                                <p>
+                                    <a href="#">
+                                        <b>
+                                            @ListProduct[x].Name
+                                        </b>
+                                    </a>
+                                </p>
+                                <a style="color: #ff6600" class="remove-item" href="#" onclick="DeleteProduct(@ListId.Count,@ListProduct[x].Id)">Bỏ sản phẩm</a>
+                            </td>
+
+                            <td align="center">
+                                @ListProduct[x].Code
+                            </td>
+
+                            <td align="right">
+                                @ListProduct[x].ChangePrice
+                            </td>
+
+                            <td align="center">
+                                <span><img src="~/libs/Images/arrow-up.png" onclick="UpNumberAmountFromPop(@ListId.Count, @ListProduct[x].Id);" class="arrow-up"></img></span>
+                                <input type="text" class="number" maxlength="3" id="prAmount@(x)" style="width: 50px; text-align: center" value="@ListAmount[x]">
+                                <input type="hidden" maxlength="3" id="prId@(x)" +@x style="width: 50px; text-align: center" value="@ListProduct[x].Id">
+                                <span><img src="~/libs/Images/arrow-down.png" onclick="DownNumberAmountFromPop(@ListId.Count, @ListProduct[x].Id);" class="arrow-up"></img></span>
+                            </td>
+
+                            <td align="right">
+                                @ListProduct[x].ChangePrice
+                            </td>
+                        </tr>
+                        @(sumPrice += ((decimal)ListProduct[x].ChangePrice * ListAmount[x]))
+                }
+
+                    <tr>
+                        <td colspan="5" align="right">
+                            <b>Tổng tiền</b>
+                        </td>
+                        <td align="right">
+                            <b class="sumprice">
+                                @sumPrice ₫
+                            </b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="6" align="right">Giá trên chưa bao gồm: phí vận chuyển, VAT</td>
+                        <intput type="hidden" id="NumberOfShoppingCard" value="@ListId.Count">
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2" align="right">Chưa có sản phẩm nào được chọn !</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+    @if (ListProduct.Count > 0)
+    {
+        <div class="naviagtion-order">
+            @*<a class="process" style="float: left" href="#" id="hide2" onclick="continueShopping()">Tiếp tục mua hàng</a>*@
+            <a class="process2" href="#" onclick="ThanhToan(@ListProduct.Count)">Thanh toán</a>
+
+        </div>
+    }
+
+</div>

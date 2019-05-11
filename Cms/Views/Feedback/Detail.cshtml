@@ -1,0 +1,86 @@
+﻿@using Cms.Models.OutputModels.FeedbackModels;
+@model FeedbackDetailModel
+@{
+    ViewData["Title"] = "Chi tiết bình luận";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+        @*<div class="actions">
+                <a class="btn btn-transparent red btn-outline btn-circle btn-sm" href="/Product/Create"> <i class="fa fa-plus"></i> Thêm sản phẩm mới</a>
+            </div>*@
+
+    </div>
+
+    <div class="portlet-body">
+
+        <div class="tabbable-line boxless tabbable-reversed">
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_0">
+                        <div class="table-scrollable">
+                            <table class="table table-striped  b-t b-light">
+                                <thead>
+                                    <tr>
+
+                                        <th>Tên người bình luận</th>
+                                        <th>Email</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Nội dung</th>
+                                        <th>Ngày bình luận</th>
+                                        <th>Sản phẩm được bình luận</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                        
+                                    <tr>
+
+                                        <td>
+                                            @Model.Name
+                                        </td>
+
+                                        <td>
+                                            @Model.Email</a>
+                                        </td>
+
+                                        <td>
+                                            @Model.Phone
+                                        </td>
+                                        <td>
+                                            @Model.Content
+                                        </td>
+                                        <td>
+                                            @Model.DateCreate
+                                        </td>
+                                        <td>
+                                            @Model.ProductName
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+
+                            </table>
+
+                        </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+

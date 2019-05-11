@@ -1,0 +1,139 @@
+﻿@using Cms.Models.OutputModels.ProductTypeModels;
+@using Core.Entities;
+@model ListProductTypeModel
+
+@{
+    ViewData["Title"] = "Danh sách loại sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+        <div class="actions">
+            <a class="btn btn-transparent red btn-outline btn-circle btn-sm" href="/ProductType/Create"> <i class="fa fa-plus"></i> Thêm loại mới</a>
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+
+        <div class="tabbable-line boxless tabbable-reversed">
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_0">
+
+
+                    <div class="form-group">
+                        <form method="get" class="form-inline" asp-controller="ProductType" asp-action="Index">
+                            <div class="form-group">
+                                <div class="input-icon right">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" name="k" class="form-control" placeholder="Tên loại sản phẩm" value="@ViewBag.Keyword">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="input-icon right">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" name="code" class="form-control" placeholder="Mã loại sản phẩm" value="@ViewBag.Code">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn green">Tìm kiếm</button>
+                        </form>
+                    </div>
+
+                    @if (Model != null && Model.ProductTypes != null && Model.ProductTypes.Count > 0)
+                    {
+                        <a class="btn btn-danger red btn-outline btn-sm" id="btnDeleteProductTypes">
+                            <i class="table table-striped"></i>Xóa nhiều mã sản phẩm
+                        </a>
+                        <div class="table-scrollable">
+                            <table class="table table-striped  b-t b-light">
+                                <thead>
+                                    <tr>
+                                        <th class="check-header hidden-xs"><label><input id="checkAllProductType" name="checkAllProductType" type="checkbox"></label></th>
+                                        <th>Id</th>
+                                        <th>Tên loại sản phẩm</th>
+                                        <th>Mã loại sản phẩm</th>
+                                        <th>Trạng thái</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model.ProductTypes)
+                                    {
+                                        var urledit = Url.Action("Edit", new { id = item.Id });
+                                        <tr>
+                                            <td>
+                                                <label for="checkbox@(item.Id)"><input class="ckProductType" id="checkbox@(item.Id)" type="checkbox" value="@(item.Id)"></label>
+                                            </td>
+                                            <td>@item.Id</td>
+                                            <td>
+                                                <a href="@urledit" class="text-info">@item.Name</a>
+                                            </td>
+                                            <td>
+                                                <a href="@urledit" class="text-info">@item.Code</a>
+                                            </td>
+                                            <td>
+                                                @if (item.Published == Published.Show)
+                                                {
+                                                    <span class="label label-sm label-info"> Hoạt động </span>
+
+                                                }
+                                                else
+                                                {
+                                                    <span class="label label-sm label-danger"> Không hoạt động </span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-default mt-ladda-btn ladda-button" data-style="expand-left">
+                                                    <span class="ladda-label">Sửa</span>
+                                                </a>
+                                                @*<a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-default mt-ladda-btn ladda-button" data-style="expand-left">
+                                                        <span class="ladda-label">Chi tiết</span>
+                                                    </a>*@
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+
+                            </table>
+
+                        </div>
+
+
+
+
+                        <div>
+                            <pager pager="@Model.Pager"></pager>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row wrapper">
+                            <div class="col-sm-12"><div class=" alert alert-info">Không có loại sản phẩm nào !</div></div>
+                        </div>
+
+                    }
+
+                    
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+

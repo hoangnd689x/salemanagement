@@ -1,0 +1,62 @@
+﻿@model List<ContentPackageViewModel>
+@{ 
+    var type = (HCContentType)ViewData["ContentType"];
+    var packagetype = (PackageType)ViewData["PackageType"];
+    var packageid = (int)ViewData["PackageId"];
+    var typeheadurl = "";
+    if(type== HCContentType.Movie)
+    {
+        typeheadurl = Url.Action("GetJsonMovie", "Movie");
+    }
+    else if (type == HCContentType.Video)
+    {
+        typeheadurl = Url.Action("GetJsonVideo", "Video");
+    }
+    else if (type == HCContentType.Radio)
+    {
+        typeheadurl = Url.Action("GetJsonRadio", "Radio");
+    }
+}
+
+
+<form method="post" asp-controller="Package" asp-action="UpdatePackageContent">
+
+    <div class="form-group">
+        <input type="text" class="form-control typeahead_content" placeholder="Thêm @type" autocomplete="off" 
+               data-type="@type"  data-target="#listcontent@(type)" data-url="@typeheadurl"/>
+         
+    </div>
+    <div class="form-group">
+        <div class="row" id="listcontent@(type)">
+
+            @if (Model != null)
+            {
+                foreach (var entity in Model)
+                {
+                    <div data-id="@entity.Id" class="col-md-2">
+                        <div class="li-chosen-jq">
+
+                            <img class="chosen-edit-image img-responsive" src="@entity.Image">
+
+                            <h5>@entity.Name</h5>
+
+                            <a data-id="@entity.Id" id="del-pl-Item" class="label label-danger" href="javascript:;">Xóa</a>
+                            <input name="ContentId" value="@entity.Id" type="hidden">
+                        </div>
+
+
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <hr />
+    <div class="form-group text-right">
+        <input name="PackageId" value="@packageid" type="hidden" />
+        <input name="PackageType" value="@packagetype" type="hidden" />
+        <input type="hidden" name="type" value="@type" />
+        <button type="submit" class="btn green">Đồng ý</button>
+        <a asp-action="Index" asp-controller="Detail" asp-route-id="@packageid" class="btn default">Huỷ</a>
+    </div>
+</form>
+

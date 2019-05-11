@@ -1,0 +1,62 @@
+﻿@using Cms.Models.OutputModels.News;
+@model CreateNewsViewModel
+@{
+    ViewData["Title"] = "Tạo tin tức mới";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-plus font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+
+    </div>
+
+    <div class="portlet-body form">
+        <form method="post" asp-controller="News" asp-action="Create" enctype="multipart/form-data">
+            <div class="form-body">
+
+
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input class="form-control" asp-for="Title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Content"></label>
+                    <textarea class="form-control" asp-for="Content" data-ng-maxlength="4000" id="txtAreaEditor"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ProductTypeId"></label>
+                    <select class="form-control" asp-for="ProductTypeId" asp-items="@ViewBag.ProductTypes"></select>
+                </div>
+              
+
+            </div>
+
+            <div class="mt-radio-inline">
+                <label class="mt-radio">
+                    <input asp-for="Published" type="radio" value="1" checked /> Hiển thị
+                    <span></span>
+                </label>
+                <label class="mt-radio">
+                    <input asp-for="Published" type="radio" value="0" /> Ẩn
+                    <span></span>
+                </label>
+            </div>
+
+            
+            <div class="form-group">
+                <button type="submit" class="btn green">Đồng ý</button>
+                <a asp-action="Index" class="btn default">Huỷ</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+

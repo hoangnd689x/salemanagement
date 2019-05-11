@@ -1,0 +1,106 @@
+﻿@model ListCustomerTransactionViewModel
+@{
+    ViewData["Title1"] = "Lịch sử Giao dịch";
+    var customerId = ViewBag.CustomerId;
+
+    var ischeck = 0;
+    if (ViewBag.Status != null)
+    {
+        ischeck = ViewBag.Status;
+    }
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title1"]</span><br />
+            <br />
+            <i class="fa"></i>Số lượng : @Model.Pager.Total
+        </div>
+
+    </div>
+
+    <div class="portlet-body ">
+
+        @if (Model.CustomerTransactions != null && Model.CustomerTransactions.Count > 0)
+        {
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="portlet light bordered">
+                        <div class="portlet-body form">
+                            <table class="table table-striped b-t b-light">
+                                <thead>
+                                    <tr>
+                                        <th>Thời gian</th>
+                                        <th style="width:25%">Chi tiết giao dịch</th>
+                                        <th>Số tiền</th>
+                                        <th>Mã thẻ / Code giao dịch</th>
+                                        <th>Trạng thái</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model.CustomerTransactions)
+                                    {
+                                        <tr>
+                                            <td>@item.DateCreated </td>
+                                            <td>
+                                                @item.Description
+                                            </td>
+                                            <td>
+                                                <span> @(item.Type == TransactionType.Decrease ? "-" : "")</span>
+                                                @item.Amount.ToPriceText() @item.Country.Currency
+                                            </td>
+                                            <td></td>
+                                            <td>@Html.Raw(@item.Status.ToHtmlLabel())</td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <div>
+                                <pager pager="@Model.Pager"></pager>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            @*</div>*@
+
+
+        }
+        else
+        {
+            <div class="tabbable-line boxless tabbable-reversed">
+                @*<ul class="nav nav-tabs">
+
+                    <li @(ischeck == -1 ? "class=active" : "")>
+                        <a asp-controller="CustomerWallet" asp-action="Detail" asp-route-customerid="@customerId" asp-route-status="-1">Tất cả</a>
+                    </li>
+
+                    @{
+                        var arrStatus = Enum.GetValues(typeof(TransactionStatus)).Cast<TransactionStatus>().ToList();
+                        foreach (var status in arrStatus)
+                        {
+                            var intstatus = (int)status;
+                            var ischecked = intstatus == ViewBag.Status;
+                        <li @(ischecked ? "class=active" : "")>
+                            <a asp-controller="CustomerWallet" asp-action="Detail" asp-route-customerid="@customerId" asp-route-status="@intstatus">
+                                @status.ToText()
+                            </a>
+                        </li>
+                        }
+                    }
+                </ul>*@
+                <div class="alert alert-danger">Chưa có giao dịch</div>
+            </div>
+                        }
+
+    </div>
+
+</div>

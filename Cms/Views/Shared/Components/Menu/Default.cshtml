@@ -1,0 +1,97 @@
+﻿@model List<MenuViewModel>
+
+@{
+    var menuid = (string)ViewData["MenuId"];
+    var submenuid = (string)ViewData["SubMenuId"];
+}
+<ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+    <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+    <li class="sidebar-toggler-wrapper hide">
+        <div class="sidebar-toggler">
+            <span></span>
+        </div>
+    </li>
+    <!-- END SIDEBAR TOGGLER BUTTON -->
+    <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+    @*
+        <li class="sidebar-search-wrapper">
+            <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+            <form class="sidebar-search  sidebar-search-bordered" action="page_general_search_3.html" method="POST">
+                <a href="javascript:;" class="remove">
+                    <i class="icon-close"></i>
+                </a>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <a href="javascript:;" class="btn submit">
+                            <i class="icon-magnifier"></i>
+                        </a>
+                    </span>
+                </div>
+            </form>
+        </li>
+    *@
+    @{
+        var idx = 0;
+    }
+
+    @foreach (var item in Model)
+    {
+        idx++;
+
+        var isvisibled = item.Roles != null && item.Roles.Count > 0 ? User.IsInRoles(item.Roles) : true;
+        if (isvisibled)
+        {
+
+            var hasitem = item.Items != null && item.Items.Count > 0;
+            var isactive = item.Id == menuid ? "active" : "";
+
+            <li class="nav-item @isactive">
+
+
+
+
+
+                <a href="@item.Url" class="nav-link nav-toggle">
+                    <i class="@item.IconCss"></i>
+                    <span class="title">@item.Text</span>
+                    @if (hasitem)
+                    {
+                        <span class="arrow"></span>
+                    }
+                </a>
+
+                @if (hasitem)
+                {
+                    <ul class="sub-menu">
+                       
+
+
+                        @foreach (var item2 in item.Items)
+                        {
+                            isvisibled = item2.Roles != null && item2.Roles.Count > 0 ? User.IsInRoles(item2.Roles) : true;
+                            if (isvisibled)
+                            {
+
+                                isactive = item2.Id == submenuid ? "active" : "";
+                                <li class="nav-item  @isactive ">
+                                    <a href="@item2.Url" class="nav-link ">
+                                        <i class="@item2.IconCss"></i>
+                                        <span class="title">@item2.Text</span>
+                                    </a>
+                                </li>
+
+                            }
+                        }
+
+                        
+                    </ul>
+
+                }
+            </li>
+
+        }
+    }
+
+</ul>

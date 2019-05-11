@@ -1,0 +1,260 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+
+@{
+
+    var listProductType = ViewBag.ListProductType as List<Web.Models.ProductTypeViewModel>;
+    Layout = "_Layout";
+    var NumberProductSelected = ViewBag.NumberProductSelected;
+}
+
+
+<div id="ctl00_ContentPlaceHolder1_pnContent">
+    <div class="maintop">
+        <link href="/libs/Styles/swiper.min.css" rel="stylesheet" />
+        <script src="/libs/js/swiper.min.js"></script>
+        <div class="topproduct">
+            <div class="left">
+                <ul id="mega_menu_0_list">
+                    @for (int i = 0; i < listProductType.Count; i++)
+                    {
+                        if (listProductType[i].ParentId == 0) { 
+
+
+
+                        <li class="item theme-saffron" id="mega_menu_item_18718">
+                            
+                            @if (listProductType[i].ParentId == 0)
+                            {
+                                <a href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = @listProductType[i].Id })">
+                                    <div class="thumbnail">
+                                        <img src="@listProductType[i].IconUrl" alt="" />
+                                    </div>
+                                    <div class="title">
+                                        @listProductType[i].Name
+                                    </div>
+                                </a>
+
+                                <div class="submenu">
+                                    <ul class="submemu2">
+                                        @for (int j = 0; j < listProductType.Count; j++)
+                                        {
+                                            @if (listProductType[j].ParentId == listProductType[i].Id)
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action("ProductByProductType","Product",new { productTypeId = @listProductType[j].Id })">
+                                                        @listProductType[j].Name
+                                                    </a>
+                                                </li>
+                                            }
+
+                                        }
+                                    </ul>
+                                </div>
+                            }
+
+
+                        </li>
+                        }
+
+                    }
+
+
+                </ul>
+            </div>
+            <div class="top600">
+                <div class="">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <div class="grid /libs/Images_3_of_2">
+                                    <a href="#">
+                                        <img width="330px" height="595px" src="/libs/shop/adminshop/Product/Large/real-adminshop_131408914944709438.jpg" />
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="swiper-slide">
+                                <div class="grid /libs/Images_3_of_2">
+                                    <a href="#">
+                                        <img width="330px" height="595px" src="/libs/shop/adminshop/Product/Large/real-adminshop_131122544118517048.jpg" />
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="swiper-slide">
+                                <div class="grid /libs/Images_3_of_2">
+                                    <a href="#">
+                                        <img width="330px" height="595px" src="/libs/shop/adminshop/Product/Large/real-adminshop_131065150738015819.jpg" />
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="swiper-slide">
+                                <div class="grid /libs/Images_3_of_2">
+                                    <a href="#">
+                                        <img width="330px" height="595px" src="/libs/shop/adminshop/Product/Large/real-adminshop_131058960173299837.jpg" />
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <script>
+                        var swiper = new Swiper('.swiper-container', {
+                            pagination: '.swiper-pagination',
+                            paginationClickable: true,
+                            speed: 400,
+                            spaceBetween: 100,
+                            loop: true
+                        });
+                        var mySwiper = $('.swiper-container')[0].swiper;
+                        setInterval(function () {
+                            mySwiper.slideNext();
+                        }, 5000);
+                        // Now you can use all slider methods like
+                    </script>
+
+                </div>
+            </div>
+            <ul class="top400">
+                <li class="qua">Gốm sứ Bát Tràng chính hãng</li>
+                <li class="header-msg">Gốm sứ của người Việt</li>
+                <li class="deliver"><a href="#">Giao hàng toàn quốc</a></li>
+                <li class="openbox">Được mở hàng kiểm tra</li>
+                <li class="pay">Thanh toán khi nhận hàng</li>
+                <li class="time">Giao hàng từ 5-7 ngày</li>
+                <li class="return">Đổi hàng trong 1 tuần</li>
+                <li class="fone">0868.26.26.26</li>
+                <li class="email"><a href="mailto:sales@battrangonline.vn">sales@battrangonline.vn</a></li>
+
+            </ul>
+            <ul class="more3">
+                @*@for (int i = 0; i < ListProductMostSaleOff.Count; i++)
+                    {
+                        <li>
+                            <a href="/am-chen-men-khu-cao-cap/c18805-1.aspx">
+                                <img alt="" src="@ListProductMostSaleOff[i].Images[0].ImageUrl" />
+                            </a>
+                        </li>
+                    }*@
+                <li>
+                    <a href="#">
+                        <img alt="" src="/libs/shop/adminshop/Product/Large/real-adminshop_131056948880380851.png" />
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img alt="" src="/libs/shop/adminshop/Product/Large/real-adminshop_131056966594679964.jpg" />
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img alt="" src="/libs/shop/adminshop/Product/Large/real-adminshop_131056969647917327.gif" />
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+
+
+    </div>
+    <div id="ctl00_ContentPlaceHolder1_ctl00_panelControl">
+
+        @for (int i = 0; i < listProductType.Count; i++)
+        {
+            @if (listProductType[i].ParentId == 0)
+            {
+                <div class="boxsp">
+                    <div class="boxheadcontent">
+                        <h2 style="background:#ff6600 url('@listProductType[i].Icon') no-repeat scroll 5px center">
+                            <a href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = @listProductType[i].Id })">
+                                @listProductType[i].Name
+                            </a>
+                        </h2>
+
+                        <ul class="ulsubmenu">
+                            @for (int j = 0; j < listProductType.Count; j++)
+                            {
+                                @if (listProductType[j].ParentId == listProductType[i].Id)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("ProductByProductType","Product",new { productTypeId = @listProductType[j].Id })">
+                                            @listProductType[j].Name
+                                        </a>
+
+                                    </li>
+                                }
+                            }
+                        </ul>
+
+                    </div>
+                    @if (listProductType[i].Product != null && listProductType[i].Product.Count > 0)
+                    {
+                        @for (int j = 0; j < listProductType[i].Product.Count; j++)
+                        {
+                            <div class="boxmaincontent">
+                                <ul>
+                                    <li class="lihome" style="height:355px;">
+                                        <span class="sale-off-icon-left">Mã: @listProductType[i].Product[j].Code</span>
+                                        <a href="@Url.Action("Detail","Product",new { id = @listProductType[i].Product[j].Id })"
+                                           title="@listProductType[i].Product[j].Name">
+                                            <img class="lazy"
+                                                 alt="@listProductType[i].Product[j].Name"
+                                                 src="@listProductType[i].Product[j].Avatar.ImageUrl" />
+                                        </a>
+
+                                        <h3><a title="@listProductType[i].Product[j].Name" href="@Url.Action("Detail", "Product", new { id = listProductType[i].Product[j].Id })">@listProductType[i].Product[j].Name</a></h3>
+
+                                        
+                                        @if (@listProductType[i].Product[j].Discount > 0)
+                                        {
+                                            <span class="sale-off">@listProductType[i].Product[j].Price</span>
+                                            <span class="sale-off-icon">-@listProductType[i].Product[j].Discount %</span>
+                                            <span>@listProductType[i].Product[j].ChangePrice</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@listProductType[i].Product[j].Price</span>
+
+                                        }
+
+                                        @*<a href="@Url.Action("WriteCookies", "Home", new { productId = @listProductType[i].Product[j].Id })"*@
+                                        <a href="#" onclick="AddProductToCard(@listProductType[i].Product[j].Id)" style="color: #fff; font-size: 12px; margin-top: -5px"
+                                           class="add-cart fr">Mua hàng</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+
+                    }
+                    
+                </div>
+            }
+
+        }
+
+
+        <script>
+            $(document).ready(function () {
+                equalHeight($("ul#box18706 li.lihome"));
+                $("ul#box18706 li.lihome").hover(function () {
+                    $(this).find(".add-cart").show();
+                }, function () {
+                    $(this).find(".add-cart").hide();
+                });
+            });
+        </script>
+
+    </div>
+</div>

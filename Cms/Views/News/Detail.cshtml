@@ -1,0 +1,96 @@
+﻿@using Cms.Models.OutputModels.News;
+@using Core.Entities.BatTrangModel;
+@model EditNewsModel
+@{
+    ViewData["Title"] = "Chi tiết tin tức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-plus font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+
+    <div class="portlet-body form">
+        <form method="post" asp-controller="News" asp-action="Edit" enctype="multipart/form-data">
+            <div class="form-body">
+
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input class="form-control" asp-for="Title" disabled />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Content"></label>
+                    <input class="form-control" asp-for="Content" id="txtAreaEditor" disabled/>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Cho sản phẩm</label>
+                    <input class="form-control" asp-for="ProductName" disabled />
+                </div>
+
+                <div class="mt-radio-inline">
+                    <label class="mt-radio">
+                        @if (Model.Published == Core.Entities.Published.Show)
+                        {
+                            <input type="radio" value="1" checked="" name="Published" disabled>
+
+                        }
+                        else
+                        {
+                            <input type="radio" value="1" name="Published" disabled>
+
+                        }
+                        Hiển thị
+                        <span></span>
+                    </label>
+                    <label class="mt-radio">
+                        @if (Model.Published != Core.Entities.Published.Show)
+                        {
+                            <input type="radio" value="0" checked="" name="Published" disabled>
+
+                        }
+                        else
+                        {
+                            <input type="radio" value="0" name="Published" disabled>
+
+                        }
+                        Ẩn
+                        <span></span>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="DateCreate"></label>
+                    <input class="form-control" asp-for="DateCreate" disabled />
+                    <span asp-validation-for="DateCreate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="DateUpdate"></label>
+                    <input class="form-control" asp-for="DateUpdate" disabled />
+                    <span asp-validation-for="DateUpdate" class="text-danger"></span>
+                </div>
+
+
+            </div>
+
+            <div class="form-actions">
+                @*<button type="submit" class="btn green">Đồng ý</button>*@
+                <a asp-action="Index" class="btn default">Back</a>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+

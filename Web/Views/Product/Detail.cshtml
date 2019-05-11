@@ -1,0 +1,588 @@
+﻿
+@model Web.Models.ProductDetailViewModel
+
+@{
+    var ListProductSeen = ViewBag.ListProductSeen as List<Web.Models.ProductViewModel>;
+}
+
+
+
+<div class="boxcontent">
+    <div class="bxct1 boxsp" itemscope itemtype="http://data-vocabulary.org/Product">
+        <div class="boxheadcontent mb10">
+            <h2>
+                <a id="ctl00_ContentPlaceHolder1_DetailProduct1_hplCategory" href="@Url.Action("ProductByProductType", "Product", new { id = Model.ProductType.Id })"><span itemprop="brand">@Model.ProductType.Name </span></a>
+            </h2>
+            <ul class="ulsubmenu">
+
+                <li>
+                    @*<a href="@Url.Action("Detail", "Product", new { id = Model.Id })">
+                            <span itemprop="name">@Model.Name</span>
+                        </a>*@
+                    <a id="ctl00_ContentPlaceHolder1_DetailProduct1_hplCategory" href="@Url.Action("ProductByProductType", "Product", new { id = Model.ProductType.Id })"><span itemprop="brand">@Model.Name </span></a>
+                </li>
+            </ul>
+            <div class="boxiconright">
+                <div class="boxgo">
+                    <a id="ctl00_ContentPlaceHolder1_DetailProduct1_hplNext"><span></span></a>
+                </div>
+            </div>
+            <script language='javascript'>
+                            ga('send', '_trackEvent', 'bộ ấm chén men kem - hoa đào xanh - đầy đủ phụ kiện và khay gỗ hương', 'View');
+            </script>
+        </div>
+        <div class="boxcontentleft">
+            <div class="boxcontentleftleft">
+                <div class="img-viewer">
+
+                    <div class="img img-hover" id="galleryshop">
+                        <a id="anchorMain" data-lightbox="roadtrip" href="@Model.AvatarUrl">
+                            >
+                            <img width="320px" id="mainImg" src="@Model.AvatarUrl" />
+
+
+                        </a>
+                        <span class="sale-off-icon-left">Mã: @Model.Code</span>
+
+
+                    </div>
+
+                </div>
+                @if (Model.ImageUrls != null && Model.ImageUrls.Count > 0)
+                {
+                    <ul>
+                        @foreach (var img in Model.ImageUrls)
+                        {
+                            <li>
+                                <a class="mediathumb" alt="" data-lightbox="roadtrip"
+                                   href="@img">
+                                    <img src="@img" />
+                                </a>
+                            </li>
+                        }
+
+
+                    </ul>
+
+                }
+
+
+            </div>
+            <div class="boxcontentleftright">
+                <div class="boxhead">
+
+                    <h1 class="productName">
+                        @Model.Name
+                    </h1>
+                    <div class="share" style="width: 100%;">
+
+                        <iframe src="//www.facebook.com/plugins/like.php?href=http://battrangonline.vn/am-chen-bat-trang/bo-am-chen-men-kem-hoa-dao-xanh-day-du-phu-kien-va-khay-go-huong-25059c18718.aspx&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=1749138168645713"
+                                scrolling="no" frameborder="0" style="border: none; overflow: hidden; height: 21px;width:130px;float:left;"
+                                allowtransparency="true"></iframe>
+                        <div class="container-rating" style="float:left;">
+                            <input type="radio" name="a25059" class="rating" value="1" />
+                            <input type="radio" name="a25059" class="rating" value="2" />
+                            <input type="radio" name="a25059" class="rating" value="3" />
+                            <input type="radio" name="a25059" class="rating" value="4" />
+                            <input type="radio" name="a25059" class="rating" value="5" checked="checked" />
+
+                        </div><span itemprop="review" style="float: left; display: none" itemscope itemtype="http://data-vocabulary.org/Review-aggregate"> (<span itemprop="rating">5</span>/<span itemprop="count">1</span>)</span>
+                        <script>
+                                        $('.container-rating').rating(function (vote, event) {
+                                            // $.get(document.URL, {vote: vote});
+                                            //alert(vote);
+                                        });
+
+                        </script>
+                    </div>
+                    <p>
+                        @if (Model.Price != Model.ChangePrice)
+                        {
+                            <span class="sale-off">@Model.Price</span>
+                                        <span class="sale-off-detail">-@Model.Discount %</span>
+                        }
+
+                        <span itemprop="price" class="pr">@Model.ChangePrice</span>
+                    </p>
+                    <p>
+                        (Giá trên chưa bao gồm VAT và phí vận chuyển)
+                    </p>
+                    <p>
+                        <b>Miễn phí vận chuyển nội thành Hà Nội</b>
+                    </p>
+
+                    <p>
+
+                        <a class="add-cart" href="#" style="float: left; text-align: center; font-weight: bold; width: 254px; font-size: 20px" onclick="AddProductToCard()">Mua sản phẩm - Mã @Model.Code</a>
+                    </p>
+                    <p class="sapo">
+                        <span itemprop="description">
+                        </span>
+                    </p>
+
+                </div>
+            </div>
+            <div class="boxttsp">
+
+                <div class="boxttsphead">
+                    THÔNG TIN GIAO HÀNG
+                </div>
+                <div class="boxtcontent" style="background: bisque; color: #000; margin: 0 0 20px 0; width: 686px">
+                    <img src="/libs/Images/giaohang.png" style="border: 0;" width="686px" />
+                </div>
+                <div class="boxttsphead">
+                    THÔNG TIN SẢN PHẨM
+                </div>
+                <div class="boxtcontent">
+                    @Model.Description
+                    <ul class="relatenews"></ul>
+                    <p>
+                        Bộ sản phẩm gồm: <br>1 ấm<br>6 chén<br>7 đĩa kê<br>Gạt tàn<br>Lọ chè<br>Ống tăm<br>Ống đổ nước<br>Khay gỗ hương cao cấp (50x30cm)<br><br>Bộ sản phẩm là sự kết hợp khéo lèo, tài tình và óc sáng tạo của người thợ thủ công làng gốm Bát Tràng.<br>Chất liệu sứ cao cấp được phú bới lớp men màu trắng sữa tạo nét riêng có cho từng sản phẩm. Hoa văn vẽ tay mềm mại, phù hợp với những không gian cổ đến hiện đại<br><br>Chất liệu men đặc biêt cách nhiệt gúp bạn không bị bỏng tay khi cầm chén trà nóng, đồng thời cũng giữ cho sản phẩm dễ dàng vệ sinh, lau rửa.<br><br>Bộ sản phẩm còn có phụ kiện đồng bô đi kèm: lọ chè, gạt tàn, ống tăm và ống đổ nước thừa tạo sự tiện lợi cho người dùng.<br><br>Khay gỗ hương được sản xuất trong nước bới thợ thủ công lành nghề Đồng Kị, làng nghề nổi tiếng về gỗ của Bắc Ninh. Sự kết hợp của 2 làng nghề truyền thống mang đến cho khách hàng bộ sản phẩm ưng ý<br>
+                    </p>
+
+
+                    @*<p>
+                            <img width="686px" itemprop="image" alt="Bộ ấm chén men kem - hoa đào xanh - đầy đủ phụ kiện và khay gỗ hương" src="/Shop/adminshop/Product/Large/am-chen-men-kem-hoa-dao-xan_131545133585522571.jpg?mode=crop&amp;width=670" />
+                        </p>
+
+                        <p>
+                            <img width="686px" alt="Bộ ấm chén men kem - hoa đào xanh - đầy đủ phụ kiện và khay gỗ hương" src="/Shop/adminshop/Product/Large/am-chen-men-kem-hoa-dao-xanh-_131545138491107187.jpg?mode=crop&amp;width=670" />
+                        </p>*@
+
+
+                    <div style="width: 100%;float:left;">
+                        <ul class="relatenews"></ul>
+                    </div>
+                    <p style="width: 100%;float:left;">
+                        <a class="add-cart" href="#" style="margin: 20px auto; display: block; text-align: center; font-weight: bold; width: 254px; font-size: 20px" onclick="AddProductToCard(@Model.Id)">Mua sản phẩm - Mã @Model.Code</a>
+                    </p>
+                    <p>
+                        Quý khách có nhu cầu đặt mua sỉ hoặc lẻ, đặt in logo làm quà biếu quà tặng Hội nghị Hội thảo, quà tặng chương trình quảng cáo khuyến mãi...
+                        <br />
+                        <br />
+                        Xin vui lòng liên hệ:
+                        <br />
+                        <br />
+                        CÔNG TY TNHH KINH DOANH VÀ CÔNG NGHỆ TRỰC TUYẾN BATO
+                        <br />
+                        Địa chỉ: Số 280 - Thôn 4 Giang Cao - Xã Bát Tràng - Gia Lâm - Hà Nội
+                        <br />
+                        Chi nhánh: 60/13 - Vạn Kiếp - Bình Thạnh - Hồ Chí Minh
+                        <br />
+                        Điện thoại: <a href="tel:0904868545">0904.868.545 (Quý) </a>hoặc <a href="tel:0868262626">0868.26.26.26 (Thu)</a><br />
+
+                    </p>
+                    <div class="viewed">
+                        <div class="boxttsphead">
+                            Bình luận sản phẩm
+                        </div>
+
+
+                        <table id="" style="width: 100%; border: 1px solid #CCC; padding-top: 10px" cellpadding="3" cellspacing="3">
+                            <tbody>
+
+                                <tr>
+                                    <td style="width: 150px;">
+                                        Họ Tên <span style="color: red">(*)</span>:
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="100" id="txtnameCM" class="textbox" required="" data-val="true" data-val-required="Hãy nhập CustomerName" name="CustomerNameCM" value="">&nbsp;
+                                        <span class="text-danger field-validation-valid" data-valmsg-for="CustomerName" data-valmsg-replace="true"></span>
+                                        &nbsp;
+                                        <br>
+                                        <div id="txtNameValidate" class="text-danger" style="color:red;"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Số Điên Thoại <span style="color: red">(*)</span>:
+                                    </td>
+                                    <td>
+                                        <input required="" name="CustomerPhoneCM" type="number" maxlength="15" id="txtphoneCM" class="textbox" value="">&nbsp;<span id="ctl00_ContentPlaceHolder1_ShopCart1_lblcheckphone" style="color:Red;"></span>
+                                        &nbsp;
+                                        <div id="txtphoneValidate" class="text-danger" style="color:red;"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Email<span style="color: red">(*)</span>:
+                                    </td>
+                                    <td>
+                                        <input required="" name="CustomerEmailCM" type="email" maxlength="50" id="txtemailCM" class="textbox" value="">
+                                        &nbsp;
+                                        &nbsp;
+                                        <div id="txtEmailValidate" class="text-danger" style="color:red;"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Nội dung :
+                                    </td>
+                                    <td>
+                                        <textarea name="NotesCM" rows="10" cols="20" id="ctl00_ContentPlaceHolder1_ShopCart1_txtDescCM" class="textbox"></textarea>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <div id="txtsuccess" style="color:green"></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+
+                                    <td>
+                                        <button type="button" value="Gửi bình luận" class="add-cart-2" style="cursor: pointer;" onclick="postComment(@Model.Id);">Gửi bình luận</button>
+
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    @*<div class="viewed">
+                            <div class="boxttsphead">
+                                Bình luận sản phẩm
+                            </div>
+                            <iframe frameborder="0" scrolling="no" style="width: 100%; height: 190px" src="Pages/Desktop/Comment.aspx_570767773.jpg"></iframe>
+                        </div>*@
+
+                </div>
+            </div>
+
+
+            @if (Model.SameTypeProducts != null && Model.SameTypeProducts.Count > 0)
+            {
+                <div class="viewed">
+                    <div class="boxttsphead">
+                        Sản phẩm khác
+                    </div>
+                    @*<div class="boxcontentlienquan1">*@
+                    @foreach (var item in Model.SameTypeProducts)
+                    {
+                        <div class="item" style="width: 209px;position: relative">
+                            <span class="sale-off-icon-left" style="text-decoration: none">Mã: @item.Code</span>
+                            <a href="@Url.Action("Detail", "Product", new { id = item.Id })" title="@item.Name">
+                                <img width="190px" alt="@item.Name" src="@item.ImageUrl" />
+                            </a>
+                            <p> <span class="sale-off">@item.Price</span><span class="sale-off-icon">- @item.Discount %</span></p>
+                            <p>
+                                @item.ChangePrice
+                            </p>
+                            <p>
+                                <a class="add-cart" href="#" onclick="AddProductToCard(@item.Id)">Thêm vào giỏ </a>
+                            </p>
+                            <p><h4><a href="@Url.Action("Detail", "Product", new { id = item.Id })" title="@item.Name">@item.Name</a></h4></p>
+                        </div>
+
+                    }
+                    @*</div>*@
+
+
+                </div>
+
+            }
+
+
+            <Script>
+                                        $(document).ready(function () {
+                                equalHeight($("div.viewed div.item"));
+                            });
+            </Script>
+
+
+            <div class="viewed">
+                <div class="boxttsphead">
+                    Sản phẩm đã xem
+                </div>
+                @if (ListProductSeen.Count > 0)
+                {
+                    @foreach (var item in ListProductSeen)
+                    {
+                        <div class="item" style="width: 209px">
+                            <a href="@Url.Action("Detail", "Product", new { id = item.Id })">
+                                <img width="190px" alt="" src="@item.Images[0].ImageUrl" />
+                            </a>
+                            <p> </p>
+                            <p>
+                                @item.ChangePrice
+                            </p>
+                            <p>
+                                <a class="add-cart" href="#" onclick="AddProductToCard(@item.Id)">Thêm vào giỏ </a>
+                            </p>
+                            <p><h4><a href="@Url.Action("Detail", "Product", new { id = item.Id })">@item.Name</a></h4></p>
+                        </div>
+                    }
+                }
+
+
+
+
+
+
+
+            </div>
+            <Script>
+                                        $(document).ready(function () {
+                                            equalHeight($("div.viewed div.item"));
+                                        });
+            </Script>
+        </div>
+        <div class="boxcontentright">
+
+            <style>
+                .ads300x250 {
+                    float: left;
+                    margin: 0 0 15px;
+                    padding: 0;
+                    width: 300px;
+                }
+            </style>
+
+            <ul class="ads300x250">
+
+                <li>
+                    <a href="#">
+                        <img width="300" height="250" src="@Model.SameTypeProducts.FirstOrDefault().ImageUrl">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img width="300" height="250" src="@Model.ImageUrls.FirstOrDefault()">
+                    </a>
+                </li>
+            </ul>
+
+
+            @if (Model.OutstandingProducts != null && Model.OutstandingProducts.Count > 0)
+            {
+
+                <div class="boxlienquan1">
+                    <div class="boxheadlienquan1">
+                        Sản phẩm nổi bật
+                    </div>
+
+                    <div class="boxcontentlienquan1">
+
+                        @foreach (var item in Model.OutstandingProducts)
+                        {
+                            <div class="left1 w50pc" style="position: relative">
+                                <span class="sale-off-icon-left" style="text-decoration: none">Mã: @item.Code</span>
+                                <a href="@Url.Action("Detail", "Product", new { id = item.Id })" title="@item.Name">
+                                    <img alt="@item.Name" src="@item.ImageUrl" />
+                                </a>
+                                <p>
+                                    @item.Price
+                                </p>
+                                <p>
+                                    <a class="add-cart" href="#" onclick="AddProductToCard(@item.Id)">Thêm vào giỏ </a>
+                                </p>
+                                <p>
+                                    <a title="@item.Name" href="@Url.Action("Detail", "Product", new { id = item.Id })">
+                                        @item.Name
+                                    </a>
+                                </p>
+
+                            </div>
+
+                        }
+
+
+                    </div>
+
+                </div>
+            }
+
+
+
+            @if (Model.RelatedProducts != null && Model.RelatedProducts.Count > 0)
+            {
+                <div id="ctl00_ContentPlaceHolder1_DetailProduct1_lienquan1" class="boxlienquan1">
+                    <div class="boxheadlienquan1">
+                        Sản phẩm thường được mua cùng
+                    </div>
+
+
+                    <div class="boxcontentlienquan1">
+                        @foreach (var item in Model.RelatedProducts)
+                        {
+
+                            <div class="left1 w50pc" style="position: relative">
+                                <span class="sale-off-icon-left" style="text-decoration: none">Mã: @item.Code</span>
+                                <a href="@item.ImageUrl" title="@item.Name">
+                                    <img alt="@item.Name" src="@item.ImageUrl" />
+                                </a>
+                                <p><span class="sale-off">@item.Price</span><span class="sale-off-icon">- @item.Discount %</span></p>
+                                <p>
+                                    @item.ChangePrice
+                                </p>
+                                <p class="pd0">
+                                    <a class="add-cart" href="@Url.Action("OpenShoppingCard", "Product", new { productId = item.Id })">Mua hàng</a>
+                                </p>
+                                <p>
+                                    <a href="@Url.Action("Detail", "Product", new { id = item.Id })" title="@item.Name">
+                                        @item.Name
+                                    </a>
+                                </p>
+                            </div>
+                        }
+
+
+                    </div>
+
+
+                </div>
+
+            }
+
+
+
+            @if (Model.MostViewProducts != null && Model.MostViewProducts.Count > 0)
+            {
+                <div class="boxlienquan1">
+                    <div class="boxheadlienquan1">
+                        Sản phẩm được xem nhiều nhất
+                    </div>
+
+                    <div class="boxcontentlienquan1">
+
+                        @foreach (var item in Model.MostViewProducts)
+                        {
+                            <div class="left1 w50pc" style="position: relative">
+                                <span class="sale-off-icon-left" style="text-decoration: none">Mã: @item.Code</span>
+                                <a href="@Url.Action("Detail", "Product", new { id = item.Id })" title="@item.Name">
+                                    <img alt="@item.Name" src="@item.ImageUrl" />
+                                </a>
+                                <p>
+                                    @item.Price
+                                </p>
+                                <p>
+                                    <a class="add-cart" href="#" onclick="AddProductToCard(@item.Id)">Thêm vào giỏ </a>
+                                </p>
+                                <p>
+                                    <a title="@item.Name" href="@Url.Action("Detail", "Product", new { id = item.Id })">
+                                        @item.Name
+                                    </a>
+                                </p>
+
+                            </div>
+
+                        }
+
+
+                    </div>
+
+                </div>
+
+            }
+
+
+
+
+            @if (Model.NewestProducts != null && Model.NewestProducts.Count > 0)
+            {
+                <div class="boxlienquan1">
+                    <div class="boxheadlienquan1">
+                        Sản phẩm mới
+                    </div>
+
+                    <div class="boxcontentlienquan1">
+
+                        @foreach (var item in Model.NewestProducts)
+                        {
+                            <div class="left1 w50pc" style="position: relative">
+                                <span class="sale-off-icon-left" style="text-decoration: none">Mã: @item.Code</span>
+                                <a href="@Url.Action("Detail", "Product", new { id = item.Id })" title="@item.Name">
+                                    <img alt="@item.Name" src="@item.ImageUrl" />
+                                </a>
+                                <p>
+                                    @item.Price
+                                </p>
+                                <p>
+                                    <a class="add-cart" href="#" onclick="AddProductToCard(@item.Id)">Thêm vào giỏ </a>
+                                </p>
+                                <p>
+                                    <a title="@item.Name" href="@Url.Action("Detail", "Product", new { id = item.Id })">
+                                        @item.Name
+                                    </a>
+                                </p>
+
+                            </div>
+
+                        }
+
+
+                    </div>
+
+                </div>
+
+            }
+
+
+
+
+            <a href="http://goo.gl/r7HQNB" target="_blank" title="Đậu tương đen">
+                <img src="/libs/Images/dau-tuong-den-300x300.jpg" alt="đậu tương đen hữu cơ" />
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--Facebook-->
+<script>
+                                        fbq('track', 'ViewContent', {
+                                            content_ids: ['25059'],
+                                            content_type: 'product',
+                                            value: 1490000,
+                                            currency: 'VND'
+                                        });
+</script>
+<!--het facebook-->
+<script src="/libs/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="/libs/js/lightbox.min.js"></script>
+<link href="/libs/Styles/lightbox.css" rel="stylesheet" />
+<script>
+                                        $("a.mediathumb img").hover(function () {
+                                            var obj = $(this);
+                                            $("#mainImg").attr('src', obj.parent().attr('href'));
+                                            $("#mainImg").parent().attr('href', obj.parent().attr('href'));
+                                        })
+</script>
+<style>
+    .tags {
+        border: 1px solid;
+        border-radius: 5px;
+        font-size: 15px !important;
+        padding: 0 5px;
+    }
+</style>
+
+
+
+
+

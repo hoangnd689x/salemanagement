@@ -1,0 +1,55 @@
+﻿
+@page
+@model Web.Models.ProductViewModel
+@using Web.Models;
+@{
+    var listProduct = ViewBag.ListProduct as List<Web.Models.ProductViewModel>;
+    var ProductType = ViewBag.ProductType;
+    Layout = "_layout";
+    var listProductTypes = ViewBag.ListProductTypes as List<ProductTypeViewModel>;
+}
+
+
+<ul style="width: 75%; float: right">
+    <div class="listdesc">
+
+
+    </div>
+    @if(listProduct != null)
+                            {
+        @for (int i = 0; i < listProduct.Count; i++)
+                                {
+            <li class="lihome" style="height:355px;">
+                <span class="sale-off-icon-left">Mã: @listProduct[i].Code</span><a href="@Url.Action("Detail", "Product", new { id = listProduct[i].Id })" title="@listProduct[i].Name">
+                    <img alt="" class="lazy" src="@listProduct[i].Avatar.ImageUrl" />
+                </a>
+                <h3>
+                    <a title="@listProduct[i].Name" href="@Url.Action("Detail", "Product", new { id = listProduct[i].Id })">
+                        @listProduct[i].Name
+                    </a>
+                </h3>
+
+                @if (listProduct[i].Discount > 0)
+                                        {
+                    <span class="sale-off">@listProduct[i].Price</span>
+                    <span class="sale-off-icon">-@listProduct[i].Discount %</span>
+                    <span>@listProduct[i].ChangePrice</span>
+                                        }
+                                        else
+                                        {
+                    <span>@listProduct[i].ChangePrice</span>
+
+                                        }
+
+                @*<span>
+                        @listProduct[i].Price
+                    </span>*@
+                <a href="#" onclick="AddProductToCard(@listProduct[i].Id)" style="color: #fff; font-size: 12px; margin-top: -5px"
+                   class="add-cart fr">Mua hàng</a>
+            </li>
+                                }
+                            }
+
+
+
+</ul>

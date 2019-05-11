@@ -1,0 +1,96 @@
+﻿@using Core.Entities.BatTrangModel;
+@model ListAccountViewModel
+@{
+    ViewData["Title"] = "Danh sách tài khoản";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+        <div class="actions">
+
+            <a asp-controller="Account" asp-action="Create" class="btn btn-transparent red btn-outline btn-circle btn-sm "> <i class="fa fa-plus"></i> Thêm tài khoản</a>
+
+            <div class="btn-group btn-group-devided" data-toggle="buttons">
+            </div>
+        </div>
+    </div>
+
+    <div class="portlet-body">
+
+        @if (Model != null && Model.Accounts.Count > 0)
+            {
+
+            <div class="table-scrollable">
+                <table class="table table-striped  b-t b-light">
+                    <thead>
+                        <tr>
+
+                            <th>Tài khoản</th>
+                            <th>Phân quyền</th>
+
+                            <th>Ngày tạo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.Accounts)
+                        {
+                            var urledit = Url.Action("Edit", new { id = item.Id });
+                            <tr>
+
+                                <td>
+                                    <a href="@urledit" class="text-info">@item.Username</a>
+                                </td>
+                                @{
+                                    <td>
+                                        @foreach (var role in item.Roles)
+                                        {
+
+                                            <span class="btn btn-xs btn-success">@role.ToText()</span>
+                                        }
+
+                                    </td>
+                                }
+
+
+                                <td>@item.DateCreated.ToViDateTime()</td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-default mt-ladda-btn ladda-button" data-style="expand-left">
+                                        <span class="ladda-label">Sửa</span>
+                                    </a>
+
+                                </td>
+                            </tr>
+                                    }
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+
+
+
+
+            <div>
+                <pager pager="@Model.Pager"></pager>
+            </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="row wrapper">
+                                            <div class="col-sm-12"><div class=" alert alert-info">Không có nội dung phù hợp</div></div>
+                                        </div>
+
+                                    }
+
+
+
+    </div>
+</div>

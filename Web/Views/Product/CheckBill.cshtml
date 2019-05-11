@@ -1,0 +1,1766 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="/libs/Styles/shopStyle.css?a=2" rel="stylesheet" type="text/css" />
+    <title>
+        Tra cứu tình trạng đơn hàng - Battrang Online
+    </title>
+    <meta id="ctl00_description" content="Chuyên sản xuất và phân phối các sản phẩm gốm sứ Bát Tràng chính hãng, nhận đặt theo nhu cầu của khách hàng: làm quà tặng, các sản phẩm trưng bày tại gia, hội thảo, hội nghị..." name="description" />
+    <meta id="ctl00_keywords" content="Gốm Sứ Bát Tràng, Gạch men Bát Tràng, Ấm chén Bát Tràng, Đồ ăn Bát Tràng, Đèn xông tinh dầu, Đồ thờ, Quà tặng Gốm sứ" name="keywords" />
+    <meta name="robots" content="index,follow" />
+    <meta name="Googlebot" content="index,follow,noarchive" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="battrangonline.vn" />
+    <link href="/libs/Images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    <meta http-equiv="content-language" content="vi" />
+    <link rel="author" href="https://plus.google.com/u/1/107849540924795219843" />
+    <style type="text/css">
+        .divhead {
+            float: left;
+            border-right: solid 2px #aaa;
+            padding-right: 10px;
+            margin: 15px 0 10px 10px;
+            ;
+        }
+
+        .divhead1 {
+            float: left;
+            padding-right: 10px;
+            margin: 15px 0 10px 10px;
+            ;
+        }
+
+        #PanelItem {
+            border: solid 1px #aca;
+            margin: 20px auto;
+            padding: 5px;
+        }
+
+        .divbgtop {
+            background: #f9c231;
+            height: 66px;
+        }
+
+        .colerblue {
+            color: #017d7d;
+        }
+
+        .colerorange {
+            color: #f9c231;
+        }
+
+        .spantop {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .spantop1 {
+            font-size: 13px;
+        }
+
+        .trackingItem h2 {
+            font-size: 13px;
+            padding: 5px;
+            margin: 10px;
+            border-bottom: dotted 2px #017d7d;
+            color: #d97014;
+        }
+
+        .ClassLiOne {
+            color: #01b5ae;
+        }
+
+        .ClassLiTwo {
+            color: #02bcb4;
+        }
+
+        .ClassLiThree {
+            color: #01a9a2;
+        }
+
+        .ClassLiFour {
+            color: #00948e;
+        }
+
+        .ClassLiive {
+            color: #007b76;
+            font-weight: bold;
+        }
+
+        .search-input {
+            width: 85%;
+            padding: 8px;
+            border-bottom: 1px solid #017d7d;
+            border-top: 1px solid #017d7d;
+            border-left: 1px solid #017d7d;
+            border-right: none;
+        }
+
+        .PaneTop {
+            height: 81px;
+            border: solid 1px #aca;
+            padding: 10px;
+        }
+
+        .PaneTopdiv1 {
+            width: 66%;
+        }
+
+        .Dfloat {
+            float: left
+        }
+
+        .button {
+            background: #FCB71E;
+            height: 37px;
+            border-top: 1px solid #017d7d;
+            border-right: 1px solid #017d7d;
+            border-bottom: 1px solid #017d7d;
+            border-left: none;
+            color: #fff;
+        }
+
+        .PanelListCss h2 {
+            font-size: 18px;
+            padding: 5px;
+            margin: 10px;
+            border-bottom: solid 1px #017d7d;
+            color: #017d7d;
+            font-weight: bold;
+        }
+
+        #mytable {
+            padding: 3px;
+            margin: 3px;
+        }
+
+            #mytable th {
+                color: #4f6b72;
+                border-right: 1px solid #017d7d;
+                border-left: 1px solid #017d7d;
+                border-bottom: 1px solid #017d7d;
+                border-top: 1px solid #017d7d;
+                letter-spacing: 2px;
+                /*text-transform: uppercase;*/
+                text-align: left;
+                padding: 6px 6px 6px 12px;
+                background: #D5EDEF;
+            }
+
+        .form-control {
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        }
+
+        #mytable td {
+            border-right: 1px solid #017d7d;
+            border-bottom: 1px solid #017d7d;
+            border-left: 1px solid #017d7d;
+            background: #fff;
+            padding: 6px 6px 6px 12px;
+            color: #4f6b72;
+        }
+
+            #mytable td.alt {
+                background: #F5FAFA;
+                color: #797268;
+            }
+
+            #mytable td.boldtd {
+                font: bold 13px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+                background: #D5EDEF;
+                color: #797268;
+            }
+    </style>
+
+    <script src="/libs//libs/Lib/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="/libs//libs/Lib/js/custom.js" type="text/javascript"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g;
+            m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-57102314-1', 'auto');
+        ga('send', 'pageview');
+
+
+    </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            }; if (!f._fbq) f._fbq = n;
+            n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+        }(window,
+            document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '517049741792050');
+        fbq('track', "PageView");</script>
+    <noscript>
+        <img height="1" width="1" style="display: none"
+             src="https://www.facebook.com/tr?id=517049741792050&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="/www.googletagmanager.com/ns.html_264598358.jpg"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    '/www.googletagmanager.com/gtm.js' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PWVVP6');</script>
+    <!-- End Google Tag Manager -->
+
+</head>
+<body class="home-page">
+    <form name="aspnetForm" method="post" action="/Pages/kiem-tra-don-hang.aspx" id="aspnetForm">
+        <div>
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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bWFtLWJvbmcvYzE4NzM5LTEuYXNweAtNw6JtIGLhu5NuZ2QCCA9kFgJmDxUCFy9uYW0tcnVvdS9jMTg3NDMtMS5hc3B4Dk7huq1tIHLGsOG7o3UgZAIJD2QWAmYPFQIYL29uZy1odW9uZy9jMTg3NDAtMS5hc3B4DuG7kG5nIGjGsMahbmcgZAIID2QWBGYPFQUiL3RyYW5oLWdvbS1iYXQtdHJhbmcvYzE4NzA3LTEuYXNweAUxODcwNxhUcmFuaCBn4buRbSBCw6F0IFRyw6BuZyAiL3RyYW5oLWdvbS1iYXQtdHJhbmcvYzE4NzA3LTEuYXNweBhUcmFuaCBn4buRbSBCw6F0IFRyw6BuZyBkAgEPFgIfAQIDFgZmD2QWAmYPFQIhL3RyYW5nLWdvbS1jby1raHVuZy9jMTg3MjYtMS5hc3B4FlRyYW5nIGfhu5FtIGPDsyBraHVuZyBkAgEPZBYCZg8VAh0vdHJhbmctZ29tLWdoZXAvYzE4NzI0LTEuYXNweBJUcmFuZyBn4buRbSBnaMOpcCBkAgIPZBYCZg8VAiQvdHJhbmctZ29tLWtob25nLWtodW5nL2MxODcyNS0xLmFzcHgZVHJhbmcgZ+G7kW0ga2jDtG5nIGtodW5nIGQCCQ9kFgRmDxUFJS90dW9uZy1nb20tc3UtYmF0LXRyYW5nL2MxODcxNi0xLmFzcHgFMTg3MTYgVMaw4bujbmcgZ+G7kW0gc+G7qSBCw6F0IFRyw6BuZyAlL3R1b25nLWdvbS1zdS1iYXQtdHJhbmcvYzE4NzE2LTEuYXNweCBUxrDhu6NuZyBn4buRbSBz4bupIELDoXQgVHLDoG5nIGQCAQ8WAh8BAgkWEmYPZBYCZg8VAicvYm8tdHVvbmctdGhhcC1iYXQtbGEtaGFuL2MxODc2MC0xLmFzcHgiQuG7mSB0xrDhu6NuZyBUaOG6rXAgQsOhdCBMYSBIw6FuIGQCAQ9kFgJmDxUCIC9uZ2hlLXN1LWJhdC10cmFuZy9jMTg3OTEtMS5hc3B4Fk5naMOqIHPhu6kgQsOhdCBUcsOgbmdkAgIPZBYCZg8VAhsvdHVvbmctZGktbGFjL2MxODc2Mi0xLmFzcHgRVMaw4bujbmcgRGkgTOG6t2NkAgMPZBYCZg8VAiAvdHVvbmctZ29tLXN1LWtoYWMvYzE4Nzkw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" />
+        </div>
+
+        <div class="container">
+
+            <style>
+                .search-form {
+                    width: 100%;
+                    background-color: #ffffff !important;
+                    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.15);
+                    height: 62px;
+                    position: relative;
+                    z-index: 99999999;
+                }
+
+                .search-form-1000 {
+                    width: 1000px;
+                    margin: 0 auto;
+                }
+
+                #logo_container h1 {
+                    padding: 5px 0;
+                }
+
+                .about {
+                    background-color: #f6f6f6 !important;
+                    height: 32px;
+                    line-height: 32px;
+                    position: relative;
+                    z-index: 4;
+                }
+
+                    .about .zone {
+                        width: 1000px;
+                        margin: 0 auto;
+                    }
+
+                .menutop {
+                    height: 104px;
+                }
+
+                .about ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    float: right;
+                }
+
+                    .about ul li {
+                        float: left;
+                        padding: 0 10px;
+                    }
+            </style>
+
+            <script>
+                $("#main").hover(function () {
+                    $("#menu").show();
+                }, function () {
+                    $("#menu").hide();
+                });
+
+                $(".mega_menu_item_0").hover(function () {
+                    $(this).find(".submenu").show();
+                }, function () {
+                    $(this).find(".submenu").hide();
+                });
+
+                $('input#inputSearch').keypress(function (e) {
+                    if (e.which == 13) {
+                        e.preventDefault();
+                        SearchResult();
+                        return false;
+                    }
+                });
+                $("#btnSearch").click(function () {
+                    SearchResult();
+                });
+                function SearchResult() {
+                    location.href = "/Pages/Search.aspx?key=" + encodeURIComponent($("#inputSearch").val());
+                }
+            </script>
+
+            <style>
+                .searchbox {
+                    background: none repeat scroll 0 0 transparent;
+                    border: medium none;
+                    line-height: 35px;
+                    padding-left: 5px;
+                    width: 175px;
+                }
+            </style>
+
+
+            <div class="boxmenu" style="display: none">
+                <ul class="submenu">
+
+                    <li id="catTop_18718">
+                        <a href="/am-chen-bat-trang/c18718-1.aspx">
+                            Ấm chén Bát Tràng
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/am-chen-men-lam-co/c18719-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ấm chén men lam cổ</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/am-chen-men-ran-co/c18720-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ấm chén men rạn cổ</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/am-chen-gom/c18721-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ấm chén gốm</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/am-chen-qua-tang/c18722-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ấm chén quà tặng</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/am-chen-boc-dong/c18723-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ấm chén bọc đồng </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/am-chen-su-men-co-boc-dong/c18769-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ấm chén sứ men cổ bọc đồng</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/khay-dung-am-chen/c18795-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Khay đựng ấm chén</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/phu-kien-am-chen/c18796-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Phụ kiện ấm chén</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/am-chen-men-khu-cao-cap/c18805-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ấm chén men khử cao cấp</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18774">
+                        <a href="/do-tho-cung-men-ran/c18774-1.aspx">
+                            Đồ thờ cúng men rạn
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/bat-huong/c18775-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bát hương</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/choe-dung-nuoc-tho/c18776-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Chóe đựng nước thờ </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/ky-chen-tho/c18777-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Kỷ chén thờ </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/den-dau-tho/c18778-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đèn dầu thờ </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/mam-bong/c18779-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Mâm bồng</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/ong-huong/c18780-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ống hương </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/dua-tho-ky-cam-dua/c18781-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đũa thờ , kỷ cắm đũa </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/bat-nap/c18782-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bát nắp </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/nam-ruou/c18783-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Nậm rượu </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/lo-hoa/c18784-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lọ hoa </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/bat-tho/c18785-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bát thờ </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/dinh-su/c18786-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đỉnh sứ</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/dai-tho-chan-nen/c18787-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đài thờ , chân nến </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/do-tho-theo-bo/c18823-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đồ thờ theo bộ</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18712">
+                        <a href="/tranh-su-bat-trang/c18712-1.aspx">
+                            Tranh sứ Bát Tràng
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/tranh-ghep-su/c18732-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Tranh ghép sứ</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/tranh-bo/c18733-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Tranh bộ</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/tranh-phong-canh/c18734-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Tranh phong cảnh</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18772">
+                        <a href="/bao-am-u-dieu-bat/c18772-1.aspx">
+                            Bao ấm ủ - Điếu Bát
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/bao-u-am/c18797-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bao ủ ấm</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/dieu-bat-men-co/c18798-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Điếu bát men cổ</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18715">
+                        <a href="/bo-do-an-bat-trang/c18715-1.aspx">
+                            Bộ đồ ăn Bát Tràng
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/bo-do-an-ve-truc/c18747-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bộ đồ ăn vẽ trúc </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/bo-do-an-ve-tung-hac/c18748-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bộ đồ ăn vẽ Tùng Hạc </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/bo-do-an-ve-canh-ha-noi/c18749-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bộ đồ ăn vẽ cảnh Hà Nội</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/bo-do-an-men-co-ve-phuong/c18750-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bộ đồ ăn men cổ vẽ Phượng </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/bo-do-an-men-co-100-chu-tho/c18751-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bộ đồ ăn men cổ 100 chữ Thọ </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/bo-do-an-men-trang/c18752-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bộ đồ ăn men trắng </a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18809">
+                        <a href="/den-su-thau-quang/c18809-1.aspx">
+                            Đèn sứ thấu quang
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/den-xong-tinh-dau/c18768-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đèn xông tinh dầu </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/den-trung-bay-cao-cap/c18810-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đèn trưng bày cao cấp</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/den-phong-ngu/c18824-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đèn phòng ngủ</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18714">
+                        <a href="/lo-loc-binh/c18714-1.aspx">
+                            Lọ Lộc Bình
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/lo-loc-binh-men-lam/c18744-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lọ lộc bình men lam</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/lo-loc-binh-men-ran/c18745-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lọ lộc bình men rạn</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/lo-loc-binh-men-mau/c18746-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lọ lộc bình men màu</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/lo-loc-binh-men-bong/c18792-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lọ Lộc Bình men bóng</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/tieu-loc-binh/c18800-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Tiểu lộc bình</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/loc-binh-dap-noi-men-ran/c18813-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lộc bình đắp nổi men rạn</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18713">
+                        <a href="/do-tho-cung-men-mau/c18713-1.aspx">
+                            Đồ thờ cúng men màu
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/bat-huong/c18735-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bát hương </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/choe-dung-nuoc-tho/c18736-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Chóe đựng nước thờ </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/ky-chen-tho/c18737-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Kỷ chén thờ </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/den-dau-tho/c18738-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đèn dầu thờ </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/mam-bong/c18739-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Mâm bồng</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/ong-huong/c18740-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ống hương </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/dua-tho-ky-cam-dua/c18741-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đũa thờ , kỷ cắm đũa </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/bat-nap-bat-tho/c18742-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bát nắp , Bát thờ</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/nam-ruou/c18743-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Nậm rượu </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/lo-hoa/c18771-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lọ hoa </a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18707">
+                        <a href="/tranh-gom-bat-trang/c18707-1.aspx">
+                            Tranh gốm Bát Tràng
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/trang-gom-ghep/c18724-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Trang gốm ghép </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/trang-gom-khong-khung/c18725-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Trang gốm không khung </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/trang-gom-co-khung/c18726-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Trang gốm có khung </a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18716">
+                        <a href="/tuong-gom-su-bat-trang/c18716-1.aspx">
+                            Tượng gốm sứ Bát Tràng
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/tuong-phuc-loc-tho/c18758-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Tượng Phúc Lộc Thọ</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/tuong-quan-cong/c18759-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Tượng Quan Công </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/bo-tuong-thap-bat-la-han/c18760-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bộ tượng Thập Bát La Hán </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/tuong-khong-minh/c18761-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Tượng Khổng Minh </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/tuong-di-lac/c18762-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Tượng Di Lặc</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/tuong-lo-tri-tham/c18788-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Tượng Lỗ Trí Thâm</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/tuong-than-tai/c18789-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Tượng Thần Tài</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/tuong-gom-su-khac/c18790-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Tượng gốm sứ khác</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/nghe-su-bat-trang/c18791-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Nghê sứ Bát Tràng</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18773">
+                        <a href="/binh-su-trung-bay-phong-thuy/c18773-1.aspx">
+                            Bình sứ trưng bày - phong thủy
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/binh-su-trang-tri/c18799-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bình sứ trang trí</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/choe-bat-trang/c18806-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Chóe Bát Tràng</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/binh-hut-tai-loc/c18811-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bình hút tài lộc</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/trung-phong-thuy/c18812-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Trứng phong thủy</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18770">
+                        <a href="/gat-tan-lo-dung-che-dia-canh/c18770-1.aspx">
+                            Gạt tàn - Lọ đựng chè - Đĩa cảnh
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/gat-tan/c18802-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Gạt tàn</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/lo-dung-che/c18803-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lọ đựng chè</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/dia-canh/c18804-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đĩa cảnh </a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18710">
+                        <a href="/gom-su-gia-dung/c18710-1.aspx">
+                            Gốm Sứ gia dụng
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/lo-hoa-su-son-mai/c18763-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lọ hoa sứ sơn mài</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/khay-dung-banh-mut-keo/c18764-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Khay đựng bánh , mứt , kẹo </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/binh-dung-nuoc-binh-nuoc/c18765-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bình đựng nước , Bình nước </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/binh-ngam-ruou/c18808-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bình ngâm rượu</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/hu-sanh-dung-gao/c18825-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Hũ sành đựng gạo</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18711">
+                        <a href="/gom-su-nghe-thuat/c18711-1.aspx">
+                            Gốm sứ nghệ thuật
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/lo-su-nghe-thuat/c18766-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lọ sứ nghệ thuật </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/lo-gom-nghe-thuat/c18767-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lọ gốm nghệ thuật </a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18807">
+                        <a href="/quach-tieu-su/c18807-1.aspx">
+                            Quách tiểu sứ
+                        </a>
+
+
+
+                    </li>
+
+                    <li id="catTop_18709">
+                        <a href="/qua-tang-gom-su/c18709-1.aspx">
+                            Qùa tặng Gốm Sứ
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/am-chen-bat-trang-in-logo/c18727-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ấm chén Bát Tràng in logo </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/bat-dia-in-anh-in-logo/c18728-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Bát đĩa in ảnh , in logo </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/coc-su-bat-trang-in-logo/c18729-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Cốc sứ Bát Tràng in logo </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/vong-deo-co-deo-tay/c18730-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Vòng đeo cổ , đeo tay </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/lo-hoa-in-logo/c18731-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lọ hoa in logo </a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18706">
+                        <a href="/gom-su-xay-dung/c18706-1.aspx">
+                            Gốm sứ xây dựng
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/gach-hoa/c18753-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Gạch hoa </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/gach-mosaic/c18754-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Gạch mosaic</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/ngoi-am-duong/c18755-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ngói Âm Dương </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/lan-can/c18756-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Lan can </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/den-gom-trang-tri/c18757-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Đèn gốm trang trí</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/kim-noc-dao/c18816-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Kìm nóc, Đao</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/sen-bong/c18817-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Sen, Bóng</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/rong-phuong/c18818-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Rồng, Phượng</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/nghe/c18819-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Nghê</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/ngoi-dat-nung/c18821-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ngói đất nung</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/ngoi-lop/c18822-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Ngói lợp</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18793">
+                        <a href="/dac-san-bat-trang/c18793-1.aspx">
+                            Đặc sản Bát Tràng
+                        </a>
+
+
+
+                    </li>
+
+                    <li id="catTop_18794">
+                        <a href="/san-pham-gom-su-khac/c18794-1.aspx">
+                            Sản phẩm gốm sứ khác
+                        </a>
+
+
+                        <div id="boxsubmenu">
+                            <ul class="leftmenu">
+
+                                <li>
+                                    <a href="/cong-chim/c18801-1.aspx?utm_source=left_menu&utm_medium=tracking&utm_campaign=tracking">Cóng chim</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+                    <li id="catTop_18814">
+                        <a href="/phong-thuy-xe-hoi/c18814-1.aspx">
+                            Phong thủy xe hơi
+                        </a>
+
+
+
+                    </li>
+
+                </ul>
+            </div>
+
+
+
+            <div style="width: 980px; margin: 0 auto; padding: 10px; background-color: #fff;">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="height: 100%;">
+                    <tbody>
+                        <tr>
+                            <td width="100%" valign="top">
+                                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 3px; height: 25px;"></td>
+                                            <td style="width: 100%; height: 25px; background-repeat: repeat-x;">
+                                                <span><b>Tra cứu hành trình vận đơn</b></span>
+                                            </td>
+                                            <td style="width: 3px; height: 25px;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="containerrow2_blue">
+                                <table width="100%" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 5px;"></td>
+                                            <td valign="top" bgcolor="#ffffff" align="center" style="padding-top: 5px;" id="dnn_ctr2039_ContentPane">
+                                                <!-- Start_Module_2039 -->
+                                                <div class="DNNModuleContent ModVTPTrakingNumberWebC" id="dnn_ctr2039_ModuleContent">
+                                                    <style type="text/css">
+                                                        TABLE {
+                                                            color: #000000;
+                                                            font-family: Arial;
+                                                            font-size: 12px;
+                                                        }
+
+                                                        #mytable {
+                                                            padding: 3px;
+                                                            margin: 3px;
+                                                        }
+
+                                                            #mytable th {
+                                                                font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+                                                                color: #4f6b72;
+                                                                border-right: 1px solid #C1DAD7;
+                                                                border-left: 1px solid #C1DAD7;
+                                                                border-bottom: 1px solid #C1DAD7;
+                                                                border-top: 1px solid #C1DAD7;
+                                                                letter-spacing: 2px;
+                                                                text-transform: uppercase;
+                                                                text-align: left;
+                                                                padding: 6px 6px 6px 12px;
+                                                                background: #D5EDEF;
+                                                            }
+
+                                                        .form-control {
+                                                            height: 34px;
+                                                            padding: 6px 12px;
+                                                            font-size: 14px;
+                                                            line-height: 1.42857143;
+                                                            color: #555;
+                                                            background-color: #fff;
+                                                            background-image: none;
+                                                            border: 1px solid #ccc;
+                                                            border-radius: 4px;
+                                                            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                                                            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                                                            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+                                                            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                                                            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                                                        }
+
+                                                        #mytable td {
+                                                            border-right: 1px solid #C1DAD7;
+                                                            border-bottom: 1px solid #C1DAD7;
+                                                            border-left: 1px solid #C1DAD7;
+                                                            background: #fff;
+                                                            padding: 6px 6px 6px 12px;
+                                                            color: #4f6b72;
+                                                        }
+
+                                                            #mytable td.alt {
+                                                                background: #F5FAFA;
+                                                                color: #797268;
+                                                            }
+
+                                                            #mytable td.boldtd {
+                                                                font: bold 13px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+                                                                background: #D5EDEF;
+                                                                color: #797268;
+                                                            }
+
+                                                        .button {
+                                                            margin: -2px 5px 0 10px !important;
+                                                            white-space: nowrap;
+                                                            height: 25px;
+                                                            border: #0078AE 1pt solid;
+                                                            color: White;
+                                                            vertical-align: middle;
+                                                            background-image: url();
+                                                            background-position: center;
+                                                            font-size: 8pt;
+                                                            font-family: Verdana, Geneva, ms sans serif;
+                                                            font-weight: bold;
+                                                            -moz-border-radius-topleft: 5px;
+                                                            -webkit-border-top-left-radius: 5px;
+                                                            -moz-border-radius-bottomright: 5px;
+                                                            -webkit-border-bottom-right-radius: 5px;
+                                                        }
+
+                                                        .cboxElement, .cboxElement a {
+                                                            font-weight: bold;
+                                                            color: red !important;
+                                                            font-size: 16px;
+                                                        }
+
+                                                        legend {
+                                                            color: #0c696b;
+                                                            font-weight: bold;
+                                                            margin: 0 0 5px;
+                                                        }
+                                                    </style>
+                                                    <div style="font-weight: bold; text-align: justify;" id="dnn_ctr2039_TrakingNumberWeb_Panel0">
+                                                        <fieldset>
+                                                            <legend>Theo dõi lô hàng </legend>
+
+                                                            <input name="ctl00$ContentPlaceHolder1$txtKey" placeholder="Nhập mã đơn hàng" type="text" id="ctl00_ContentPlaceHolder1_txtKey" />
+                                                            <input type="button" onclick="queryShoppingCard()" value="Tra cứu" />
+
+                                                            <p style="font-weight: normal; padding-top: 10px">
+                                                                Ví dụ: <a href="#">DH20181712</a>
+                                                            </p>
+                                                            @if (Model.BillId == -1)
+                                                            {
+                                                                <p style="font-weight: normal; padding-top: 10px">
+                                                                    Không tồn tại đơn hàng này
+                                                                </p>
+
+                                                            }
+                                                        </fieldset>
+                                                    </div>
+                                                    <br>
+                                                </div>
+                                                <!-- End_Module_2039 -->
+                                            </td>
+                                            <td style="width: 5px;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <style>
+
+                            table {
+                              border: 1px solid #ccc;
+                              border-collapse: collapse;
+                              margin: 0;
+                              padding: 0;
+                              width: 100%;
+                              table-layout: fixed;
+                            }
+                            table caption {
+                              font-size: 1.5em;
+                              margin: .5em 0 .75em;
+                            }
+                            table tr {
+                              background: #f8f8f8;
+                              border: 1px solid #ddd;
+                              padding: .35em;
+                            }
+                            table th,
+                            table td {
+                              padding: .625em;
+                              text-align: center;
+                            }
+                            table th {
+                              font-size: .85em;
+                              letter-spacing: .1em;
+                              text-transform: uppercase;
+                              font-family: Arial;
+                            }
+                           
+
+                        </style>
+                        <tr>
+                            @if (Model.BillId > 0)
+                            {
+                                <td>
+
+                                    <div id="dnn_ctr507_Main_ViewKQ_PanelItem">
+
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Mã phiếu gửi</th>
+                                                    <th scope="col">Tên khách hàng</th>
+                                                    <th scope="col">Tổng tiền</th>
+                                                    <th scope="col">Danh sách mặt hàng</th>
+                                                    @*<th scope="col">Khối lượng (Gram)</th>
+    <th scope="col">Dịch vụ</th>*@
+                                                    <th scope="col">Trạng thái</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td data-label="Account">@Model.Code</td>
+                                                    <td data-label="Due Date">@Model.CustomerName</td>
+                                                    <td data-label="Amount">@Model.TotalMoney</td>
+                                                    <td data-label="Period">
+                                                        @if (Model.ProductInfos != null && Model.ProductInfos.Count > 0)
+                                                        {
+                                                            foreach (var p in Model.ProductInfos)
+                                                            { 
+                                                                <span id="dnn_ctr507_Main_ViewKQ_RepeaterView_Label5_0">@p</span>
+                                                                <br />
+                                                            }
+                                                        }
+                                                    </td>
+                                                    @*<td data-label="Due Date">@Model.Weight</td>
+    <td data-label="Amount">@Model.ServiceName</td>*@
+                                                    <td data-label="Period">@Model.StatusString</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+
+
+                                        @*<div class="divbgtop">
+                                            <div class="divhead">
+                                                <span class="spantop1  colerblue">Mã Phiếu gửi</span>
+                                                <br>
+                                                <span class="spantop colerblue">
+                                                    <span id="dnn_ctr507_Main_ViewKQ_RepeaterView_lbl_NOTE_0">@Model.BillId</span>
+                                                </span>
+                                            </div>
+
+                                            <div class="divhead1">
+                                                <span class="spantop1  colerblue">Tên khách hàng</span>
+                                                <br>
+                                                <span class="spantop colerblue">
+                                                    <span id="dnn_ctr507_Main_ViewKQ_RepeaterView_Label5_0">@Model.CustomerName</span>
+                                                </span>
+                                            </div>
+
+
+                                            <div class="divhead1">
+                                                <span class="spantop1  colerblue">Tổng tiền</span>
+                                                <br>
+                                                <span class="spantop colerblue">
+                                                    <span id="dnn_ctr507_Main_ViewKQ_RepeaterView_Label5_0">@Model.TotalMoney</span>
+                                                </span>
+                                            </div>
+
+                                            <div class="divhead1">
+                                                <span class="spantop1  colerblue">Danh sách mặt hàng</span>
+                                                <br>
+                                                <span class="spantop colerblue">
+                                                    @if (Model.ProductInfos != null && Model.ProductInfos.Count > 0)
+                                                    {
+                                                        foreach (var p in Model.ProductInfos)
+                                                        {
+                                                            <span id="dnn_ctr507_Main_ViewKQ_RepeaterView_Label5_0">@p</span>
+                                                            <br />
+                                                        }
+
+                                                    }
+
+                                                </span>
+                                            </div>
+
+
+                                            <div class="divhead">
+                                                <span class="spantop1  colerblue">Khối lượng(Gram)</span>
+                                                <br>
+                                                <span class="spantop colerblue">
+                                                    <span id="dnn_ctr507_Main_ViewKQ_RepeaterView_Label2_0">@Model.Weight</span>
+                                                </span>
+                                            </div>
+                                            <div class="divhead">
+                                                <span class="spantop1  colerblue">Dịch vụ</span>
+                                                <br>
+                                                <span class="spantop colerblue">
+                                                    <span id="dnn_ctr507_Main_ViewKQ_RepeaterView_Label3_0">@Model.ServiceName</span>
+                                                </span>
+                                            </div>
+                                            <div class="divhead1">
+                                                <span class="spantop1  colerblue">Trạng thái</span>
+                                                <br>
+                                                <span class="spantop colerblue">
+                                                    <span id="dnn_ctr507_Main_ViewKQ_RepeaterView_Label5_0">@Model.StatusString</span>
+                                                </span>
+                                            </div>
+
+
+
+                                        </div>*@
+                                        <div style="clear: both; border: 0;"></div>
+
+
+
+                                        <div style="clear: both; border: 0;"></div>
+
+
+                                    </div>
+
+                                </td>
+                            }
+
+
+
+
+
+                        </tr>
+                        @*<tr>
+                            <td>
+                                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 3px; height: 4px;"></td>
+                                            <td style="width: 100%; height: 4px;"></td>
+                                            <td style="width: 3px; height: 4px;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height: 5px;"></td>
+                        </tr>*@
+                    </tbody>
+                </table>
+            </div>
+            <script>
+                function queryShoppingCard() {
+                    var a = $("#ctl00_ContentPlaceHolder1_txtKey").val();
+                    location.href = "/Product/CheckBill?code="+a;
+                }
+            </script>
+            <script>
+                            equalHeight($(".mnufter"));
+
+            </script>
+
+            <!-- /footer -->
+
+
+            <div id="batochat">
+                <ul>
+                    <li class="chat_bar">Hỗ trợ khách hàng <a href="#" onclick="hideChatBox(); return false;">x</a></li>
+                    <li class="chat_main">
+                        <div>&nbsp;</div>
+                        <p class="font-bold">Họ tên <span class="red">(*)</span></p>
+                        <div>
+                            <input name="ctl00$txtName" type="text" id="txtName" class="input" />
+                        </div>
+                        <p class="font-bold">Email</p>
+                        <div>
+                            <input name="ctl00$txtEmail" type="text" id="txtEmail" class="input" />
+                        </div>
+                        <p class="font-bold">Điện thoại <span class="red">(*)</span></p>
+                        <div>
+                            <input name="ctl00$txtPhone" type="text" id="txtPhone" class="input" />
+                        </div>
+                        <p class="font-bold">Nội dung <span class="red">(*)</span></p>
+                        <div>
+                            <textarea name="ctl00$txtContent" rows="5" cols="20" id="txtContent">
+</textarea>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="submit" name="ctl00$btnGui" value="Gửi câu hỏi" onclick="return validate();" id="btnGui" class="button" />
+                    </li>
+                </ul>
+            </div>
+            <script>
+
+                $(".theme-saffron").hover(function () {
+                    $(this).find(".submenu").show();
+                }, function () {
+                    $(".submenu").hide();
+                });
+            </script>
+
+            <!--Start of Zopim Live Chat Script-->
+            <script type="text/javascript">
+                window.$zopim || (function (d, s) {
+                    var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+                        d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+                            z.set.
+                                _.push(o)
+                        }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute("charset", "utf-8");
+                    $.src = "/v2.zopim.com/_1301683748.jpg"; z.t = +new Date; $.
+                        type = "text/javascript"; e.parentNode.insertBefore($, e)
+                })(document, "script");
+            </script>
+            <!--End of Zopim Live Chat Script-->
+            <script>
+                function validate() {
+                    if ($("#txtName").val().length == 0) {
+                        $("#txtName").attr('placeholder', 'Bạn chưa nhập họ tên');
+                        $("#txtName").focus();
+                        return false;
+                    }
+                    if ($("#txtPhone").val().length == 0) {
+                        $("#txtPhone").attr('placeholder', 'Bạn chưa nhập số điện thoại');
+                        $("#txtPhone").focus();
+                        return false;
+                    }
+                    if ($("#txtContent").val().length == 0) {
+                        $("#txtContent").attr('placeholder', 'Bạn chưa nhập nội dung câu hỏi');
+                        $("#txtContent").focus();
+                        return false;
+                    }
+                    postChat();
+                    return false;
+                }
+                function postChat() {
+                    $("#btnGui").val("Đang gửi ...").attr('disable', 'disable');
+                    $.post("/Pages/Comment.aspx?Id=0", { name: $("#txtName").val(), email: $("#txtEmail").val(), phone: $("#txtPhone").val(), content: ($("#txtContent").val() + "\n\r" + location.href) }, function () {
+                        $("#txtName").val('').attr('placeholder', '');
+                        $("#txtPhone").val('').attr('placeholder', '');
+                        $("#txtEmail").val('').attr('placeholder', '');
+                        $("#txtContent").val('Bạn đa gửi thành công').attr('placeholder', '');
+                        $("#btnGui").val("Gửi câu hỏi").removeAttr('disable');
+                        setTimeout(function () { hideChatBox(); }, 1000);
+                    });
+                }
+                function showChatBox() {
+                    $("#batochat").fadeIn();
+                    $("#batochatoff").fadeOut();
+                    $("#txtName").focus();
+                }
+
+                function hideChatBox() {
+                    $("#batochat").fadeOut();
+                    $("#batochatoff").fadeIn();
+                }
+                $("#batochatoff").hover(function () { showChatBox(); });
+            </script>
+
+        </div>
+
+
+
+        <!--Google-->
+        <script>
+                var path = window.location.pathname;
+                if (path == '/') {
+                    var google_tag_params = {
+                        dynx_pagetype: 'home'
+                    };
+                }
+
+                else if (jQuery('.boxhead').length > 0) {
+                    var id = jQuery('.sale-off-icon-left')[0].innerText.replace(/[^0-9]/g, '');
+                    var price = jQuery('.boxhead span')[jQuery('.boxhead span').length - 1].innerHTML.replace(/[^0-9]/g, '');
+                    var google_tag_params = {
+                        dynx_itemid: id,
+                        dynx_pagetype: 'offerdetail',
+                        dynx_totalvalue: parseFloat(price)
+                    };
+                }
+
+                else if (jQuery('.product-desc').length > 0) {
+                    var id = jQuery('div.price p:eq(1)')[0].innerText.replace(/[^0-9]/g, '');
+                    var price = jQuery('div.price p:eq(0) span:eq(0)')[0].innerText.replace(/[^0-9]/g, '');
+                    var google_tag_params = {
+                        dynx_itemid: id,
+                        dynx_pagetype: 'offerdetail',
+                        dynx_totalvalue: parseFloat(price)
+                    };
+                }
+
+                else if (jQuery('.lihome').length > 0 || jQuery('.grid-item-h').length > 0) {
+                    var google_tag_params = {
+                        dynx_pagetype: 'searchresults'
+                    };
+                }
+
+                else if (path.match('/shopping-cart.aspx') && jQuery('#mainTable').length > 0) {
+                    var price = jQuery('.sumprice')[0].innerText.replace(/[^0-9]/g, '');
+                    var id = new Array();
+                    for (var i = 0; i < jQuery('.number').length; i++) {
+                        id.push(jQuery('.number')[i].getAttribute("onchange").split("'")[1])
+                    }
+                    var google_tag_params = {
+                        dynx_itemid: id,
+                        dynx_pagetype: 'conversionintent',
+                        dynx_totalvalue: parseFloat(price)
+                    };
+                }
+
+                else if (path.match('/shopping-cart.aspx') && jQuery('span:contains("Cám ơn bạn, Đơn hàng đã")').length > 0) {
+                    var google_tag_params = {
+                        dynx_pagetype: 'conversion'
+                    };
+                }
+
+                else {
+                    var google_tag_params = {
+                        dynx_pagetype: 'other'
+                    };
+
+                }
+        </script>
+        <script type="text/javascript">
+                /* <![CDATA[ */
+                var google_conversion_id = 957114627;
+                var google_custom_params = window.google_tag_params;
+                var google_remarketing_only = true;
+            /* ]]> */
+        </script>
+        <script type="text/javascript" src="/www.googleadservices.com/pagead/conversion.js">
+        </script>
+        <noscript>
+            <div style="display: inline;">
+                <img height="1" width="1" style="border-style: none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/957114627/?value=0&amp;guid=ON&amp;script=0" />
+            </div>
+        </noscript>
+        <!--Google-->
+
+        <script type="text/javascript" src="/admicro1.vcmedia.vn/cpa/admicro.js"></script>
+        <script type="text/javascript">
+                window.admicro_cpa_q = window.admicro_cpa_q || [];
+                window.admicro_cpa_q.push({ event: "retargeting", id: 929 });
+
+                $(window).scroll(function () {
+                    var top = ($(window).scrollTop())
+                    if (top > 100) {
+                        $(".search-form").css({ "position": "fixed", "top": "0" });
+                        $("#mainMenu").show();
+                        $("#logo").hide();
+                    }
+                    else {
+                        $(".search-form").css({ "position": "relative", "top": "0" });
+                        $("#mainMenu").hide();
+                        $("#logo").show();
+                    }
+
+
+                });
+        </script>
+        <style>
+
+            .naviagtion-order {
+                padding-top: 20px;
+            }
+
+            #mainTable {
+                background: #fff;
+            }
+
+            .naviagtion-order .process {
+                background: #ff6600;
+                border-radius: 5px;
+                color: #fff;
+                font-size: 14px;
+                font-weight: bold;
+                padding: 5px 20px;
+                float: right;
+                line-height: 20px;
+            }
+
+            .close {
+                width: 32px;
+                height: 32px;
+                background: url('/libs/Images/bato/close.png') no-repeat scroll left top;
+                position: absolute;
+                right: -16px;
+                top: -16px;
+                cursor: pointer;
+            }
+        </style>
+        <div id="mask">
+        </div>
+        <script type="text/javascript">
+            $("#mask").css('opacity', '0.5')
+            $(".add-cart, .go-cart").click(function (e) {
+                e.preventDefault();
+                addToCard($(this).attr('href'));
+            });
+
+            $(document).keyup(function (e) {
+                if (e.keyCode == 27) {
+                    continueShopping();
+                }
+
+            });
+
+            /*menu*/
+            $("#logo_container").hover(function () {
+                $("#logo").hide();
+                $("#mainMenu").show();
+            }, function () {
+                $("#logo").show();
+                $("#mainMenu").hide();
+
+            })
+
+
+        </script>
+        <script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
+        <script type="text/javascript">
+
+            $(function () {
+                $("img.lazy").lazyload({
+                    effect: "fadeIn"
+                });
+            });
+
+            jQuery.fn.extend({
+                VADSSticky: function (e, t, n) {
+                    var r = $(this);
+                    if ($("#" + t).length == 0 || $("#" + e).length == 0 || $("#" + n).length == 0) return;
+                    var ot = $("#" + t);
+                    var oe = $("#" + e);
+                    var o = $("#" + n);
+
+                    r.scroll(function () {
+                        var i = ot.offset().top;
+                        var s = oe.offset().top;
+                        var u = o.height();
+                        var e = r.scrollTop();
+                        if (s <= e) {
+                            if (e + u >= i) {
+                                o.css({
+                                    top: -1 * (u - (i - e) + 70) + "px",
+                                    position: "fixed"
+                                });
+                            } else {
+                                o.css({
+                                    top: "70px",
+                                    position: "fixed"
+                                });
+                            }
+                        } else {
+                            o.css({
+                                top: "",
+                                position: ""
+                            });
+                        }
+                    });
+                }
+            });
+
+        </script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function () { jQuery(window).VADSSticky("vmcadsstick", "footer", "vmcitem"); })
+        </script>
+
+
+        <div>
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B0704669" />
+            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAcIA/yIXkLvLW/++ixdWw73HyC4UaGVCZ13u39L8U8ya7dBqqhpk7p5lPARThAy+SQadux+TJ142ktxD+r25OjfO+pR19IxSuQyCpaVixHxlHrlnAjMcGMhNUKsILKYelJmyPRfHbdmJwzFskDEXX1W0uClazI4nzbbW36xpJ4wu3Z8CaiyxQS1gTA9ZTxxtxo=" />
+        </div>
+    </form>
+</body>
+</html>

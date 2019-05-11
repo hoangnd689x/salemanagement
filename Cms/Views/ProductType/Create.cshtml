@@ -1,0 +1,98 @@
+﻿@using Cms.Models.InputModels.ProductTypeModels;
+@model CreateProductTypeViewModel
+
+@{
+    ViewData["Title"] = "Tạo loại sản phẩm mới";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var Lst = ViewBag.ListParents as IEnumerable<SelectListItem>;
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-plus font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+
+    </div>
+
+    <div class="portlet-body form">
+        <form method="post" asp-controller="ProductType" asp-action="Create" enctype="multipart/form-data">
+
+            <div class="form-body">
+            
+
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input class="form-control" asp-for="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Code"></label>
+                    <input class="form-control" asp-for="Code" />
+                    <span asp-validation-for="Code" class="text-danger"></span>
+                </div>
+
+                <div class="form-group last">
+                    <div class="row">
+                        <label asp-for="Icon" class="control-label col-md-12"></label>
+                        <div class="col-md-12">
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                <div>
+                                    <span class="btn default btn-file">
+                                        <span class="fileinput-new"> Select image </span>
+                                        <span class="fileinput-exists"> Change </span>
+                                        <input type="file" name="icon" accept=".jpg,.png">
+                                    </span>
+                                    <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <textarea class="form-control" asp-for="Description" data-ng-maxlength="4000"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                @if (Lst != null && Lst.Count() > 0)
+                {
+                    <label>Chọn loại cha</label>
+                    <select class="form-control" asp-for="ParentId" asp-items="@ViewBag.ListParents"></select>
+
+                }
+                
+
+            </div>
+
+            <div class="mt-radio-inline">
+                <label class="mt-radio">
+                    <input asp-for="Published" type="radio" value="1" checked /> Hiển thị
+                    <span></span>
+                </label>
+                <label class="mt-radio">
+                    <input asp-for="Published" type="radio" value="0" /> Ẩn
+                    <span></span>
+                </label>
+            </div>
+
+          
+
+            <div class="form-group">
+                <button type="submit" class="btn green">Tạo mới</button>
+                <a asp-action="Index" class="btn default">Huỷ</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+

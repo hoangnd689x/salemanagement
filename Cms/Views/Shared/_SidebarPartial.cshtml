@@ -1,0 +1,18 @@
+﻿<div class="page-sidebar navbar-collapse collapse">
+
+
+    @{
+        var menuid = (string)ViewData["MenuId"];
+        var submenuid = (string)ViewData["SubMenuId"];
+    }
+
+
+
+    @*<div>
+        menuid:
+        @menuid - @submenuid
+    </div>*@
+    @await Component.InvokeAsync("Menu", new { menuid = menuid, submenuid})
+
+
+</div>

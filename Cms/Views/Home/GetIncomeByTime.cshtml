@@ -1,0 +1,80 @@
+﻿@model Cms.Services.IncomeModel
+@{
+    ViewData["Title"] = "Thống kê doanh thu theo thời gian";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+
+        <div class="tabbable-line boxless tabbable-reversed">
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_0">
+
+
+                    <div class="form-group">
+                        <form method="get" class="form-inline" asp-controller="Home" asp-action="GetIncomeByTime">
+                            <div class="row">
+                                <div class="col-md-4">
+
+                                    @*<div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="yyyy-mm-dd">
+                                        <span class="input-group-addon"> Từ </span>
+                                        <input type="text" class="form-control" name="keywordDateFrom" value="@((Model != null && Model.Start != null) ? Model.Start : string.Empty)">
+                                        <span class="input-group-addon"> đến </span>
+                                        <input type="text" class="form-control" name="keywordDateTo" value="@((Model != null && Model.End != null) ? Model.End : string.Empty)">
+                                    </div>*@
+
+
+
+                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="yyyy-mm-dd">
+                                        <span class="input-group-addon"> Từ </span>
+                                        <input type="text" class="form-control" name="keywordDateFrom" value="@((Model != null && Model.Start != null) ? Model.Start : string.Empty)">
+                                        <span class="input-group-addon"> đến </span>
+                                        <input type="text" class="form-control" name="keywordDateTo" value="@((Model != null && Model.End != null) ? Model.End : string.Empty)">
+                                    </div>
+
+
+
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn green pull-left">Xem thống kê</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="table-scrollable">
+                        <table class="table table-striped  b-t b-light">
+                            <thead>
+                                <tr>
+                                    <th>Doanh thu</th>
+                                    <th>@(Model.Income + " VNĐ")</th>
+                                    
+                                </tr>
+                            </thead>
+
+
+
+                        </table>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

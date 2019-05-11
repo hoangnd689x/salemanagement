@@ -1,0 +1,31 @@
+﻿@model List<AuditViewModel>
+@{
+    var countryid = ViewData["CountryId"];
+}
+
+
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">Logs</span>
+        </div>
+    </div>
+
+    <div class="portlet-body">
+
+
+        @foreach (var item in Model)
+        {
+            <p>
+                <strong>@item.Username</strong> @Html.Raw(item.HtmlText)   - <i> <small> @item.TimeAgo </small></i>
+            </p>
+        }
+
+
+
+
+
+    </div>
+</div>

@@ -1,0 +1,120 @@
+﻿@using Cms.Models.InputModels.ProductModels;
+
+@{
+    ViewData["Title"] = "Sửa sản phẩm cùng mua";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    var productId = Convert.ToInt32(ViewBag.ProductId);
+    var productTypeId = Convert.ToInt32(ViewBag.ProductTypeId);
+    var LstProducts = ViewBag.RelatedProducts as List<BaseModel>;
+    var LstRelatedProductIds = ViewBag.ListRelatedProductIds as List<int>;
+    var pager = ViewBag.Pager as PagerViewModel;
+}
+
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+
+        <div class="tabbable-line boxless tabbable-reversed">
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_0">
+
+
+                    <div class="form-group">
+                        <form method="get" class="form-inline" asp-controller="Product" asp-action="EditRelatedProducts">
+
+                            <div class="form-group">
+
+                                <div class="input-icon right">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" name="k" class="form-control" placeholder="Từ khóa tìm kiếm" value="@ViewBag.Keyword">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="input-icon right">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" name="productCode" class="form-control" placeholder="Mã sản phẩm" value="@ViewBag.Code">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn green">Tìm kiếm</button>
+
+
+                            <div class="form-group" style="display: none;">
+                                <input class="form-control" name="productId" value="@productId" />
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <input class="form-control" name="productTypeId" value="@productTypeId" />
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                    @if (LstProducts != null && LstProducts.Count > 0)
+                    {
+                        <form method="post" asp-controller="Product" asp-action="EditRelatedProducts">
+
+
+                            @foreach (var item in LstProducts)
+                            {
+                                <label class="mt-checkbox mt-checkbox-outline">
+                                    @item.Name
+                                    <input type="checkbox" value="@item.Id" name="relatedProductIds" @(LstRelatedProductIds.Contains(item.Id) ? "checked" : "")/>
+                                    <span></span>
+                                </label>
+                                <br/>
+                            }
+
+                            <div class="form-group" style="display: none;">
+                                <input class="form-control" name="productId" value="@productId" />
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <input class="form-control" name="productTypeId" value="@productTypeId" />
+                            </div>
+
+                            <div>
+                                <pager pager="@pager"></pager>
+                            </div>
+
+                            <button type="submit" class="btn green">Sửa sản phẩm cùng mua</button>
+                            <a class="btn red" href="/Product">Bỏ qua</a>
+                        </form>
+
+                    }
+
+                    else
+                    {
+                        <div class="row wrapper">
+                            <div class="col-sm-12"><div class=" alert alert-info">Không có sản phẩm nào !</div></div>
+                        </div>
+
+                    }
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+﻿@model ListPackageViewModel
+@{
+    ViewData["CustomerPackageTitle"] = "Danh sách gói cước";
+}
+@if (Model != null && Model.Packages.Count > 0)
+{
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-list font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">@ViewData["CustomerPackageTitle"]</span>
+            </div>
+        </div>
+
+        <div class="portlet-title">
+            <form asp-controller="Country" asp-action="Index">
+                <div class="row">
+                    <div class="col-md-3">
+                        <select class="form-control" name="packageType"asp-items="@(ViewBag.ListPackageType)"
+                                onchange="this.form.submit()"> 
+                        </select>
+
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label" style="float:left; padding-top:8px; padding-right:5px"> Từ ngày </label>
+                        <div class="input-group input-medium date date-picker" data-date-format="mm-dd-yyyy" name="packageDate1"data-date-viewmode="years">
+                            <input type="text" class="form-control" name="packageDateFrom" value="@ViewBag.DateFrom" readonly="" >
+                            <span class="input-group-btn">
+                                <button class="btn default" type="button">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label" style="float:left; padding-top:8px; padding-right:5px"> Đến ngày </label>
+
+                        <div class="input-group input-medium date date-picker" data-date-format="mm-dd-yyyy" name="packageDate1"data-date-viewmode="years">
+                            <input type="text" class="form-control"  name="packageDateTo" value="@ViewBag.DateTo" readonly="" onchange="this.form.submit()">
+                            <span class="input-group-btn">
+                                <button class="btn default" type="button">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <input type="submit" class="btn btn-primary green-dark btn-outline" value="Tìm kiếm"></input>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="portlet-body form">
+            <table class="table table-striped  b-t b-light">
+                <thead>
+                    <tr>
+
+                        <th style="width:40%">Gói cước</th>
+                        <th class="text-center">Số người mua</th>
+                        <th class="text-center">Số lượt mua</th>
+                        <th class="text-center">Trạng thái</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.Packages)
+                {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td class="text-center">@item.numberOfCustomerBuyPackage</td>
+                            <td class="text-center">@item.numberOfBuyPackage</td>
+                            <td class="text-center">@Html.Raw(@item.Published.ToHtmlLabel())</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <pager pager="@Model.Pager"></pager>
+    </div>
+
+}
+else
+{    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-list font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">@ViewData["CustomerPackageTitle"]</span>
+            </div>
+
+        </div>
+        <div class="portlet-body form">
+            <div class="alert alert-danger"> Chưa có danh sách gói cước</div>
+        </div>
+    </div>
+}

@@ -1,0 +1,132 @@
+﻿@using Cms.Models.OutputModels.News;
+@model ListNewsModel
+@{
+    ViewData["Title"] = "Danh sách tin tức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+        <div class="actions">
+            <a class="btn btn-transparent red btn-outline btn-circle btn-sm" href="/News/Create"> <i class="fa fa-plus"></i> Thêm tin tức mới</a>
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+
+        <div class="tabbable-line boxless tabbable-reversed">
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_0">
+
+
+                    @if (Model != null && Model.News.Count > 0)
+                    {
+
+                        @*<div class="form-group">
+                                <form method="get" class="form-inline" asp-controller="Product" asp-action="Index">
+                                    <div class="form-group">
+                                        <div class="input-icon right">
+                                            <i class="icon-magnifier"></i>
+                                            <input type="text" name="k" class="form-control" placeholder="Từ khóa tìm kiếm" value="@ViewBag.Keyword">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn green">Tìm kiếm</button>
+                                </form>
+                            </div>*@
+                        <a class="btn btn-danger red btn-outline btn-sm" id="btnDeleteNews">
+                            <i class="table table-striped"></i>Xóa nhiều tin tức
+                        </a>
+
+                        <div class="table-scrollable">
+                            <table class="table table-striped  b-t b-light">
+                                <thead>
+                                    <tr>
+                                        <th class="check-header hidden-xs"><label><input id="checkAllNews" name="checkAllNews" type="checkbox"></label></th>
+                                        <th>Tiêu đề</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Ngày tạo</th>
+                                        <th>Trạng thái</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model.News)
+                                    {
+                                        var urledit = Url.Action("Detail", new { id = item.Id });
+                                        <tr>
+                                            <td>
+                                                <label for="checkbox@(item.Id)"><input class="ckNews" id="checkbox@(item.Id)" type="checkbox" value="@(item.Id)"></label>
+                                            </td>
+                                            <td>
+                                                <a href="@urledit" class="text-info">@item.Title</a>
+                                            </td>
+
+                                            <td>
+                                                <a href="@urledit" class="text-info">@item.ProductName</a>
+                                            </td>
+
+                                            <td>
+                                                <a href="@urledit" class="text-info">@item.DateCreate</a>
+                                            </td>
+                                            <td>
+                                                @if (item.Published == Published.Show)
+                                                {
+                                                    <span class="label label-sm label-info"> Hiển thị </span>
+
+                                                }
+                                                else
+                                                {
+                                                    <span class="label label-sm label-danger"> Không hiển thị </span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-default mt-ladda-btn ladda-button" data-style="expand-left">
+                                                    <span class="ladda-label">Sửa</span>
+                                                </a>
+                                                <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-default mt-ladda-btn ladda-button" data-style="expand-left">
+                                                        <span class="ladda-label">Chi tiết</span>
+                                                    </a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+
+                            </table>
+
+                        </div>
+
+
+
+
+                        <div>
+                            <pager pager="@Model.Pager"></pager>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row wrapper">
+                            <div class="col-sm-12"><div class=" alert alert-info">Không có tin tức nào !</div></div>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+

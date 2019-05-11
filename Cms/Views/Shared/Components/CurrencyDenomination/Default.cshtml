@@ -1,0 +1,73 @@
+﻿@model ListCurrencyDenominationViewModels
+@{
+    var countryid = ViewData["CountryId"];
+}
+
+
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">Mệnh giá</span>
+        </div>
+        <div class="actions">
+            <a class="btn btn-transparent red btn-outline btn-circle btn-sm" data-toggle="modal" data-target="#appmodal"
+               asp-controller="CurrencyDenomination" asp-action="Create" asp-route-countryid="@countryid"><i class="fa fa-plus"></i>Thêm mệnh giá</a>
+
+        </div>
+    </div>
+
+    <div class="portlet-body form">
+        <table class="table table-striped  b-t b-light">
+            <thead>
+                <tr>
+                    <th>Số tiền</th>
+                    <th class="text-center">Trạng thái</th>
+                    <th>Người tạo</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.CurrencyDenominations)
+            {
+                    <tr>
+                        <td>@item.Amount.ToPriceText()</td>
+                        <td class="text-center">
+                            @if (item.Published == Published.Show)
+                            {
+
+                                <i class="fa fa-check text-success"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-times text-danger"></i>
+
+                            }
+                        </td>
+                        <td>@item.UserCreated</td>
+                        <td>
+                            <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#appmodal"
+                               asp-controller="CurrencyDenomination" asp-action="Detail" asp-route-id="@item.Id">
+                                <span class="glyphicon glyphicon-search"></span> Chi tiết
+                            </a>
+
+                            <a class="btn btn-default btn-sm" data-toggle="modal" data-target="#appmodal"
+                               asp-controller="CurrencyDenomination" asp-action="Edit" asp-route-id="@item.Id" asp-route-countryid="@countryid">
+                                <span class="glyphicon glyphicon-pencil"></span> Sửa
+                            </a>
+                            <a class="btn btn-danger  btn-sm" data-toggle="modal" data-target="#appmodal"
+                               asp-controller="CurrencyDenomination" asp-action="Delete" asp-route-id="@item.Id" asp-route-countryId="@countryid">
+                                <span class="glyphicon glyphicon-trash"></span> Xóa
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+    </div>
+</div>

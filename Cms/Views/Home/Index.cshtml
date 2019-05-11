@@ -1,0 +1,183 @@
+﻿@using Cms.Models.OutputModels;
+@model ListStatisticModel
+@{
+    ViewData["Title"] = "Thống kê sản phẩm theo doanh số";
+}
+
+@section scripts{
+    <link href="~/lib/typeahead2/typeahead.css" rel="stylesheet" />
+    <script src="~/lib/typeahead2/typeahead.bundle.min.js"></script>
+    <script type="text/javascript">
+        var $input = $("#typeahead");
+
+        //var sources = [
+        //    { id: 1, name: "Display name 1", image: '1', },
+        //    { id: 2, name: "Display name 2", image: '2' }
+        //];
+        /*
+        var sources = new Bloodhound({
+            datumTokenizer: function (d) { return Bloodhound.tokenizers.whitespace(d.num); },
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            local: [
+                { num: 'metronic', id: '1' , img :'123' },
+                { num: 'keenthemes', id: '2', img: '123'},
+                { num: 'metronic theme', id: '3', img: '123'},
+                { num: 'metronic template', id: '4', img: '123' },
+                { num: 'keenthemes team', id: '5'  , img :'123'}
+            ]
+        });
+        */
+
+        var sources = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            remote: {
+                url: '/Movie/GetJsonMovie?query=%QUERY',
+                wildcard: '%QUERY'
+            }
+        });
+
+        $('#typeahead').typeahead({
+            minLength: 1,
+            highlight: true
+        },
+            {
+                displayKey: 'name',
+                name: 'my-dataset',
+                source: sources,
+                templates: {
+                    suggestion: function (data) {
+                        return '<p><strong>' + data.name + '</strong> - ' + data.id + '</p>';
+                        
+                    }
+                }
+            }).on('typeahead:selected', function (obj, datum) {
+                console.log(obj);
+                console.log(datum);
+                $('.testresults').append('<p><strong>' + datum.name + '</strong> - ' + datum.image + ' - ' + datum.id + '</p>');
+            });
+
+
+
+        //$input.bind('typeahead:select', function (ev, suggestion) {
+        //    console.log('Selection: ' + suggestion);
+        //});
+
+    </script>
+}
+
+<!-- BEGIN PAGE TITLE-->
+
+
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+
+        <div class="tabbable-line boxless tabbable-reversed">
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_0">
+
+
+                    <div class="form-group">
+                        <form method="get" class="form-inline" asp-controller="Home" asp-action="Index">
+
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="yyyy-mm-dd">
+                                        <span class="input-group-addon"> Từ </span>
+                                        <input type="text" class="form-control" name="keywordDateFrom" value="@((Model != null && Model.KeywordDateFrom != null) ? Model.KeywordDateFrom : string.Empty)">
+                                        <span class="input-group-addon"> đến </span>
+                                        <input type="text" class="form-control" name="keywordDateTo" value="@((Model != null && Model.KeywordDateTo != null) ? Model.KeywordDateTo : string.Empty)">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn green pull-left">Xem thống kê</button>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                    @if (Model != null && Model.Statistics != null && Model.Statistics.Count > 0)
+                    {
+                        <div class="table-scrollable">
+                            <table class="table table-striped  b-t b-light">
+                                <thead>
+                                    <tr>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Loại sản phẩm</th>
+                                        <th>Giá tiền</th>
+                                        <th>Doanh số</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model.Statistics)
+                                    {
+                                        <tr>
+
+
+                                            <td>
+                                                @item.Name
+                                            </td>
+
+                                            <td>
+                                              @item.ProductTypeName
+                                            </td>
+                                            <td>
+                                                @(item.Price + " VNĐ")
+                                            </td>
+                                            <td>
+                                                
+                                                
+                                                @item.Count
+
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+
+                            </table>
+
+                        </div>
+
+
+
+
+                            <div>
+                                <pager pager="@Model.Pager"></pager>
+                            </div>
+
+                    }
+
+                    else
+                    {
+                        <div class="row wrapper">
+                            <div class="col-sm-12"><div class=" alert alert-info">Không có sản phẩm nào !</div></div>
+                        </div>
+
+                    }
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,52 @@
+2017-12-23 10:09:06.805 +07:00 [Information] Starting web host
+2017-12-23 11:01:37.155 +07:00 [Information] Starting web host
+2017-12-23 11:03:41.813 +07:00 [Information] Starting web host
+2017-12-23 11:23:59.689 +07:00 [Information] Starting web host
+2017-12-23 11:25:07.279 +07:00 [Information] Starting web host
+2017-12-23 11:35:00.167 +07:00 [Information] Starting web host
+2017-12-23 11:37:13.083 +07:00 [Information] Starting web host
+2017-12-23 11:38:57.049 +07:00 [Information] Starting web host
+2017-12-23 11:41:28.816 +07:00 [Information] Starting web host
+2017-12-23 11:44:58.332 +07:00 [Information] Starting web host
+2017-12-23 11:47:00.964 +07:00 [Information] Starting web host
+2017-12-23 11:52:47.624 +07:00 [Information] Starting web host
+2017-12-23 11:55:38.170 +07:00 [Information] Starting web host
+2017-12-23 14:34:08.605 +07:00 [Information] Starting web host
+2017-12-23 14:42:15.611 +07:00 [Information] Starting web host
+2017-12-23 14:44:41.676 +07:00 [Information] Starting web host
+2017-12-23 14:44:42.081 +07:00 [Information] Host terminated unexpectedly Open generic service type 'Core.Interfaces.IImageRepository`1[T]' requires registering an open generic implementation type.
+Parameter name: descriptors
+2017-12-23 14:44:46.594 +07:00 [Information] Starting web host
+2017-12-23 14:44:46.984 +07:00 [Information] Host terminated unexpectedly Open generic service type 'Core.Interfaces.IImageRepository`1[T]' requires registering an open generic implementation type.
+Parameter name: descriptors
+2017-12-23 14:45:14.911 +07:00 [Information] Starting web host
+2017-12-23 14:45:15.193 +07:00 [Information] Host terminated unexpectedly Open generic service type 'Core.Interfaces.IImageRepository`1[T]' requires registering an open generic implementation type.
+Parameter name: descriptors
+2017-12-23 14:45:19.667 +07:00 [Information] Starting web host
+2017-12-23 14:45:19.909 +07:00 [Information] Host terminated unexpectedly Open generic service type 'Core.Interfaces.IImageRepository`1[T]' requires registering an open generic implementation type.
+Parameter name: descriptors
+2017-12-23 14:53:42.052 +07:00 [Information] Starting web host
+2017-12-23 14:53:42.389 +07:00 [Information] Host terminated unexpectedly Open generic service type 'Core.Interfaces.IImageRepository`1[T]' requires registering an open generic implementation type.
+Parameter name: descriptors
+2017-12-23 14:54:31.627 +07:00 [Information] Starting web host
+2017-12-23 14:55:50.515 +07:00 [Information] Starting web host
+2017-12-23 15:01:02.866 +07:00 [Information] Starting web host
+2017-12-23 15:06:25.021 +07:00 [Information] Starting web host
+2017-12-23 15:08:56.293 +07:00 [Information] Starting web host
+2017-12-23 15:14:52.204 +07:00 [Information] Starting web host
+2017-12-23 15:16:06.404 +07:00 [Information] Starting web host
+2017-12-23 16:15:39.286 +07:00 [Information] Starting web host
+2017-12-23 16:20:21.076 +07:00 [Information] Starting web host
+2017-12-23 16:24:38.390 +07:00 [Information] Starting web host
+2017-12-23 16:26:53.851 +07:00 [Information] Starting web host
+2017-12-23 16:28:39.581 +07:00 [Information] Starting web host
+2017-12-23 16:31:31.555 +07:00 [Information] Starting web host
+2017-12-23 17:12:09.629 +07:00 [Information] Starting web host
+2017-12-23 17:21:43.649 +07:00 [Information] Starting web host
+2017-12-23 17:40:07.275 +07:00 [Information] Starting web host
+2017-12-23 17:51:46.989 +07:00 [Information] Starting web host
+2017-12-23 18:12:40.522 +07:00 [Information] Starting web host
+2017-12-23 22:21:40.035 +07:00 [Information] Starting web host
+2017-12-23 23:15:14.507 +07:00 [Information] Starting web host
+2017-12-23 23:26:54.719 +07:00 [Information] Starting web host
+2017-12-23 23:33:37.858 +07:00 [Information] Starting web host

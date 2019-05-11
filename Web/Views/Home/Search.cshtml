@@ -1,0 +1,52 @@
+﻿@using Web.Models
+@{
+    ViewData["Title"] = "Tìm kiếm sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var listProducts = ViewBag.ListProducts as List<ProductViewModel>;
+}
+
+
+<div class="boxcontent">
+    <div class="boxsp" style="padding: 0; margin: 0;">
+        <div class="boxheadcontent1">
+            <h2>
+                <a id="ctl00_ContentPlaceHolder1_Search1_HyperLink1"></a>
+            </h2>
+            <h1><a id="ctl00_ContentPlaceHolder1_Search1_hplCategory"></a></h1>
+        </div>
+        <div class="boxmaincontent">
+            @if (listProducts.Count > 0)
+            {
+
+                <ul>
+
+                    @foreach (var p in listProducts)
+                    {
+
+                        <li class="lihome" style="height: 323px;">
+                            <span class="sale-off-icon-left">Mã: @p.Id</span><a href="@Url.Action("Detail", "Product", new { id = p.Id })" title="@p.Name">
+                                <img alt="@p.Name" src="@p.Images.FirstOrDefault().ImageUrl">
+                            </a>
+                            <h3>
+                                <a title="@p.Name" href="@Url.Action("Detail", "Product", new { id = p.Id })">
+                                    @p.Name
+                                </a>
+                            </h3>
+
+                            <span>
+                                @p.Price
+                            </span> 
+                            <a href="#" onclick="AddProductToCard(@p.Id)" style="color: #fff; font-size: 12px; margin-top: -5px"
+                               class="add-cart fr">Mua hàng</a>
+                        </li>
+
+                    }
+                    
+
+                </ul>
+            }
+            
+        </div>
+    </div>
+</div>

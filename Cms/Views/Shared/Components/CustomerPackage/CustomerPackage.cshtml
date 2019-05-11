@@ -1,0 +1,78 @@
+﻿@{
+    var listCustomerPackage = ViewBag.ListCustomerPackage as List<CustomerPackageViewModel>;
+    ViewData["CustomerPackage"] = "Danh sách gói cước";
+}
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["CustomerPackage"]</span><br />
+            <br />
+            <i class="fa"></i>Số lượng : @listCustomerPackage.Count
+        </div>
+
+    </div>
+    <div class="portlet-body ">
+
+        @if (listCustomerPackage.Count != 0)
+        {
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="portlet light bordered">
+                        <div class="portlet-body form">
+                            <table class="table table-striped b-t b-light">
+                                <thead>
+                                    <tr>
+                                        <th>Gói cước</th>
+                                        <th>Loại gói cước</th>
+                                        <th>Trạng thái</th>
+                                        <th>Ngày tạo</th>
+                                        <th>Ngày hết hạn</th>
+                                        <th>Mô tả</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in listCustomerPackage)
+                                    {
+                                        <tr>
+                                            <td style="width:20%">
+                                                @item.Package.Name
+                                            </td>
+                                            <td>
+                                                @item.Package.Type.ToText()
+                                            </td>
+                                            <td>
+                                                @Html.Raw(item.Package.Published.ToHtmlLabel())
+                                            </td>
+                                            <td>
+                                                @item.DateCreated
+                                            </td>
+                                            <td>
+                                                @item.ExpiredTime
+                                            </td>
+                                            <td>
+                                                @item.Package.Description
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        }
+        else
+        {
+            <div class="alert alert-danger">Chưa có gói cước</div>
+        }
+
+    </div>
+
+</div>

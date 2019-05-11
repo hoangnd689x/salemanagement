@@ -1,0 +1,443 @@
+﻿@model Web.Models.OrderViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+@{
+    var listProductSelected = ViewBag.ListProductSelected as List<Web.Models.ProductViewModel>;
+    var ListAmount = ViewBag.ListAmout as List<int>;
+    var ListId = ViewBag.ListId as List<int>;
+    var strListAmout = "";
+    var strListId = "";
+    foreach (var item in ListAmount) {
+        strListAmout += item + ",";
+    }
+
+    foreach (var item in ListId) {
+        strListId += item + ",";
+    }
+
+}
+
+<div class="divgiohang">
+    <div id="ctl00_ContentPlaceHolder1_ShopCart1_pnSuccess">
+
+        <script>
+            fbq('track', 'AddToCart');
+        </script>
+        <div class="boxghhead">
+            GIỎ HÀNG
+        </div>
+
+        <table width="100%" id="mainTable" cellpadding="5" style="border-collapse: collapse; border-width: 1px; float: left;" cellspacing="0">
+            <tbody>
+                <tr style="background: #dddddd">
+                    <th></th>
+                    <th style="width: 60%">
+                        Tên sản phẩm
+                    </th>
+                    <th style="width: 10%">
+                        Mã sản phẩm
+                    </th>
+                    <th style="width: 10%">
+                        Giá
+                    </th>
+                    <th style="width: 5%">
+                        Số lượng
+                    </th>
+                    <th style="width: 15%">
+                        Tổng cộng
+                    </th>
+                </tr>
+                @{decimal dem = 0; }
+                @for (int i = 0; i < listProductSelected.Count; i++)
+                {
+                    {
+                        dem += (decimal)listProductSelected[i].ChangePrice * ListAmount[i];
+                    }
+                    <tr>
+                        <td>
+                            <a href="/Product/Detail/@listProductSelected[i].Id">
+                                <img alt="@listProductSelected[i].Name" src="@listProductSelected[i].Images[0].ImageUrl" width="50" height="60" />
+                            </a>
+                        </td>
+                        <td>
+                            <p>
+                                <a href="/Product/Detail/@listProductSelected[i].Id">
+                                    <b>
+                                        @listProductSelected[i].Name
+                                    </b>
+                                </a>
+                            </p>
+                            <a style="color: #ff6600; cursor: pointer" class="remove-item;" onclick="DeleteProductSelectedFromOrder(@ListId.Count, @listProductSelected[i].Id);">Bỏ sản phẩm</a>
+                        </td>
+                        <td align="center">
+                            @listProductSelected[i].Code
+                        </td>
+                        <td align="right">
+                            @listProductSelected[i].ChangePrice ₫
+                        </td>
+                        <td align="center">
+                            <span><img src="~/libs/Images/arrow-up.png" onclick="UpNumberAmount(@ListId.Count, @listProductSelected[i].Id);" class="arrow-up"></img></span>
+                            <input type="text" class="number" maxlength="3" id="amount@(i)" pid="23851" onchange="changeAmountFromCart(@ListId.Count)" style="width: 50px; text-align: center" value=@ListAmount[i] />
+                            <input type="hidden" class="number" maxlength="3" id="arrid@(i)" style="width: 50px; text-align: center" value=@listProductSelected[i].Id />
+                            <span><img src="~/libs/Images/arrow-down.png" onclick="DownNumberAmount(@ListId.Count, @listProductSelected[i].Id);" class="arrow-up"></img></span>
+                        </td>
+                        <td align="right">
+                            @(listProductSelected[i].ChangePrice * ListAmount[i]) ₫
+                        </td>
+                    </tr>
+                }
+
+
+                <tr>
+                    <td colspan="5" align="right">
+                        <b>Tổng tiền</b>
+                    </td>
+                    <td align="right">
+                        <b class="sumprice">
+                            @dem ₫
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" align="right">Giá trên chưa bao gồm: phí vận chuyển, VAT</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <br />
+        <form method="post">
+            <table id="checkout2" style="width: 100%; border: 1px solid #CCC; padding-top: 10px" cellpadding="3"
+                   cellspacing="3">
+                <tr>
+                    <td colspan="2">
+
+                        <span style="color: #ff3333; font-weight: bold;">
+                            <br />
+                            THÔNG TIN NGƯỜI MUA
+                        </span>
+                        <br />
+                        <br />
+                    </td>
+                    <td rowspan="13" style="width: 50%; background: #fff;" valign="top">
+
+                        <table width="100%" style="display: none" cellpadding="3" cellspacing="3">
+                            <tr>
+                                <td>
+                                    <span style="color: #ff3333; font-weight: bold;">
+                                        <br />
+                                        THÔNG TIN THANH TOÁN
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <ol>
+                                        <li style="padding: 5px 0">Quý khách được mở hàng kiểm tra trước khi trả tiền, trong quá trình kiểm tra hàng nếu có sự cố xin vui lòng liên hệ 0904.868.545 để được xử lý</li>
+                                        <li style="padding: 5px 0">Quý khách chỉ phải thanh toán khi đã kiểm tra hàng và đồng ý lấy sản phẩm</li>
+
+                                    </ol>
+
+                                    <p>
+                                        &nbsp;<span style="color: #ff3333; font-weight: bold;">
+                                            <br />
+                                            PHÍ VẬN CHUYỂN
+                                        </span><br />
+                                    </p>
+                                    <ol>
+                                        <li style="padding: 5px 0">Phí vận chuyển giao động từ 30,000 đến 100,000đ (Đối với những sản phẩm có kích thước cồng kềnh, nhưng không quá 100,000đ cho 1 đơn hàng chuyển qua Viettel)</li>
+                                        <li style="padding: 5px 0">Những đơn hàng có giá trị dưới 250,000đ (phí cố định là 70,000đ)</li>
+                                        <li style="padding: 5px 0">Đặc biệt đối với Lọ Lộc Bình có kích thước từ 1,2m trở lên - Battrang Online chỉ chuyển được trên dọc quốc lộ 1 từ Bát Tràng tới Hồ Chí Minh với giá 600,000đ/cặp giao hàng dọc đường hoặc tại bến xe chân cầu vượt An Sương - Quận 12 - Hồ Chí Minh</li>
+                                    </ol>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 110px;">
+                        Họ Tên <span style="color: red">(*)</span>:
+                    </td>
+                    <td>
+                        <input asp-for="CustomerName" type="text" maxlength="100" id="txtname" class="textbox" required/>&nbsp;
+                        <span asp-validation-for="CustomerName" class="text-danger"></span>
+                        &nbsp;
+                        <br />
+                        <div id="txtNameValidate" class="text-danger" style="color:red;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Tỉnh / Thành phố
+                    </td>
+                    <td>
+                        <select asp-for="CustomerCity" name="CustomerCity" id="ctl00_ContentPlaceHolder1_ShopCart1_ddlCity" class="textbox">
+                            <option value="64">H&#224; Nội</option>
+                            <option value="63">Hồ Ch&#237; Minh</option>
+                            <option value="65">B&#236;nh Dương</option>
+                            <option value="66">Đ&#224; Nẵng</option>
+                            <option value="67">Hải Ph&#242;ng</option>
+                            <option value="68">Long An</option>
+                            <option value="69">B&#224; Rịa Vũng T&#224;u</option>
+                            <option value="70">An Giang</option>
+                            <option value="71">Bắc Giang</option>
+                            <option value="72">Bắc Kạn</option>
+                            <option value="73">Bạc Li&#234;u</option>
+                            <option value="74">Bắc Ninh</option>
+                            <option value="75">Bến Tre</option>
+                            <option value="76">B&#236;nh Định</option>
+                            <option value="77">B&#236;nh Phước</option>
+                            <option value="78">B&#236;nh Thuận  </option>
+                            <option value="79">C&#224; Mau</option>
+                            <option value="80">Cần Thơ</option>
+                            <option value="81">Cao Bằng</option>
+                            <option value="82">Đắk Lắk</option>
+                            <option value="83">Đắk N&#244;ng</option>
+                            <option value="84">Điện Bi&#234;n</option>
+                            <option value="85">Đồng Nai</option>
+                            <option value="86">Đồng Th&#225;p</option>
+                            <option value="87">Gia Lai</option>
+                            <option value="88">H&#224; Giang</option>
+                            <option value="89">H&#224; Nam</option>
+                            <option value="90">H&#224; Tĩnh</option>
+                            <option value="91">Hải Dương</option>
+                            <option value="92">Hậu Giang</option>
+                            <option value="93">H&#242;a B&#236;nh</option>
+                            <option value="94">Hưng Y&#234;n</option>
+                            <option value="95">Kh&#225;nh H&#242;a</option>
+                            <option value="96">Ki&#234;n Giang</option>
+                            <option value="97">Kon Tum</option>
+                            <option value="98">Lai Ch&#226;u</option>
+                            <option value="99">L&#226;m Đồng</option>
+                            <option value="100">Lạng Sơn</option>
+                            <option value="101">L&#224;o Cai</option>
+                            <option value="102">Nam Định</option>
+                            <option value="103">Nghệ An</option>
+                            <option value="104">Ninh B&#236;nh</option>
+                            <option value="105">Ninh Thuận</option>
+                            <option value="106">Ph&#250; Thọ</option>
+                            <option value="107">Ph&#250; Y&#234;n</option>
+                            <option value="108">Quảng B&#236;nh</option>
+                            <option value="109">Quảng Nam</option>
+                            <option value="110">Quảng Ng&#227;i</option>
+                            <option value="111">Quảng Ninh</option>
+                            <option value="112">Quảng Trị</option>
+                            <option value="113">S&#243;c Trăng</option>
+                            <option value="114">Sơn La</option>
+                            <option value="115">T&#226;y Ninh</option>
+                            <option value="116">Th&#225;i B&#236;nh</option>
+                            <option value="117">Th&#225;i Nguy&#234;n</option>
+                            <option value="118">Thanh H&#243;a</option>
+                            <option value="119">Thừa Thi&#234;n Huế</option>
+                            <option value="120">Tiền Giang</option>
+                            <option value="121">Tr&#224; Vinh</option>
+                            <option value="122">Tuy&#234;n Quang</option>
+                            <option value="123">Vĩnh Long</option>
+                            <option value="124">Vĩnh Ph&#250;c</option>
+                            <option value="125">Y&#234;n B&#225;i</option>
+                            <option value="0">Kh&#225;c</option>
+
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Địa Chỉ <span style="color: red">(*)</span>:
+                    </td>
+                    <td>
+                        <input asp-for="CustomerAddress" name="CustomerAddress" type="text" maxlength="100" id="txtadd" required class="textbox" />
+                        &nbsp;<span id="ctl00_ContentPlaceHolder1_ShopCart1_lblcheckadd" style="color:Red;"></span>
+                        &nbsp;
+                        <div id="txtaddValidate" class="text-danger" style="color:red;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số Điên Thoại <span style="color: red">(*)</span>:
+                    </td>
+                    <td>
+                        <input asp-for="CustomerPhone" required name="CustomerPhone" type="number" maxlength="15" id="txtphone" class="textbox" />&nbsp;<span id="ctl00_ContentPlaceHolder1_ShopCart1_lblcheckphone" style="color:Red;"></span>
+                        &nbsp;
+                        <div id="txtphoneValidate" class="text-danger" style="color:red;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email<span style="color: red">(*)</span>:
+                    </td>
+                    <td>
+                        <input asp-for="CustomerEmail" required name="CustomerEmail" type="email" maxlength="50" id="txtemail" class="textbox" />
+                        &nbsp;
+                        &nbsp;
+                        <div id="txtEmailValidate" class="text-danger" style="color:red;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Mã giảm giá:
+                    </td>
+                    <td>
+                        <input asp-for="DiscountCode"  name="DiscountCode" type="text" maxlength="50" id="txtPromotion" class="textbox" placeholder="Nhập mã giảm giá nếu có" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Ghi chú :
+                    </td>
+                    <td>
+                        <textarea asp-for="Notes" name="Notes" rows="10" cols="20" id="ctl00_ContentPlaceHolder1_ShopCart1_txtDesc" class="textbox">
+</textarea>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td>
+                        
+                        <button type="button"
+                               value="Gửi đơn hàng" class="add-cart-2" style="cursor: pointer;" onclick="postOrder(@ListId.Count);" >Gửi đơn hàng</button>
+                        <input type="button" class="add-cart-2" onclick="clearForm();" value="Xóa" />
+                        <input class="add-cart-2 add-cart" name="info" value="Tiếp tục mua hàng" />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td colspan="2"></td>
+                </tr>
+            </table>
+            </form>
+        <script>
+            var target = $(location.hash);
+            target = target.length ? target : $('[name=' + location.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 2000, function () {
+                    $("#txtname").focus();
+                });
+
+            }
+
+        </script>
+
+    </div>
+
+</div>
+<script>
+            var userclicked = false;
+
+            //$(document).ready(function () {
+            //    $(".number").keydown(function (e) {
+            //        console.log(e.keyCode);
+            //        // Allow: backspace, delete, tab, escape, enter and .
+            //        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190, 0]) !== -1 ||
+            //            // Allow: Ctrl+A
+            //            (e.keyCode == 65 && e.ctrlKey === true) ||
+            //            // Allow: home, end, left, right, down, up
+            //            (e.keyCode >= 35 && e.keyCode <= 40)) {
+            //            // let it happen, don't do anything
+            //            return;
+            //        }
+            //        // Ensure that it is a number and stop the keypress
+            //        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            //            e.preventDefault();
+            //        }
+            //    });
+            //});
+
+            function validateClient() {
+                if ($("#txtname").val().length == 0) {
+                    $("#txtNameValidate").html("Vui lòng nhập họ tên").show();
+                    $("#txtname").focus();
+                    return false;
+                }
+                if ($("#txtadd").val().length == 0) {
+                    $("#txtaddValidate").html("Vui lòng nhập địa chỉ").show();
+                    $("#txtadd").focus();
+                    return false;
+                }
+                if ($("#txtphone").val().length == 0) {
+                    $("#txtphoneValidate").html("Vui lòng nhập số điện thoại").show();
+                    $("#txtphone").focus();
+                    return false;
+                }
+                /* if ($("#txtemail").val().length == 0) {
+                     alert("Bạn chưa nhập Email");
+                     $("#txtemail").focus();
+                     return false;
+                 }*/
+                if (!userclicked) {
+                    userclicked = true;
+                    return true;
+                }
+                return false;
+            }
+
+            function clearForm() {
+                $("#txtname").val('');
+                $("#txtadd").val('');
+                $("#txtphone").val('');
+                $("#txtemail").val('');
+                $("#ctl00_ContentPlaceHolder1_ShopCart1_ddlCity").val('64');
+                $("#txtname").focus();
+            }
+                        //function WebForm_OnSubmit() {
+                        //    if (typeof (ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false)
+                        //        return false;
+
+                        //    /** admicro cpa **/
+                        //    try {
+                        //        window.admicro_cpa_q = window.admicro_cpa_q || [];
+                        //        window.admicro_cpa_q.push({ event: "setTrackingId", id: 929 }, { event: "setSuccess", value: 1 },
+                        //            { event: "setValue", value: $('#txtemail').val() }, { event: "start", auto: 0 }); window.admicro_cpa_f();
+                        //    } catch (e) { };
+                        //    return true;
+                        //}
+
+
+</script>
+<style>
+    ul#relationData li:hover {
+        background: #fffaaa none repeat scroll 0 0
+    }
+
+    .add-cart1 {
+        background: #4d9d45 none repeat scroll 0 0;
+        border: medium none;
+        border-radius: 5px;
+        color: #fff;
+        line-height: 30px;
+        padding: 5px 10px;
+    }
+</style>
+
+
+
+

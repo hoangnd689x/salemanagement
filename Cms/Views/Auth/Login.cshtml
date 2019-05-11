@@ -1,0 +1,86 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CMS Provider</title>
+    <link href="~/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/components.css" rel="stylesheet" />
+    <link href="~/css/plugins.css" rel="stylesheet" />
+
+    <link href="~/css/login-2.css" rel="stylesheet" />
+</head>
+<body class="login">
+
+    <div class="logo">
+        <a href="#">
+            CMS Gốm Sứ Online
+        </a>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+        <form class="login-form" asp-action="Login" method="post">
+           
+            @if (ViewData["Danger"] != null)
+            {
+                <div class="alert alert-danger">
+                    <button class="close" data-close="alert"></button>
+                    <span> @ViewData["Danger"]</span>
+                </div>
+
+            }
+            <div class="form-group">
+                @*<label class="control-label" asp-for="Username"></label>*@
+                <input class="form-control" asp-for="Username" autocomplete="off" placeholder="Tên đăng nhập" />
+                <span asp-validation-for="Username" class="text-warning"></span>
+
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label" asp-for="Password"></label>*@
+                <input class="form-control" asp-for="Password" type="password" placeholder="Mật khẩu"  />
+                <span asp-validation-for="Password" class="text-warning"></span>
+
+            </div>
+          
+            <div class="form-actions">
+                <button type="submit" class="btn red btn-block uppercase">Đăng nhập</button>
+            </div>
+            <div class="form-actions">
+                <div class="pull-left">
+                    <label class="rememberme mt-checkbox mt-checkbox-outline">
+                        <input asp-for="Remember" type="checkbox" name="remember" /> Ghi nhớ
+                        
+                        <span></span>
+                    </label>
+                </div>
+                
+            </div>
+    
+        </form>
+        <!-- END LOGIN FORM -->
+    </div>
+    <div class="copyright hide"> @DateTime.Now.Year © Metronic. Admin Dashboard Template. </div>
+    <!-- END LOGIN -->
+    <script src="~/plugins/jquery.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/plugins/jquery-validation/js/jquery.validate.js"></script>
+    <script src="~/plugins/jquery.validation.unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript">
+        $().ready(function () {
+
+
+        });
+    </script>
+</body>
+</html>

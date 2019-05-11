@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Cms</title>
+    <link href="~/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/ladda/ladda-themeless.min.css" rel="stylesheet" />
+    <link href="~/css/components.css" rel="stylesheet" />
+    <link href="~/css/plugins.css" rel="stylesheet" />
+    <link href="~/css/layout.css" rel="stylesheet" />
+    <link href="~/css/themes/default.css" rel="stylesheet" />
+    <link href="~/css/custom.css" rel="stylesheet" />
+    <link href="~/lib/typeahead2/typeahead.css" rel="stylesheet" />
+
+    <link href="~/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+    <link href="~/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+
+
+    <script src="~/plugins/jquery.min.js"></script>
+    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+    <script>
+        tinymce.init({
+            selector: '#txtAreaEditor',
+            plugins: 'image',
+            language_url: '/lib/tinymce/langs/vi_VN.js'
+        });
+    </script>
+
+</head>
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+
+    <div class="page-wrapper">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            @await Html.PartialAsync("_HeaderPartial");
+        </div>
+
+        <!-- END HEADER -->
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-sidebar-wrapper">
+                <!-- BEGIN SIDEBAR -->
+                @await Html.PartialAsync("_SidebarPartial")
+                <!-- END SIDEBAR -->
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+
+
+                   
+                        @if (ViewData["Breadcrumb"] != null)
+                        {
+                            var breadcrumbs = (List<BreadcrumbViewModel>)ViewData["Breadcrumb"];
+
+                            <div class="page-bar">
+                                <ul class="page-breadcrumb">
+                                    @foreach (var breadcrumb in breadcrumbs)
+                                    {
+                                        <li>
+                                            <a href="@breadcrumb.Url">
+                                            
+                                            @if (!string.IsNullOrEmpty(breadcrumb.IconCss))
+                                            {
+                                                <i class="@breadcrumb.IconCss"></i>
+                                            } @breadcrumb.Title</a>
+                                            <i class="fa fa-circle"></i>
+                                          
+                                        </li>
+                                    }
+                                </ul>
+
+                                @*<div class="page-toolbar">
+                                    <div class="btn-group pull-right">
+                                        <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown">
+                                            Actions
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right" role="menu">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="icon-bell"></i> Action
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="icon-shield"></i> Another action
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="icon-user"></i> Something else here
+                                                </a>
+                                            </li>
+                                            <li class="divider"> </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="icon-bag"></i> Separated link
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>*@
+                            </div>
+                        }
+                   
+                    @if (ViewData["PageTitle"] != null)
+                    {
+                        <h1 class="page-title">
+                            @ViewData["PageTitle"]
+                            <small>@ViewData["PageSubTitle"]</small>
+                        </h1>
+                    }
+                    @*else if (ViewData["Title"] != null)
+                    {
+                        <h1 class="page-title">
+                            @ViewData["Title"]
+
+                            <small>@ViewData["SubTitle"]</small>
+                        </h1>
+                    }*@
+
+
+                    @Html.Partial("_TempDataPartial")
+
+                    @RenderBody()
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <a href="javascript:;" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+
+
+
+            @RenderSection("Bot", required: false)
+
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        @*<div class="page-footer">
+
+                @await Html.PartialAsync("_FooterPartial")
+            </div>*@
+        <!-- END FOOTER -->
+    </div>
+
+
+
+
+    <div id="appmodal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        (function () { 
+            window.cms = window.cms || (function (w) { 
+                return {
+                    checkedIdss: []
+                }
+            })(window)
+        }())
+    </script>
+    
+    <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/plugins/jquery.validation.unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/ladda/spin.min.js"></script>
+    <script src="~/lib/ladda/ladda.min.js"></script>
+    <script src="~/js/app.js"></script>
+    <script src="~/js/layout.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/editprice.js"></script>
+    @*<script src="~/js/activecode.js"></script>*@
+    <script src="~/js/bill.js"></script>
+    <script src="~/js/feedback.js"></script>
+    <script src="~/js/news.js"></script>
+    <script src="~/js/product.js"></script>
+    <script src="~/js/producttype.js"></script>
+
+
+    <script src="~/lib/typeahead2/typeahead.bundle.min.js"></script>
+    <script src="~/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+
+    <script src="~/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+
+    <script src="~/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+
+    <script src="~/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+    <!-- Tab -->
+    @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>*@
+    <script src="~/plugins/bootstrap/js/bootstrap-tabcollapse.js" type="text/javascript"></script>  
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

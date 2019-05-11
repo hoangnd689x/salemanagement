@@ -1,0 +1,835 @@
+﻿@page
+@model Web.Models.ListOrderViewModel
+
+@{
+    var listProductType = ViewBag.ListProductType as List<Web.Models.ProductTypeViewModel>;
+    var ListProductMostSaleOff = ViewBag.ListProductMostSaleOff;
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-/W3C/DTD XHTML 1.0 Transitional/EN" "http:/www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http:/www.w3.org/1999/xhtml">
+<head>
+    <link href="/libs/Styles/shopStyle.css?a=2" rel="stylesheet" type="text/css" />
+    <title>
+        Gốm sứ Bát Tràng Online
+    </title>
+    <meta id="ctl00_description" content="Chuyên sản xuất và phân phối các sản phẩm gốm sứ Bát Tràng chính hãng, nhận đặt theo nhu cầu của khách hàng: làm quà tặng, các sản phẩm trưng bày tại gia, hội thảo, hội nghị..." name="description" />
+    <meta id="ctl00_keywords" content="Gốm Sứ Bát Tràng, Gạch men Bát Tràng, Ấm chén Bát Tràng, Đồ ăn Bát Tràng, Đèn xông tinh dầu, Đồ thờ, Quà tặng Gốm sứ" name="keywords" />
+    <meta name="robots" content="index,follow" />
+    <meta name="Googlebot" content="index,follow,noarchive" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="battrangonline.vn" />
+    <link href="/Images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    <meta http-equiv="content-language" content="vi" />
+    <link rel="author" href="https:/plus.google.com/u/1/107849540924795219843" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="/libs/Lib/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="/libs/Lib/js/custom.js" type="text/javascript"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g;
+            m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '/www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-57102314-1', 'auto');
+        ga('send', 'pageview');
+
+
+    </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            }; if (!f._fbq) f._fbq = n;
+            n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+        }(window,
+            document, 'script', 'https:/connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '517049741792050');
+        fbq('track', "PageView");</script>
+    <noscript>
+        <img height="1" width="1" style="display: none"
+             src="https:/www.facebook.com/tr?id=517049741792050&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="/www.googletagmanager.com/ns.html_264598358.jpg"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    '/www.googletagmanager.com/gtm.js' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PWVVP6');</script>
+    <!-- End Google Tag Manager -->
+
+</head>
+<body class="home-page">
+    <form name="aspnetForm" method="post" action="/" id="aspnetForm">
+        <div>
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTIyNzU5NDYyNGRkYjHtUsymiiVd+AQUBfeVoz2wkMy9K112qqv7TwEwOXE=" />
+        </div>
+
+        <div class="container">
+
+
+
+
+            <div id="ctl00_ContentPlaceHolder1_pnContent">
+
+                <div class="maintop">
+
+                    <link href="/libs/Styles/swiper.min.css" rel="stylesheet" />
+                    <script src="/libs/js/swiper.min.js"></script>
+                    <div class="topproduct">
+                        <div class="left">
+                            <ul id="mega_menu_0_list">
+                                @for (int i = 0; i < listProductType.Count; i++)
+                                {
+
+                                    <li class="item theme-saffron" id="mega_menu_item_18718">
+                                        @*@if (listProductType[i].ParentId == 0)
+                                            {
+                                                <a href="/am-chen-bat-trang/c18718-1.aspx">
+                                                    <div class="thumbnail">
+                                                        <img src="/libs/Images/bato/18718.png" alt="@listProductType[i].Name" />
+                                                    </div>
+                                                    <div class="title">
+                                                        @listProductType[i].Name
+                                                    </div>
+                                                </a>
+                                            }*@
+                                        @if (listProductType[i].ParentId == 0)
+                                        {
+                                            <a href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = @listProductType[i].Id })">
+                                                <div class="thumbnail">
+                                                    <img src="/libs/Images/bato/18718.png" alt="@listProductType[i].Name" />
+                                                </div>
+                                                <div class="title">
+                                                    @listProductType[i].Name
+                                                </div>
+                                            </a>
+                                        }
+
+
+                                        <div class="submenu">
+                                            <ul class="submemu2">
+                                                @for (int j = 0; j < listProductType.Count; j++)
+                                                {
+                                                    @if (listProductType[j].ParentId == listProductType[i].Id)
+                                                    {
+                                                        <li>
+                                                            <a href="@Url.Action("ProductByProductType","Product",new { productTypeId = @listProductType[j].Id })">
+                                                                @listProductType[j].Name
+                                                            </a>
+                                                        </li>
+                                                    }
+
+                                                }
+                                            </ul>
+                                        </div>
+
+
+                                    </li>
+
+
+                                }
+
+
+                            </ul>
+                        </div>
+                        <div class="top600">
+                            <div class="">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+
+                                        <div class="swiper-slide">
+                                            <div class="grid /libs/Images_3_of_2">
+                                                <a href="/do-tho-cung-tam-linh/c18774-1.aspx">
+                                                    <img width="330px" height="595px" src="/libs/shop/adminshop/Product/Large/real-adminshop_131408914944709438.jpg" />
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="swiper-slide">
+                                            <div class="grid /libs/Images_3_of_2">
+                                                <a href="/thong-ty-ba-toi-choe-binh-voi/choe-men-lam-co-ve-hoa-day-cao-50cm-24051c18773.aspx">
+                                                    <img width="330px" height="595px" src="/libs/shop/adminshop/Product/Large/real-adminshop_131122544118517048.jpg" />
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="swiper-slide">
+                                            <div class="grid /libs/Images_3_of_2">
+                                                <a href="/am-chen-gom/bo-am-tra-hoang-cung-khac-hoa-mai-01-day-du-phu-kien-24034c18721.aspx">
+                                                    <img width="330px" height="595px" src="/libs/shop/adminshop/Product/Large/real-adminshop_131065150738015819.jpg" />
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="swiper-slide">
+                                            <div class="grid /libs/Images_3_of_2">
+                                                <a href="/tuong-gom-su-bat-trang/tuong-di-lac-ganh-tien-dao-23087c18716.aspx">
+                                                    <img width="330px" height="595px" src="/libs/shop/adminshop/Product/Large/real-adminshop_131058960173299837.jpg" />
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <script>
+                                    var swiper = new Swiper('.swiper-container', {
+                                        pagination: '.swiper-pagination',
+                                        paginationClickable: true,
+                                        speed: 400,
+                                        spaceBetween: 100,
+                                        loop: true
+                                    });
+                                    var mySwiper = $('.swiper-container')[0].swiper;
+                                    setInterval(function () {
+                                        mySwiper.slideNext();
+                                    }, 5000);
+                                    / Now you can use all slider methods like
+                                </script>
+
+                            </div>
+                        </div>
+                        <ul class="top400">
+                            <li class="qua">Gốm sứ Bát Tràng chính hãng</li>
+                            <li class="header-msg">Gốm sứ của người Việt</li>
+                            <li class="deliver"><a href="/giao-hang.aspx">Giao hàng toàn quốc</a></li>
+                            <li class="openbox">Được mở hàng kiểm tra</li>
+                            <li class="pay">Thanh toán khi nhận hàng</li>
+                            <li class="time">Giao hàng từ 5-7 ngày</li>
+                            <li class="return">Đổi hàng trong 1 tuần</li>
+                            <li class="fone">0868.26.26.26</li>
+                            <li class="email"><a href="mailto:sales@battrangonline.vn">sales@battrangonline.vn</a></li>
+
+                        </ul>
+                        <ul class="more3">
+                            @*@for (int i = 0; i < ListProductMostSaleOff.Count; i++)
+                                {
+                                    <li>
+                                        <a href="/am-chen-men-khu-cao-cap/c18805-1.aspx">
+                                            <img alt="" src="@ListProductMostSaleOff[i].Images[0].ImageUrl" />
+                                        </a>
+                                    </li>
+                                }*@
+                            <li>
+                                <a href="/am-chen-men-khu-cao-cap/c18805-1.aspx">
+                                    <img alt="" src="/libs/shop/adminshop/Product/Large/real-adminshop_131056948880380851.png" />
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/tranh-su-bat-trang/tranh-tu-quy-tung-cuc-truc-mai-dap-noi-men-mau-so-2-rong-50cm-cao-100cm-23449c18712.aspx">
+                                    <img alt="" src="/libs/shop/adminshop/Product/Large/real-adminshop_131056966594679964.jpg" />
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/dia-canh/c18804-1.aspx">
+                                    <img alt="" src="/libs/shop/adminshop/Product/Large/real-adminshop_131056969647917327.gif" />
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+
+                </div>
+                <div id="ctl00_ContentPlaceHolder1_ctl00_panelControl">
+
+                    @for (int i = 0; i < listProductType.Count; i++)
+                    {
+                        @if (listProductType[i].ParentId == 0 && listProductType[i].Product.Count != 0)
+                        {
+                            <div class="boxsp">
+                                <div class="boxheadcontent">
+                                    <h2 style="background:#ff6600 url('/libs/Images/bato/18706.png') no-repeat scroll 5px center">
+                                        <a href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = @listProductType[i].Id })">
+                                            @listProductType[i].Name
+                                        </a>
+                                    </h2>
+
+                                    <ul class="ulsubmenu" id="ul18706">
+                                        @for (int j = 0; j < listProductType.Count; j++)
+                                        {
+                                            @if (listProductType[j].ParentId == listProductType[i].Id)
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action("ProductByProductType","Product",new { productTypeId = @listProductType[j].Id })">
+                                                        @listProductType[j].Name
+                                                    </a>
+
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+
+                                </div>
+                                @for (int j = 0; j < listProductType[i].Product.Count; j++)
+                                {
+                                    <div class="boxmaincontent">
+                                        <ul id="box18706">
+                                            <li class="lihome">
+                                                <span class="sale-off-icon-left">Mã: @listProductType[i].Product[j].Code</span>
+                                                <a href="@Url.Action("Detail","Product",new { id = @listProductType[i].Product[j].Id })"
+                                                   title="@listProductType[i].Product[j].Name">
+                                                    <img class="lazy"
+                                                         alt="@listProductType[i].Product[j].Name"
+                                                         src="@listProductType[i].Product[j].Images[0].ImageUrl" />
+                                                </a>
+
+                                                <h3><a title="@listProductType[i].Product[j].Name" href="@Url.Action("Detail", "Product", new { id = listProductType[i].Product[j].Id })">@listProductType[i].Product[j].Name</a></h3>
+
+                                                <span>@listProductType[i].Product[j].Price</span>
+                                                @*<a href="@Url.Action("WriteCookies", "Home", new { productId = @listProductType[i].Product[j].Id })"*@ 
+                                                <a href="#"
+                                                   onclick="AddProductToCard(@listProductType[i].Product[j].Id)" style="color: #fff;font-size: 12px;margin-top:-5px" rel="nofollow" class="add-cart fr">Mua hàng</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+                        }
+
+                    }
+
+
+                    <script>
+                                    $(document).ready(function () {
+                                        equalHeight($("ul#box18706 li.lihome"));
+                                        $("ul#box18706 li.lihome").hover(function () {
+                                            /  $(this).find(".add-cart").show();
+                                        }, function () {
+                                            / $(this).find(".add-cart").hide();
+                                        });
+                                    });
+                    </script>
+
+                </div>
+            </div>
+
+
+
+            <div class="footer" id="footer">
+                <div class="contacttop" style="width:100%;float:left">
+                    <div class="menucontactbottom">
+                        <script>
+                                    document.write('<iframe src="/www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fbattrangonline&amp;width=730&amp;height=180&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border: none; overflow: hidden; height: 180px; width: 730px; margin: 10px 0; float:left" allowtransparency="true"></iframe><a style="margin:10px 0" href="https:/www.facebook.com/valigiarehn" target="_blank"><img src="/libs/Images/gaia.jpg" style="border:none;margin-top:10px;"/></a>');
+                        </script>
+                    </div>
+                </div>
+                <div class="menubottom">
+                    <div>
+                        <ul id="menufooter">
+
+                            <li class="mnufter">
+                                <h2>
+                                    <a class="w" href="/">Gốm sứ Bát Tràng</a>
+                                </h2>
+                                <h2>
+                                    <a href="/Pages/info.aspx#muahang">Hướng dẫn mua hàng</a>
+                                </h2>
+                                <h2>
+                                    <a href="/Pages/info.aspx#thanhtoan">Thông tin thanh toán</a>
+                                </h2>
+                                <h2>
+                                    <a href="/Pages/info.aspx#">Chính sách bảo trì, bảo hành</a>
+                                </h2>
+                                <h2>
+                                    <a href="/Pages/info.aspx#baomat">Chính sách bảo mật thông tin</a>
+                                </h2>
+                                <h2>
+                                    <a href="/Pages/info.aspx#giaohang">Chính sách đổi trả hàng</a>
+                                </h2>
+                            </li>
+                            @for (int i = 0; i < listProductType.Count; i++)
+                            {
+                                var dem = 0;
+                                @for (int j = 0; j < listProductType.Count; j++)
+                                {
+                                    if (listProductType[j].ParentId == listProductType[i].Id)
+                                    {
+                                        dem++;
+                                    }
+                                }
+
+                                @if (listProductType[i].ParentId == 0 && dem > 0)
+                                {
+                                    <li class="mnufter">
+                                        <h2><a class="w" href="/Pages/kiem-tra-don-hang.aspx">@listProductType[i].Name</a></h2>
+                                        @for (int j = 0; j < listProductType.Count; j++)
+                                        {
+                                            @if (listProductType[j].ParentId == listProductType[i].Id)
+                                            {
+                                                <h2><a href="/Pages/info.aspx#muahang">@listProductType[j].Name</a></h2>
+                                            }
+                                        }
+                                    </li>
+                                }
+
+
+
+
+                            }
+                            <li class="mnufter">
+                                <h2><a class="w" href="/Pages/kiem-tra-don-hang.aspx">Tra cứu tình trạng đơn hàng</a></h2>
+                                <h2><a href="/Pages/info.aspx#muahang">Hướng dẫn mua hàng</a></h2>
+                                <h2><a href="/Pages/info.aspx#muahang">Giới thiệu về Bát Tràng Online</a></h2>
+                                <h2><a href="/Pages/info.aspx#muahang">Tư vấn</a></h2>
+                            </li>
+                            <li class="mnufter">
+                                <h2><a class="w" href="/tin-tuc/gioi-thieu-ve-bat-trang-online/c2877-1.aspx">Giới thiệu về Bát Tràng Online</a></h2>
+                                <h2><a href="/tin-tuc/tu-van-ve-gom-su/c2878-1.aspx">Tư vấn</a></h2>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <script>
+
+                                    equalHeight($(".mnufter"));
+
+            </script>
+
+            <!-- /footer -->
+
+
+            <div id="batochat">
+                <ul>
+                    <li class="chat_bar">H? tr? khách hàng <a href="#" onclick="hideChatBox(); return false;">x</a></li>
+                    <li class="chat_main">
+                        <div>&nbsp;</div>
+                        <p class="font-bold">H? tên <span class="red">(*)</span></p>
+                        <div>
+                            <input name="ctl00$txtName" type="text" id="txtName" class="input" />
+                        </div>
+                        <p class="font-bold">Email</p>
+                        <div>
+                            <input name="ctl00$txtEmail" type="text" id="txtEmail" class="input" />
+                        </div>
+                        <p class="font-bold">Ði?n tho?i <span class="red">(*)</span></p>
+                        <div>
+                            <input name="ctl00$txtPhone" type="text" id="txtPhone" class="input" />
+                        </div>
+                        <p class="font-bold">N?i dung <span class="red">(*)</span></p>
+                        <div>
+                            <textarea name="ctl00$txtContent" rows="5" cols="20" id="txtContent">
+</textarea>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="submit" name="ctl00$btnGui" value="G?i câu h?i" onclick="return validate();" id="btnGui" class="button" />
+                    </li>
+                </ul>
+            </div>
+            <script>
+
+                $(".theme-saffron").hover(function () {
+                    $(this).find(".submenu").show();
+                }, function () {
+                    $(".submenu").hide();
+                });
+            </script>
+
+            <!--Start of Zopim Live Chat Script-->
+            <script type="text/javascript">
+                window.$zopim || (function (d, s) {
+                    var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+                        d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+                            z.set.
+                                _.push(o)
+                        }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute("charset", "utf-8");
+                    $.src = "/v2.zopim.com/_1301683748.jpg"; z.t = +new Date; $.
+                        type = "text/javascript"; e.parentNode.insertBefore($, e)
+                })(document, "script");
+            </script>
+            <!--End of Zopim Live Chat Script-->
+            <script>
+                function validate() {
+                    if ($("#txtName").val().length == 0) {
+                        $("#txtName").attr('placeholder', 'B?n chua nh?p h? tên');
+                        $("#txtName").focus();
+                        return false;
+                    }
+                    if ($("#txtPhone").val().length == 0) {
+                        $("#txtPhone").attr('placeholder', 'B?n chua nh?p s? di?n tho?i');
+                        $("#txtPhone").focus();
+                        return false;
+                    }
+                    if ($("#txtContent").val().length == 0) {
+                        $("#txtContent").attr('placeholder', 'B?n chua nh?p n?i dung câu h?i');
+                        $("#txtContent").focus();
+                        return false;
+                    }
+                    postChat();
+                    return false;
+                }
+                function postChat() {
+                    $("#btnGui").val("Ðang g?i ...").attr('disable', 'disable');
+                    $.post("/Pages/Comment.aspx?Id=0", { name: $("#txtName").val(), email: $("#txtEmail").val(), phone: $("#txtPhone").val(), content: ($("#txtContent").val() + "\n\r" + location.href) }, function () {
+                        $("#txtName").val('').attr('placeholder', '');
+                        $("#txtPhone").val('').attr('placeholder', '');
+                        $("#txtEmail").val('').attr('placeholder', '');
+                        $("#txtContent").val('B?n da g?i thành công').attr('placeholder', '');
+                        $("#btnGui").val("G?i câu h?i").removeAttr('disable');
+                        setTimeout(function () { hideChatBox(); }, 1000);
+                    });
+                }
+                function showChatBox() {
+                    $("#batochat").fadeIn();
+                    $("#batochatoff").fadeOut();
+                    $("#txtName").focus();
+                }
+
+                function hideChatBox() {
+                    $("#batochat").fadeOut();
+                    $("#batochatoff").fadeIn();
+                }
+                $("#batochatoff").hover(function () { showChatBox(); });
+            </script>
+            <div class="footerbox" id="footer">
+                <div class="content" style="padding: 10px 0 20px; height: 130px">
+                    <div style="width: 49%; float: left">
+                        <p>
+                            <br />
+                        </p>
+                        <p>
+                            <b>CÔNG TY TNHH KINH DOANH VÀ CÔNG NGHỆ TRỰC TUYẾN BATO</b>
+                        </p>
+                        <p></p>
+                        <p>
+                            Địa chỉ: Số 280 - Thôn 4 Giang Cao - Xã Bát Tràng - Gia Lâm - Hà Nội
+                        </p>
+                        <p>MST: 0106999423</p>
+                        <p>
+                            Điện Thoại: 0868.26.26.26 - 0904.868.545 - 0983.041.712
+                        </p>
+                        <p>Email: <a href="mailto:sales@battrangonline.vn">sales@battrangonline.vn</a></p>
+                        <P><br /><b>Chi nhánh TP Hồ Chí Minh</b></P>
+                        <p>Địa chỉ: 60/13 Vạn Kiếp - Phường 3 - Bình Thạnh - TP Hồ Chí Minh</p>
+                        <p>Điện thoại: 0868.26.26.26</p>
+
+                    </div>
+                    <div style="width: 49%; float: right">
+                        <p>
+                            <a href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=18400" rel="nofollow" target="_blank">
+                                <img src="/libs/Images/bct.jpg" style="border: none" />
+                            </a>
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!--Google-->
+        <script>
+                var path = window.location.pathname;
+                if (path == '/') {
+                    var google_tag_params = {
+                        dynx_pagetype: 'home'
+                    };
+                }
+
+                else if (jQuery('.boxhead').length > 0) {
+                    var id = jQuery('.sale-off-icon-left')[0].innerText.replace(/[^0-9]/g, '');
+                    var price = jQuery('.boxhead span')[jQuery('.boxhead span').length - 1].innerHTML.replace(/[^0-9]/g, '');
+                    var google_tag_params = {
+                        dynx_itemid: id,
+                        dynx_pagetype: 'offerdetail',
+                        dynx_totalvalue: parseFloat(price)
+                    };
+                }
+
+                else if (jQuery('.product-desc').length > 0) {
+                    var id = jQuery('div.price p:eq(1)')[0].innerText.replace(/[^0-9]/g, '');
+                    var price = jQuery('div.price p:eq(0) span:eq(0)')[0].innerText.replace(/[^0-9]/g, '');
+                    var google_tag_params = {
+                        dynx_itemid: id,
+                        dynx_pagetype: 'offerdetail',
+                        dynx_totalvalue: parseFloat(price)
+                    };
+                }
+
+                else if (jQuery('.lihome').length > 0 || jQuery('.grid-item-h').length > 0) {
+                    var google_tag_params = {
+                        dynx_pagetype: 'searchresults'
+                    };
+                }
+
+                else if (path.match('/shopping-cart.aspx') && jQuery('#mainTable').length > 0) {
+                    var price = jQuery('.sumprice')[0].innerText.replace(/[^0-9]/g, '');
+                    var id = new Array();
+                    for (var i = 0; i < jQuery('.number').length; i++) {
+                        id.push(jQuery('.number')[i].getAttribute("onchange").split("'")[1])
+                    }
+                    var google_tag_params = {
+                        dynx_itemid: id,
+                        dynx_pagetype: 'conversionintent',
+                        dynx_totalvalue: parseFloat(price)
+                    };
+                }
+
+                else if (path.match('/shopping-cart.aspx') && jQuery('span:contains("Cám on b?n, Ðon hàng dã")').length > 0) {
+                    var google_tag_params = {
+                        dynx_pagetype: 'conversion'
+                    };
+                }
+
+                else {
+                    var google_tag_params = {
+                        dynx_pagetype: 'other'
+                    };
+
+                }
+        </script>
+        <script type="text/javascript">
+                /* <![CDATA[ */
+                var google_conversion_id = 957114627;
+                var google_custom_params = window.google_tag_params;
+                var google_remarketing_only = true;
+            /* ]]> */
+        </script>
+        <script type="text/javascript" src="/www.googleadservices.com/pagead/conversion.js">
+        </script>
+        <noscript>
+            <div style="display: inline;">
+                <img height="1" width="1" style="border-style: none;" alt="" src="/googleads.g.doubleclick.net/pagead/viewthroughconversion/957114627/?value=0&amp;guid=ON&amp;script=0" />
+            </div>
+        </noscript>
+        <!--Google-->
+
+        <script type="text/javascript" src="/admicro1.vcmedia.vn/cpa/admicro.js"></script>
+        <script type="text/javascript">
+                window.admicro_cpa_q = window.admicro_cpa_q || [];
+                window.admicro_cpa_q.push({ event: "retargeting", id: 929 });
+
+                $(window).scroll(function () {
+                    var top = ($(window).scrollTop())
+                    if (top > 100) {
+                        $(".search-form").css({ "position": "fixed", "top": "0" });
+                        $("#mainMenu").show();
+                        $("#logo").hide();
+                    }
+                    else {
+                        $(".search-form").css({ "position": "relative", "top": "0" });
+                        $("#mainMenu").hide();
+                        $("#logo").show();
+                    }
+
+
+                });
+        </script>
+        <script src="Pages/Product_data.aspx"></script>
+        <script src="/libs/js/jquery.autocomplete.min.js"></script>
+        <script src="/libs/js/currency-autocomplete.js"></script>
+        <style>
+            #mask {
+                background: #000 url("Images/bato/loading-form.gif") no-repeat scroll center 100px;
+                z-index: 99999;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                display: none;
+            }
+
+            #dialogcart2 {
+                display: none;
+                background: #fff;
+                z-index: 999999;
+                position: fixed;
+                left: 50%;
+                top: 35px;
+                margin-left: -420px;
+                width: 800px;
+                padding: 20px;
+                min-height: 100px;
+                border-radius: 10px;
+            }
+
+            #dialogcart2_content {
+                max-height: 500px;
+                overflow-y: auto;
+            }
+
+            #dialogcart3 {
+                display: none;
+                background: #fff;
+                z-index: 999999;
+                position: fixed;
+                left: 50%;
+                top: 35px;
+                margin-left: -420px;
+                width: 800px;
+                padding: 20px;
+                min-height: 100px;
+                border-radius: 10px;
+            }
+
+            #dialogcart3_content {
+                max-height: 500px;
+                overflow-y: auto;
+            }
+
+            .naviagtion-order {
+                padding-top: 20px;
+            }
+
+            #mainTable {
+                background: #fff;
+            }
+
+            .naviagtion-order .process {
+                background: #ff6600;
+                border-radius: 5px;
+                color: #fff;
+                font-size: 14px;
+                font-weight: bold;
+                padding: 5px 20px;
+                float: right;
+                line-height: 20px;
+            }
+
+            .close {
+                width: 32px;
+                height: 32px;
+                background: url('/libs/Images/bato/close.png') no-repeat scroll left top;
+                position: absolute;
+                right: -16px;
+                top: -16px;
+                cursor: pointer;
+            }
+        </style>
+        <div id="mask"></div>
+        @*<div id="dialogcart">
+
+            <div id="dialogcart_content"></div>
+            <div class="naviagtion-order">
+                <a class="process" style="float: left" href="/" onclick="continueShopping();return false;">Tiếp tục mua hàng</a>
+                <a class="process" href="/shopping-cart.aspx#info">Thanh toán</a>
+            </div>
+        </div>*@
+        <script type="text/javascript">
+            $("#mask").css('opacity', '0.5')
+            $(".add-cart, .go-cart").click(function (e) {
+                e.preventDefault();
+                addToCard($(this).attr('href'));
+            });
+
+            $(document).keyup(function (e) {
+                if (e.keyCode == 27) {
+                    continueShopping();
+                }
+
+            });
+
+            /*menu*/
+            $("#logo_container").hover(function () {
+                $("#logo").hide();
+                $("#mainMenu").show();
+            }, function () {
+                $("#logo").show();
+                $("#mainMenu").hide();
+
+            })
+
+
+        </script>
+        <script type="text/javascript" src="/libs/js/jquery.lazyload.min.js"></script>
+        <script type="text/javascript">
+
+            $(function () {
+                $("img.lazy").lazyload({
+                    effect: "fadeIn"
+                });
+            });
+
+            jQuery.fn.extend({
+                VADSSticky: function (e, t, n) {
+                    var r = $(this);
+                    if ($("#" + t).length == 0 || $("#" + e).length == 0 || $("#" + n).length == 0) return;
+                    var ot = $("#" + t);
+                    var oe = $("#" + e);
+                    var o = $("#" + n);
+
+                    r.scroll(function () {
+                        var i = ot.offset().top;
+                        var s = oe.offset().top;
+                        var u = o.height();
+                        var e = r.scrollTop();
+                        if (s <= e) {
+                            if (e + u >= i) {
+                                o.css({
+                                    top: -1 * (u - (i - e) + 70) + "px",
+                                    position: "fixed"
+                                });
+                            } else {
+                                o.css({
+                                    top: "70px",
+                                    position: "fixed"
+                                });
+                            }
+                        } else {
+                            o.css({
+                                top: "",
+                                position: ""
+                            });
+                        }
+                    });
+                }
+            });
+
+        </script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function () { jQuery(window).VADSSticky("vmcadsstick", "footer", "vmcitem"); })
+        </script>
+
+
+        <div>
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAY22Oi/YpMpKeu5njYysLCYt0GqqGmTunmU8BFOEDL5JBp27H5MnXjaS3EP6vbk6N876lHX0jFK5DIKlpWLEfGUeuWcCMxwYyE1Qqwgsph6UmbI9F8dt2YnDMWyQMRdfVYepLZTfcqH1J8IA2SjoHE1Ai9SitCIKkiiCw+0rGi2zQ==" />
+        </div>
+    </form>
+    <div id="appmodal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿@model ListProviderWalletViewModel
+@using Cms.Code.StringHelper
+@{
+
+    ViewData["Title"] = "Ví tiền";
+}
+@if (Model != null && Model.ProviderWallets.Count > 0)
+{
+
+
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-list font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">Ví tiền</span>
+            </div>
+
+        </div>
+        <div class="portlet-body form">
+            <table class="table table-striped  b-t b-light">
+                <thead>
+                    <tr>
+                        <th>Ngày giao dịch</th>
+                        <th>Số tiền nạp</th>
+                        <th>Số tiền đã sử dụng</th>
+                        <th>Số dư</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.ProviderWallets)
+                    {
+                        decimal amountLoaded = 0;
+                        <tr>
+                            <td>@item.DateCreated</td>
+                            <td>
+                                @foreach (ProviderTransaction proTran in item.ProviderTransactions)
+                                {
+                                    amountLoaded += proTran.Amount;
+                                }
+                                @amountLoaded.ToPriceText() @item.Country.Currency
+                            </td>
+                            <td>
+                                @{ 
+                                    var dasudung = amountLoaded - item.Balance;
+                                }
+                                @(dasudung.ToPriceText()) @item.Country.Currency
+                            </td>
+                            <td id="balance">
+                                @item.Balance.ToPriceText() @item.Country.Currency
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+}
+else
+{    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-list font-red"></i>
+                <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+            </div>
+
+        </div>
+        <div class="portlet-body form">
+            <div class="alert alert-danger">Chưa tạo ví đại lý</div>
+        </div>
+    </div>
+}

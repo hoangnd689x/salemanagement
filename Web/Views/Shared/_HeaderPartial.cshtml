@@ -1,0 +1,384 @@
+﻿
+<style>
+    .search-form {
+        width: 100%;
+        background-color: #ffffff !important;
+        box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.15);
+        height: 62px;
+        position: relative;
+        z-index: 99999999;
+    }
+
+    .search-form-1000 {
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    #logo_container h1 {
+        padding: 5px 0;
+    }
+
+    .about {
+        background-color: #f6f6f6 !important;
+        height: 32px;
+        line-height: 32px;
+        position: relative;
+        z-index: 4;
+    }
+
+        .about .zone {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+    .menutop {
+        
+        height: 104px;
+       
+    }
+
+    .about ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        float: right;
+    }
+
+        .about ul li {
+            float: left;
+            padding: 0 10px;
+        }
+</style>
+<div id="arrString"></div>
+<div class="menutop">
+    <div class="about">
+        <div class="zone">
+            <ul>
+                <li>Hotline:<a style="font-weight: bold;color:red"> 0868.26.26.26</a></li>
+                <li>Email: <a href="">sales@battrangonline.vn</a></li>
+                <li><a href="/Product/CheckBill">Kiểm tra đơn hàng</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="search-form">
+        <div class="search-form-1000">
+            <div class="subcontainer">
+                <div id="logo_container" class="logo_container">
+                    <h1 id="logo">
+                        <a href="/">
+                            <img alt="" src="/libs/Images/bato/logo.png" />
+                            <span id="logo_text">Battrang Online.vn</span>
+                        </a>
+                    </h1>
+                    <div id="mainMenu" style="display: none">
+                        <h3 class="menu-head">Danh mục sản phẩm</h3>
+                        <div class="left menu" id="topmenu">
+                            @*<ul id="mega_menu_0_list">
+                                    <li class="item theme-saffron" id="mega_menu_item_0">
+                                        <a href="/">
+                                            <div class="thumbnail">
+                                                <img src="/libs/Images/bato/icon-home.png" alt="Ấm chén Bát Tràng  ">
+                                            </div>
+                                            <div class="title">
+                                                Trang chủ
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>*@
+                            @await Component.InvokeAsync("Menu")
+                        </div>
+                    </div>
+
+                </div>
+                <form name="aspnetForm" method="post" action="/" id="aspnetForm">
+                    <!-- end #logo_container -->
+                    <div id="search_box_container">
+                        <div class="search-box  border-radius">
+                            <!-- find cate -->
+                            <div class="search-box-form">
+                                <span class="icon-search"></span>
+                                <input type="text" id="inputSearch" placeholder="Nhập mã hoặc tên sản phẩm" class="form-control" />
+                                <input type="button" value="Tìm ngay" id="btnSearch" class="submit-form form-control adr large button bg-red" />
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="menuAuto" >
+                                                            @*position: absolute; width: 520px; top: 80.983px; left: 585.994px; max-height: 300px; z-index: 9999; display: block;*@
+
+
+
+                </div>
+
+                <!-- end #search_box_container -->
+                <div id="shop_cart_container">
+                    <div data-target="#modalCartMini" data-toggle="modal" class="shop-cart border-radius">
+                        <div class="nav-item">
+                            <div class="icon">
+                                <a class="go-cart" href="#">
+                                    <span name="qtyTotalBuy123" class="counter-custom" id="NumberProductSelected12">
+                                        @(ViewBag.NumberProductSelected)
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    @*<a id="show" href="@Url.Action("OpenShoppingCard","Home")"data-toggle="modal" data-target="#appmodal">*@
+                                    <a id="showProductSelected" href="#">
+                                        Giỏ hàng
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- end .nav-item -->
+                    </div>
+                    <!-- shop cart -->
+                </div>
+
+                <style>
+                    #myDialog {
+                        width: 1px;
+                        border: 0px solid black;
+                        padding-top: 10px;
+                        /*background-color: #D6D6D6;*/
+                        background-color: #6B6B6B;
+                    }
+
+                    #myDialog2 {
+                        width: 1%;
+                        border: 0px solid black;
+                        background-color: #6B6B6B;
+                    }
+                    #ShoppingCart {
+                        background: rgb(128, 128, 128);
+                        width: 1%;
+                        background-color: #D6D6D6;
+                        border: 0px solid black;
+                    }
+
+                    #ShoppingCart2 {
+                        background: rgb(128, 128, 128);
+                        width: 1%;
+                        background-color: #D6D6D6;
+                        border: 0px solid black;
+                    }
+
+                    #dialogcart {
+                        display: none;
+                        background: #fff;
+                        z-index: 999999;
+                        position: fixed;
+                        left: 50%;
+                        top: 35px;
+                        margin-left: -420px;
+                        width: 800px;
+                        padding: 20px;
+                        min-height: 100px;
+                        border-radius: 10px;
+                    }
+                    #dialogcart2 {
+                        display: none;
+                        background: #fff;
+                        z-index: 999999;
+                        position: fixed;
+                        left: 50%;
+                        top: 35px;
+                        margin-left: -420px;
+                        width: 800px;
+                        padding: 20px;
+                        min-height: 100px;
+                        border-radius: 10px;
+                    }
+                    #dialogcart3 {
+                        display: none;
+                        background: #fff;
+                        z-index: 999999;
+                        position: fixed;
+                        left: 50%;
+                        top: 35px;
+                        margin-left: -420px;
+                        width: 800px;
+                        padding: 20px;
+                        min-height: 100px;
+                        border-radius: 10px;
+                    }
+
+                    #dialogcart2_content {
+                        max-height: 500px;
+                        overflow-y: auto;
+                    }
+                    .close {
+                        width: 32px;
+                        height: 32px;
+                        background: url('/libs/Images/bato/close.png') no-repeat scroll left top;
+                        position: absolute;
+                        right: -16px;
+                        top: -16px;
+                        cursor: pointer;
+                    }
+                    .close2 {
+                        width: 32px;
+                        height: 32px;
+                        background: url('/libs/Images/bato/close.png') no-repeat scroll left top;
+                        position: absolute;
+                        right: -16px;
+                        top: -16px;
+                        cursor: pointer;
+                    }
+                </style>
+
+                <dialog id="myDialog">
+                    <div id="ShoppingCart"></div>
+                    
+                </dialog>
+
+                <dialog id="myDialog2">
+                    <div id="ShoppingCart2"></div>
+                </dialog>
+
+                <!-- end #shop_cart_container -->
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+
+
+                //$("#main").hover(function () {
+                //    $("#menu").show();
+                //}, function () {
+                //    $("#menu").hide();
+                //});
+
+                //$(".mega_menu_item_0").hover(function () {
+                //    $(this).find(".submenu").show();
+                //}, function () {
+                //    $(this).find(".submenu").hide();
+                //});
+
+                //$('input#inputSearch').keypress(function (e) {
+                //    if (e.which == 13) {
+                //        e.preventDefault();
+                //        SearchResult();
+                //        return false;
+                //    }
+                //});
+                $("#btnSearch").click(function () {
+                    console.log("1");
+                    SearchResult();
+                });
+                function SearchResult() {
+                    location.href = "/Home/Index?k=" + encodeURIComponent($("#inputSearch").val());
+                }
+    
+
+                $("#inputSearch").autocomplete({
+
+                    appendTo: "#menuAuto",
+
+                    source: function (request, response) { 
+                        $.ajax({
+
+                            url: "/Home/JsonTagProduct",
+                            dataType: "json",
+                            data: {
+
+                                q: request.term
+                            },
+                            success: function (data) {
+
+                                response($.map(data, function (item) {
+                                    return {
+                                        label: item.label,
+                                        value: item.value
+                                    }
+                                }));
+                            }
+
+                        });
+
+                    },
+                    select: function (event, ui) {
+                        console.log(event);
+                        console.log(ui);
+                        console.log(ui.item.value);
+                       location.href = "/Product/Detail?id="+ui.item.value;
+                        return false;
+                    }
+                        
+
+                    
+                });
+</script>
+
+<script>
+                function getDeptStations() {
+                    $("#txDestination").autocomplete({
+                        source: function (request, response) {
+                            var term = request.term;
+                            var Query = "";
+                            if (lang === "en")
+                                Query = "City_Name_EN";
+                            else if (lang === "fr")
+                                Query = "City_Name_FR";
+                            if (lang === "de")
+                                Query = "City_Name_DE";
+                            if (lang === "ar")
+                                Query = "City_Name_AR";
+                            var requestUri = "/_api/lists/getbytitle('Stations')/items?$select=City_Code," + Query + "&$filter=startswith(" + Query + ",'" + term + "')";
+                            $.ajax({
+                                url: requestUri,
+                                type: "GET",
+                                async: false,
+                                headers: {
+                                    "ACCEPT": "application/json;odata=verbose"
+                                }
+                            }).done(function (data) {
+                                if (data.d.results) {
+                                    response($.map(eval(data.d.results), function (item) {
+                                        return {
+                                            label: item[Query] + " (" + item.City_Code + ")",
+                                            value: item[Query],
+                                            id: item[Query]
+                                        }
+                                    }));
+                                }
+                                else {
+
+                                }
+                            });
+                        },
+                        response: function (event, ui) {
+                            if (!ui.content.length) {
+                                var noResult = { value: "", label: "No cities matching your request" };
+                                ui.content.push(noResult);
+                            }
+                        },
+                        select: function (event, ui) {
+                            $("#txDestination").val(ui.item.label);
+                            cityID = ui.item.id;
+                        },
+                        minLength: 1
+                    });
+                }
+
+</script>
+
+<style>
+    .searchbox {
+        background: none repeat scroll 0 0 transparent;
+        border: medium none;
+        line-height: 35px;
+        padding-left: 5px;
+        width: 175px;
+    }
+</style>
+<div style="width: 100%; padding: 0px 0 0px; float: left">
+    <img style="display: block; margin: 0 auto" src="/libs/Images/bannerchinhhang980x90.gif" />
+</div>

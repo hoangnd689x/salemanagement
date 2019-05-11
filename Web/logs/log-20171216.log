@@ -1,0 +1,79 @@
+2017-12-16 07:33:20.050 +07:00 [Information] Starting web host
+2017-12-16 07:41:42.205 +07:00 [Information] -> Index
+2017-12-16 07:52:40.286 +07:00 [Information] Starting web host
+2017-12-16 07:52:45.203 +07:00 [Information] -> Index
+2017-12-16 07:53:01.696 +07:00 [Information] -> Index
+2017-12-16 07:54:20.434 +07:00 [Information] -> Index
+2017-12-16 08:41:31.312 +07:00 [Information] Starting web host
+2017-12-16 08:41:35.382 +07:00 [Information] -> Index
+2017-12-16 08:54:59.768 +07:00 [Information] Starting web host
+2017-12-16 08:55:30.920 +07:00 [Information] -> Index
+2017-12-16 08:56:24.022 +07:00 [Information] -> Index
+2017-12-16 08:57:39.008 +07:00 [Information] Starting web host
+2017-12-16 08:57:44.385 +07:00 [Information] -> Index
+2017-12-16 08:58:44.039 +07:00 [Information] -> Index
+2017-12-16 09:00:17.094 +07:00 [Information] -> Index
+2017-12-16 09:02:42.572 +07:00 [Information] Starting web host
+2017-12-16 09:02:47.380 +07:00 [Information] -> Index
+2017-12-16 09:03:44.511 +07:00 [Information] -> Index
+2017-12-16 09:20:23.970 +07:00 [Information] Starting web host
+2017-12-16 09:20:25.180 +07:00 [Information] -> Index
+2017-12-16 09:22:18.528 +07:00 [Information] Starting web host
+2017-12-16 09:22:19.654 +07:00 [Information] -> Index
+2017-12-16 09:24:30.206 +07:00 [Information] Starting web host
+2017-12-16 09:24:31.530 +07:00 [Information] -> Index
+2017-12-16 09:49:37.238 +07:00 [Information] Starting web host
+2017-12-16 09:49:39.096 +07:00 [Information] -> Index
+2017-12-16 09:49:55.675 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0]}
+2017-12-16 09:51:57.959 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0]}
+2017-12-16 09:52:57.934 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0]}
+2017-12-16 10:12:33.252 +07:00 [Information] Starting web host
+2017-12-16 10:12:41.692 +07:00 [Information] -> Index
+2017-12-16 10:12:49.401 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0]}
+2017-12-16 10:13:04.584 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0,2,3]}
+2017-12-16 10:13:42.188 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0,2]}
+2017-12-16 10:16:43.610 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0,2]}
+2017-12-16 10:16:50.702 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0,2]}
+2017-12-16 10:16:52.712 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0,2]}
+2017-12-16 10:16:53.545 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0,2]}
+2017-12-16 10:16:54.037 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0,2]}
+2017-12-16 10:16:54.379 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0,2]}
+2017-12-16 10:17:04.754 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0,2]}
+2017-12-16 10:17:47.720 +07:00 [Information] Starting web host
+2017-12-16 10:17:49.596 +07:00 [Information] -> Index
+2017-12-16 10:18:02.788 +07:00 [Information] {"Id":1,"Username":"admin","Password":null,"ConfirmPassword":null,"Roles":[0]}
+2017-12-16 11:00:51.176 +07:00 [Information] Starting web host
+2017-12-16 13:49:44.032 +07:00 [Information] Starting web host
+2017-12-16 13:53:43.475 +07:00 [Information] -> Index
+2017-12-16 13:53:55.163 +07:00 [Information] -> Index
+2017-12-16 13:53:56.600 +07:00 [Information] -> Index
+2017-12-16 16:29:50.061 +07:00 [Information] Starting web host
+2017-12-16 17:57:48.984 +07:00 [Information] Starting web host
+2017-12-16 17:58:03.784 +07:00 [Information] -> Index
+2017-12-16 17:58:06.985 +07:00 [Information] -> Index
+2017-12-16 17:58:23.021 +07:00 [Information] -> Index
+2017-12-16 17:58:43.569 +07:00 [Information] -> Index
+2017-12-16 17:59:02.859 +07:00 [Information] -> Index
+2017-12-16 17:59:04.323 +07:00 [Information] -> Index
+2017-12-16 17:59:04.913 +07:00 [Information] -> Index
+2017-12-16 17:59:27.741 +07:00 [Information] -> Index
+2017-12-16 17:59:38.226 +07:00 [Information] -> Index
+2017-12-16 18:00:15.242 +07:00 [Information] -> Index
+2017-12-16 18:00:26.345 +07:00 [Information] -> Index
+2017-12-16 18:00:32.336 +07:00 [Information] -> Index
+2017-12-16 18:01:41.624 +07:00 [Information] -> Index
+2017-12-16 18:01:51.689 +07:00 [Information] -> Index
+2017-12-16 18:02:25.036 +07:00 [Information] -> Index
+2017-12-16 18:02:53.095 +07:00 [Information] -> Index
+2017-12-16 18:03:11.049 +07:00 [Information] -> Index
+2017-12-16 18:17:20.768 +07:00 [Information] Starting web host
+2017-12-16 18:17:21.464 +07:00 [Information] -> Index
+2017-12-16 18:18:37.520 +07:00 [Information] -> Index
+2017-12-16 18:21:12.662 +07:00 [Information] -> Index
+2017-12-16 21:11:09.558 +07:00 [Information] Starting web host
+2017-12-16 22:08:36.273 +07:00 [Information] Starting web host
+2017-12-16 22:09:34.401 +07:00 [Information] Starting web host
+2017-12-16 22:18:52.106 +07:00 [Information] Starting web host
+2017-12-16 22:20:03.311 +07:00 [Information] Starting web host
+2017-12-16 22:21:21.244 +07:00 [Information] Starting web host
+2017-12-16 22:26:16.075 +07:00 [Information] Starting web host

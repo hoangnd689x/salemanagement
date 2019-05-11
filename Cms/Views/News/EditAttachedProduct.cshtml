@@ -1,0 +1,114 @@
+﻿@using Core.Entities.BatTrangModel;
+@using Cms.Models.InputModels.News;
+@model AttachProduct
+@{
+    ViewData["Title"] = "Gắn sản phẩm cho tin tức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var id = Convert.ToInt32(ViewBag.Id);
+    var typeId = Convert.ToInt32(ViewBag.TypeId);
+    var productId = Convert.ToInt32(ViewBag.ProductId);
+    var lstProduct = ViewBag.Products;
+
+    var pager = ViewBag.Pager as PagerViewModel;
+
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+
+        <div class="tabbable-line boxless tabbable-reversed">
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_0">
+
+
+                    <div class="form-group">
+                        <form method="get" class="form-inline" asp-controller="News" asp-action="EditAttachedProduct">
+
+                            <div class="form-group">
+
+                                <div class="input-icon right">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" name="k" class="form-control" placeholder="Từ khóa tìm kiếm" value="@ViewBag.Keyword">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="input-icon right">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" name="productCode" class="form-control" placeholder="Mã sản phẩm" value="@ViewBag.Code">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn green">Tìm kiếm</button>
+
+
+                            <div class="form-group" style="display: none;">
+                                <input class="form-control" name="newsId" value="@id" />
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <input class="form-control" name="typeId" value="@typeId" />
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <input class="form-control" name="productId" value="@productId" />
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+                    @if (lstProduct != null && lstProduct.Count > 0)
+                    {
+                        <form method="post" asp-controller="News" asp-action="EditAttachedProduct">
+
+                            <div class="form-group">
+                                <label asp-for="ProductId"></label>
+                                <select class="form-control" asp-for="ProductId" asp-items="@lstProduct"></select>
+                            </div>
+                           
+
+                            <div class="form-group" style="display: none;">
+                                <input class="form-control" name="newsId" value="@id" />
+                            </div>
+
+                            <div>
+                                <pager pager="@pager"></pager>
+                            </div>
+
+                            <button type="submit" class="btn green">Gắn sản phẩm</button>
+                            <a class="btn blue" href="@Url.Action("Edit", "News", new { id = id })">Trở lại</a>
+                            <a class="btn red" href="/News">Bỏ qua</a>
+                        </form>
+
+                    }
+
+                    else
+                    {
+                        <div class="row wrapper">
+                            <div class="col-sm-12"><div class=" alert alert-info">Không có sản phẩm nào !</div></div>
+                        </div>
+
+                    }
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+

@@ -1,0 +1,67 @@
+﻿@using Core.Entities.BatTrangModel;
+@model CreateAccountViewModel
+@{
+    ViewData["Title"] = "Thêm tài khoản";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-plus font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+
+    <div class="portlet-body form">
+        <form method="post" asp-action="Create">
+            <div class="form-body">
+                <div class="form-group">
+                    <label asp-for="Username"></label>
+                    <input class="form-control" asp-for="Username" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label  asp-for="Password"></label>
+                    <input class="form-control" asp-for="Password" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input class="form-control" asp-for="ConfirmPassword" type="password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+
+                @{ 
+                   var roles = Enum.GetValues(typeof(Core.Entities.BatTrangModel.AccountRole)).Cast<Core.Entities.BatTrangModel.AccountRole>().ToList();
+                }
+                <div class="form-group">
+                    <label asp-for="Roles"></label>
+                    <div class="mt-checkbox-list">
+                        @foreach (var role in roles)
+                        {
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                @role.ToText()
+                                <input type="checkbox" value="@role" name="Roles" />
+                                <span></span>
+                            </label>
+                        }
+                       
+                    </div>
+                    <span asp-validation-for="Roles" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn green">Đồng ý</button>
+                <a asp-action="Index" class="btn default">Huỷ</a>
+
+            </div>
+        </form>
+
+    </div>
+</div>

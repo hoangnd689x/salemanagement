@@ -1,0 +1,170 @@
+﻿@using Cms.Models.InputModels.ProductModels;
+@model  CreateProductViewModel
+@{
+    ViewData["Title"] = "Tạo sản phẩm mới";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var Lst = ViewBag.ListParents as IEnumerable<SelectListItem>;
+    var LstProducts = ViewBag.RelatedProducts as IEnumerable<BaseModel>;
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-plus font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">@ViewData["Title"]</span>
+        </div>
+
+    </div>
+
+    <div class="portlet-body form">
+        <form method="post" asp-controller="Product" asp-action="Create" enctype="multipart/form-data">
+            <div class="form-body">
+                
+                @if (Lst != null && Lst.Count() > 0)
+                {
+
+                    <div class="form-group">
+                        <label>Chọn loại sản phẩm</label>
+                        <select class="form-control" asp-for="ProductTypeId" asp-items="@ViewBag.ListParents"></select>
+                    </div>
+                }
+
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input class="form-control" asp-for="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Code"></label>
+                    <input class="form-control" asp-for="Code" />
+                    <span asp-validation-for="Code" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <textarea class="form-control" asp-for="Description" data-ng-maxlength="4000" id="txtAreaEditor"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Price"></label>
+                    <input class="form-control" asp-for="Price" type="number"/>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Discount"></label>
+                    <input class="form-control" asp-for="Discount" type="number"/>
+                    <span asp-validation-for="Discount" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ChangedPrice"></label>
+                    <input class="form-control" asp-for="ChangedPrice" disabled/>
+                    <span asp-validation-for="ChangedPrice" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="VAT"></label>
+                    <input class="form-control" asp-for="VAT" type="number"/>
+                    <span asp-validation-for="VAT" class="text-danger"></span>
+                </div>
+
+                @*<div>
+                    <a class="btn btn-transparent red btn-outline btn-circle btn-sm" data-toggle="modal" data-target="#appmodal"
+                       asp-controller="Product" asp-action="CreateRelatedProducts" asp-route-typeId="10"><i class="fa fa-plus"></i>Gắn sản phẩm liên quan</a>
+
+
+                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                    </div>
+                </div>*@
+                
+
+                @*<div class="form-group">
+                    <label asp-for="RelatedProductIds"></label>
+                    <div class="mt-checkbox-list">
+                        @foreach (var p in LstProducts)
+                        {
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                @p.Name
+                                <input type="checkbox" value="@p.Id" name="RelatedProductIds" />
+                                <span></span>
+                            </label>
+                        }
+
+                    </div>
+                    <span asp-validation-for="RelatedProductIds" class="text-danger"></span>
+                </div>*@
+
+            </div>
+
+            <div class="mt-radio-inline">
+                <label class="mt-radio">
+                    <input asp-for="Published" type="radio" value="1" checked /> Hiển thị
+                    <span></span>
+                </label>
+                <label class="mt-radio">
+                    <input asp-for="Published" type="radio" value="0" /> Ẩn
+                    <span></span>
+                </label>
+            </div>
+
+            <div class="form-group last">
+                <div class="row">
+                    <label asp-for="Avatar" class="control-label col-md-12"></label>
+                    <div class="col-md-12">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                            <div>
+                                <span class="btn default btn-file">
+                                    <span class="fileinput-new"> Select image </span>
+                                    <span class="fileinput-exists"> Change </span>
+                                    <input type="file" name="avatar" accept=".jpg,.png">
+                                </span>
+                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group last">
+                <div class="row">
+                    <label asp-for="Images" class="control-label col-md-12"></label>
+                    <div class="col-md-12">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                            <div>
+                                <span class="btn default btn-file">
+                                    <span class="fileinput-new"> Select image </span>
+                                    <span class="fileinput-exists"> Change </span>
+                                    <input type="file" name="fileImages" multiple accept=".jpg,.png">
+                                </span>
+                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div id="d"></div>
+                <button type="submit" class="btn green">Đồng ý</button>
+                <a asp-action="Index" class="btn default">Huỷ</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+

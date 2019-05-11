@@ -1,0 +1,186 @@
+﻿@page
+@model Web.Models.ProductViewModel
+@using Web.Models;
+@{
+    var listProduct = ViewBag.ListProduct as List<Web.Models.ProductViewModel>;
+    var ProductType = ViewBag.ProductType;
+    Layout = "_layout";
+    var listProductTypes = ViewBag.ListProductTypes as List<ProductTypeViewModel>;
+}
+
+<style>
+    .sortex {
+        padding: 10px;
+        float: left;
+        width: auto !important;
+        line-height: 28px;
+        border-right: 1px solid #f5f5f5;
+    }
+
+    .sortex_active a {
+        font-weight: bold;
+        color: #ff6600;
+    }
+
+    .sortex_active {
+        background: #f5f5f5;
+    }
+</style>
+
+
+
+            <div class="boxcontent">
+                <div class="boxsp" style="padding: 0; margin: 0;">
+                    <div class="boxheadcontent">
+                        <h2>
+                            <a href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = @ProductType.Id })">
+                                @ProductType.Name
+                            </a>
+                        </h2>
+                        <div style="float: right">
+                            <ul style="padding: 0; margin: 0">
+                                <li class="sortex sortex_active">
+                                    <a href="@Url.Action("ProductByProductType", "Product", new { productTypeId = ProductType.Id })">Mới cập nhật</a>
+                                </li>
+                                <li class="sortex ">
+                                    <a href="@Url.Action("ProductByProductType", "Product", new { productTypeId = ProductType.Id, order = "mostpurchased" })">Bán chạy nhất</a>
+                                </li>
+                                <li class="sortex ">
+                                    <a href="@Url.Action("ProductByProductType", "Product", new { productTypeId = ProductType.Id, order = "priceincrease" } )">Giá tăng</a>
+                                </li>
+                                <li class="sortex ">
+                                    <a href="@Url.Action("ProductByProductType", "Product", new { productTypeId = ProductType.Id, order = "pricedecrease" } )">Giá giảm</a>
+                                </li>
+                                <li class="sortex ">
+                                    <a href="@Url.Action("ProductByProductType", "Product", new { productTypeId = ProductType.Id, order = "pricedecrease" } )">Khuyến mại</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="boxmaincontent">
+                        <div style="width: 25%; float: left; padding-top: 10px;">
+
+                            <div style="float: left; display: inline-block;">
+
+                                <div class="catbox">
+                                    <h3 style="border-bottom: 1px solid gray; text-transform: uppercase">Chuyên mục</h3>
+                                    @if (listProductTypes.Count > 0)
+                                    {
+                                        <ul class="categoryMenu">
+                                            @foreach (var t in listProductTypes)
+                                            {
+                                                var url = t.ParentId == 0 ? Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = t.Id }) : Url.Action("ProductByProductType", "Product", new { productTypeId = t.Id });
+                                                <li style="padding: 5px 0;"><a href="@url">@t.Name</a></li>
+
+                                            }
+                                            
+
+                                            @*<li style="padding: 5px 0;">
+                                                <a href="/am-chen-men-lam-co/c18719-1.aspx">Ấm chén men lam cổ</a>
+                                            </li>*@
+
+                                        </ul>
+                                    }
+                                </div>
+
+
+                                <div id="vmcadsstick" style="clear: both">
+                                    <div id="vmcitem">
+                                        <div class="catbox">
+                                            <h3 style="border-bottom: 1px solid gray; text-transform: uppercase">Lọc theo giá</h3>
+                                            <ul class="categoryMenu">
+
+
+                                                <li style="padding: 5px 0;"><a class="price" href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = ProductType.Id } )">&nbsp; 0  &nbsp;-&nbsp; 500,000</a></li>
+
+
+                                                <li style="padding: 5px 0;"><a class="price" href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = ProductType.Id, amount = 1000 } )">&nbsp; 500,000  &nbsp;-&nbsp; 1,000,000</a></li>
+
+                                                <li style="padding: 5px 0;"><a class="price" href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = ProductType.Id, amount = 1500 } )">&nbsp; 1,000,000  &nbsp;-&nbsp; 1,500,000</a></li>
+
+                                                <li style="padding: 5px 0;"><a class="price" href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = ProductType.Id, amount = 2000 } )">&nbsp; 1500,000  &nbsp;-&nbsp; 2,000,000</a></li>
+
+                                                <li style="padding: 5px 0;"><a class="price" href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = ProductType.Id , amount = 2500} )">&nbsp; 2,000,000  &nbsp;-&nbsp; 2,500,000</a></li>
+
+                                                <li style="padding: 5px 0;"><a class="price" href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = ProductType.Id, amount = 3000 } )">&nbsp; 2,500,000  &nbsp;-&nbsp; 3,000,000</a></li>
+
+                                                <li style="padding: 5px 0;"><a class="price" href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = ProductType.Id , amount = 3500} )">&nbsp; 3,000,000  &nbsp;-&nbsp; 3,500,000</a></li>
+
+                                                <li style="padding: 5px 0;"><a class="price" href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = ProductType.Id, amount = 4000 } )">&nbsp; 3,500,000  &nbsp;-&nbsp; 4,000,000</a></li>
+
+                                                <li style="padding: 5px 0;"><a class="price" href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = ProductType.Id, amount = 4500 } )">&nbsp; 4,000,000  &nbsp;-&nbsp; 4,500,000</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <ul style="width: 75%; float: right">
+                            <div class="listdesc">
+
+
+                            </div>
+                            @if(listProduct != null)
+                            {
+                                @for (int i = 0; i < listProduct.Count; i++)
+                                {
+                                    <li class="lihome"  style="height:355px;">
+                                        <span class="sale-off-icon-left">Mã: @listProduct[i].Code</span><a href="@Url.Action("Detail", "Product", new { id = listProduct[i].Id })" title="@listProduct[i].Name">
+                                            <img alt="" class="lazy" src="@listProduct[i].Avatar.ImageUrl" />
+                                        </a>
+                                        <h3>
+                                            <a title="@listProduct[i].Name" href="@Url.Action("Detail", "Product", new { id = listProduct[i].Id })">
+                                                @listProduct[i].Name
+                                            </a>
+                                        </h3>
+
+                                        @if (listProduct[i].Discount > 0)
+                                        {
+                                            <span class="sale-off">@listProduct[i].Price</span>
+                                            <span class="sale-off-icon">-@listProduct[i].Discount %</span>
+                                            <span>@listProduct[i].ChangePrice</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@listProduct[i].ChangePrice</span>
+
+                                        }
+
+                                        @*<span>
+                                            @listProduct[i].Price
+                                        </span>*@
+                                        <a href="#"  onclick="AddProductToCard(@listProduct[i].Id)" style="color: #fff; font-size: 12px; margin-top: -5px"
+                                                   class="add-cart fr">Mua hàng</a>
+                                    </li>
+                                }
+                            }
+
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $("#selectchangeOption").val("1");
+                    equalHeight($(".boxmaincontent ul li.lihome"));
+                    $("li.lihome").hover(function () {
+                        //   $(this).find(".add-cart").show();
+                    }, function () {
+                        // $(this).find(".add-cart").hide();
+                    });
+                });
+                function changeOption(obj) {
+                    location.href = location.href.split('?')[0] + "?sort=" + obj.value;
+                }
+            </script>
+
+
+
+
+            

@@ -1,0 +1,63 @@
+﻿@model List<Web.Models.ProductTypeViewModel>
+
+<ul id="mega_menu_0_list">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+
+        @if (i == 0)
+        {
+            <li class="item theme-saffron" id="mega_menu_item_18718">
+                <a href="@Url.Action("Index", "Home")">
+                    <div class="thumbnail">
+                        <img src="/libs/Images/bato/icon-home.png" />
+                    </div>
+                    <div class="title">
+                        Trang chủ
+                    </div>
+                </a>
+            </li>
+        }
+
+        <li class="item theme-saffron" id="mega_menu_item_18718">
+
+
+
+            @if (Model[i].ParentId == 0)
+            {
+                <a href="@Url.Action("ProductByProductTypeParent", "Product", new { productTypeId = Model[i].Id })">
+                    <div class="thumbnail">
+                        <img src="@Model[i].IconUrl" alt="@Model[i].Name" />
+                    </div>
+                    <div class="title">
+                        @Model[i].Name
+                    </div>
+                </a>
+            }
+
+
+            <div class="submenu">
+                <ul class="submemu2">
+                    @for (int j = 0; j < Model.Count; j++)
+                    {
+                        @if (Model[j].ParentId == Model[i].Id)
+                        {
+                            <li>
+                                <a href="@Url.Action("ProductByProductType","Product",new { productTypeId = Model[j].Id })">
+                                    @Model[j].Name
+                                </a>
+
+                            </li>
+                        }
+
+                    }
+                </ul>
+            </div>
+
+
+        </li>
+
+
+    }
+
+
+</ul>

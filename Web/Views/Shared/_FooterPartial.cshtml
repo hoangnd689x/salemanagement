@@ -1,0 +1,187 @@
+﻿
+<div class="footer" id="footer">
+    <div class="contacttop" style="width:100%;float:left">
+        <div class="menucontactbottom">
+            <script>
+                                    document.write('<iframe src="/www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fbattrangonline&amp;width=730&amp;height=180&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border: none; overflow: hidden; height: 180px; width: 730px; margin: 10px 0; float:left" allowtransparency="true"></iframe><a style="margin:10px 0" href="https:/www.facebook.com/valigiarehn" target="_blank"><img src="/libs/Images/gaia.jpg" style="border:none;margin-top:10px;"/></a>');
+            </script>
+        </div>
+    </div>
+    <div class="menubottom">
+        <div>
+            <ul id="menufooter">
+
+                <li class="mnufter">
+                    <h2>
+                        <a class="w" href="/">Gốm sứ Bát Tràng</a>
+                    </h2>
+                    <h2>
+                        <a href="/Pages/info.aspx#muahang">Hướng dẫn mua hàng</a>
+                    </h2>
+                    <h2>
+                        <a href="/Pages/info.aspx#thanhtoan">Thông tin thanh toán</a>
+                    </h2>
+                    <h2>
+                        <a href="/Pages/info.aspx#">Chính sách bảo trì, bảo hành</a>
+                    </h2>
+                    <h2>
+                        <a href="/Pages/info.aspx#baomat">Chính sách bảo mật thông tin</a>
+                    </h2>
+                    <h2>
+                        <a href="/Pages/info.aspx#giaohang">Chính sách đổi trả hàng</a>
+                    </h2>
+                </li>
+
+                @await Component.InvokeAsync("MenuFooter")
+                
+                <li class="mnufter">
+                    <h2><a class="w" href="/Pages/kiem-tra-don-hang.aspx">Tra cứu tình trạng đơn hàng</a></h2>
+                    <h2><a href="/Pages/info.aspx#muahang">Hướng dẫn mua hàng</a></h2>
+                    <h2><a href="/Pages/info.aspx#muahang">Giới thiệu về Bát Tràng Online</a></h2>
+                    <h2><a href="/Pages/info.aspx#muahang">Tư vấn</a></h2>
+                </li>
+                <li class="mnufter">
+                    <h2><a class="w" href="/tin-tuc/gioi-thieu-ve-bat-trang-online/c2877-1.aspx">Giới thiệu về Bát Tràng Online</a></h2>
+                    <h2><a href="/tin-tuc/tu-van-ve-gom-su/c2878-1.aspx">Tư vấn</a></h2>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+
+                                    equalHeight($(".mnufter"));
+
+</script>
+
+<!-- /footer -->
+
+
+<div id="batochat">
+    <ul>
+        <li class="chat_bar">H? tr? khách hàng <a href="#" onclick="hideChatBox(); return false;">x</a></li>
+        <li class="chat_main">
+            <div>&nbsp;</div>
+            <p class="font-bold">H? tên <span class="red">(*)</span></p>
+            <div>
+                <input name="ctl00$txtName" type="text" id="txtName" class="input" />
+            </div>
+            <p class="font-bold">Email</p>
+            <div>
+                <input name="ctl00$txtEmail" type="text" id="txtEmail" class="input" />
+            </div>
+            <p class="font-bold">Ði?n tho?i <span class="red">(*)</span></p>
+            <div>
+                <input name="ctl00$txtPhone" type="text" id="txtPhone" class="input" />
+            </div>
+            <p class="font-bold">N?i dung <span class="red">(*)</span></p>
+            <div>
+                <textarea name="ctl00$txtContent" rows="5" cols="20" id="txtContent"></textarea>
+
+            </div>
+        </li>
+        <li>
+            <input type="submit" name="ctl00$btnGui" value="G?i câu h?i" onclick="return validate();" id="btnGui" class="button" />
+        </li>
+    </ul>
+</div>
+<script>
+
+                $(".theme-saffron").hover(function () {
+                    $(this).find(".submenu").show();
+                }, function () {
+                    $(".submenu").hide();
+                });
+</script>
+
+<!--Start of Zopim Live Chat Script-->
+<script type="text/javascript">
+                window.$zopim || (function (d, s) {
+                    var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+                        d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+                            z.set.
+                                _.push(o)
+                        }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute("charset", "utf-8");
+                    $.src = "/v2.zopim.com/_1301683748.jpg"; z.t = +new Date; $.
+                        type = "text/javascript"; e.parentNode.insertBefore($, e)
+                })(document, "script");
+</script>
+<!--End of Zopim Live Chat Script-->
+<script>
+                function validate() {
+                    if ($("#txtName").val().length == 0) {
+                        $("#txtName").attr('placeholder', 'B?n chua nh?p h? tên');
+                        $("#txtName").focus();
+                        return false;
+                    }
+                    if ($("#txtPhone").val().length == 0) {
+                        $("#txtPhone").attr('placeholder', 'B?n chua nh?p s? di?n tho?i');
+                        $("#txtPhone").focus();
+                        return false;
+                    }
+                    if ($("#txtContent").val().length == 0) {
+                        $("#txtContent").attr('placeholder', 'B?n chua nh?p n?i dung câu h?i');
+                        $("#txtContent").focus();
+                        return false;
+                    }
+                    postChat();
+                    return false;
+                }
+                function postChat() {
+                    $("#btnGui").val("Ðang g?i ...").attr('disable', 'disable');
+                    $.post("/Pages/Comment.aspx?Id=0", { name: $("#txtName").val(), email: $("#txtEmail").val(), phone: $("#txtPhone").val(), content: ($("#txtContent").val() + "\n\r" + location.href) }, function () {
+                        $("#txtName").val('').attr('placeholder', '');
+                        $("#txtPhone").val('').attr('placeholder', '');
+                        $("#txtEmail").val('').attr('placeholder', '');
+                        $("#txtContent").val('B?n da g?i thành công').attr('placeholder', '');
+                        $("#btnGui").val("G?i câu h?i").removeAttr('disable');
+                        setTimeout(function () { hideChatBox(); }, 1000);
+                    });
+                }
+                function showChatBox() {
+                    $("#batochat").fadeIn();
+                    $("#batochatoff").fadeOut();
+                    $("#txtName").focus();
+                }
+
+                function hideChatBox() {
+                    $("#batochat").fadeOut();
+                    $("#batochatoff").fadeIn();
+                }
+                $("#batochatoff").hover(function () { showChatBox(); });
+</script>
+<div class="footerbox" id="footer">
+    <div class="content" style="padding: 10px 0 20px; height: 130px">
+        <div style="width: 49%; float: left">
+            <p>
+                <br />
+            </p>
+            <p>
+                <b>CÔNG TY TNHH KINH DOANH VÀ CÔNG NGHỆ TRỰC TUYẾN BATO</b>
+            </p>
+            <p></p>
+            <p>
+                Địa chỉ: Số 280 - Thôn 4 Giang Cao - Xã Bát Tràng - Gia Lâm - Hà Nội
+            </p>
+            <p>MST: 0106999423</p>
+            <p>
+                Điện Thoại: 0868.26.26.26 - 0904.868.545 - 0983.041.712
+            </p>
+            <p>Email: <a href="mailto:sales@battrangonline.vn">sales@battrangonline.vn</a></p>
+            <P><br /><b>Chi nhánh TP Hồ Chí Minh</b></P>
+            <p>Địa chỉ: 60/13 Vạn Kiếp - Phường 3 - Bình Thạnh - TP Hồ Chí Minh</p>
+            <p>Điện thoại: 0868.26.26.26</p>
+
+        </div>
+        <div style="width: 49%; float: right">
+            <p>
+                <a href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=18400" rel="nofollow" target="_blank">
+                    <img src="/libs/Images/bct.jpg" style="border: none" />
+                </a>
+            </p>
+
+        </div>
+    </div>
+
+</div>

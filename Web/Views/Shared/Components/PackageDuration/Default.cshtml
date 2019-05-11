@@ -1,0 +1,94 @@
+﻿@model ListPackageDurationViewModel
+@{
+
+}
+
+
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-red"></i>
+            <span class="caption-subject font-red sbold uppercase">Thời gian gói cước</span>
+        </div>
+        <div class="actions">
+            <a class="btn btn-transparent red btn-outline btn-circle btn-sm" data-toggle="modal" data-target="#appmodal"
+               asp-controller="PackageDuration" asp-action="Create" asp-route-packageid="@ViewData["PackageId"]"><i class="fa fa-plus"></i>Thêm thời gian</a>
+
+        </div>
+    </div>
+
+    <div class="portlet-body form">
+        <table class="table table-striped  b-t b-light">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Thời gian</th>
+                    <th>Giá</th>
+                    <th class="text-center">Trạng thái</th>
+                    <th>Người tạo</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.PackageDurations)
+            {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Duration @(Model.Package.Type.ToDurationPackage()) </td>
+                        
+                        <td>
+                            @if (item.ListPrice.Count() > 0)
+                            {
+                                @foreach (var price in item.ListPrice)
+                                {
+                                   @(price.Country.Name + " - " + price.Amount.ToPriceText() + " - " + price.Country.Currency) <br />
+                                }
+
+                            }
+                            else
+                            {
+                                <strong>Chưa có giá</strong>
+
+                            }
+
+
+                        </td>
+                        <td class="text-center">
+                            @if (item.Published == Published.Show)
+                            {
+
+                                <a asp-controller="PackageDuration" asp-action="TogglePublished" asp-route-packagedurationId="@item.Id" class="fa fa-check text-success"></a>
+                            }
+                            else
+                            {
+                                <a asp-controller="PackageDuration" asp-action="TogglePublished" asp-route-packagedurationId="@item.Id" class="fa fa-times text-danger"></a>
+
+                            }
+                        </td>
+                        <td>@item.UserCreated</td>
+                        <td>
+                            <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#appmodal"
+                               asp-controller="PackageDuration" asp-action="Detail" asp-route-id="@item.Id">
+                                <span class="glyphicon glyphicon-search"></span> Chi tiết
+                            </a>
+
+                            <a class="btn btn-default btn-sm" data-toggle="modal" data-target="#appmodal"
+                               asp-controller="PackageDuration" asp-action="Edit" asp-route-id="@item.Id">
+                                <span class="glyphicon glyphicon-pencil"></span> Sửa
+                            </a>
+                            <a class="btn btn-danger  btn-sm" data-toggle="modal" data-target="#appmodal"
+                               asp-controller="PackageDuration" asp-action="Delete" asp-route-id="@item.Id" asp-route-packageId="@item.PackageId">
+                                <span class="glyphicon glyphicon-trash"></span> Xóa
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+    </div>
+</div>

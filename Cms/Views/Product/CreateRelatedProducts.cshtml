@@ -1,0 +1,161 @@
+﻿@using Cms.Models.OutputModels.ProductModels;
+@model ListProductModel
+@{ 
+
+}
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <div class="caption">
+        <i class="fa fa-plus font-red"></i>
+        <span class="caption-subject font-red sbold uppercase">Chọn sản phẩm cùng mua</span>
+    </div>
+</div>
+
+<div class="modal-body">
+    <div class="form-body">
+        <div class="form-group">
+            <form method="get" class="form-inline" asp-controller="Product" asp-action="CreateProductWithRelates">
+
+                <div class="form-group">
+
+                    <div class="input-icon right">
+                        <i class="icon-magnifier"></i>
+                        <input type="text" name="k" class="form-control" placeholder="Từ khóa tìm kiếm" value="@ViewBag.Keyword" onchange="GetProductsByName()">
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="input-icon right">
+                        <i class="icon-magnifier"></i>
+                        <input type="text" name="code" class="form-control" placeholder="Mã sản phẩm" value="@ViewBag.Code" onchange="GetProductsByName()">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn green" onsubmit="GetProductsByName()">Tìm kiếm</button>
+
+            </form>
+           
+
+        </div>
+
+        @if (Model != null && Model.Products != null && Model.Products.Count > 0)
+        {
+            <div class="form-group">
+                <div class="mt-checkbox-list" id="lstProduct">
+                    @foreach (var p in Model.Products)
+                    {
+                        <label class="mt-checkbox mt-checkbox-outline">
+                            @p.Name
+                            <input type="checkbox" value="@p.Id" name="RelatedProductIds" />
+                            <span></span>
+                        </label>
+                    }
+
+                </div>
+            </div>
+
+            
+
+            <div id="pager">
+                <pager pager="@Model.Pager"></pager>
+            </div>
+
+        }
+        else
+        {
+            <div class="row wrapper">
+                <div class="col-sm-12"><div class=" alert alert-info">Không có sản phẩm nào !</div></div>
+            </div>
+
+        }
+
+
+    </div>
+
+</div>
+
+
+<div class="modal-footer">
+    <button type="submit" class="btn green" onclick="onAccpetBtnClick()">Ðồng ý</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+
+</div>
+
+<script type="text/javascript">
+
+    function onAccpetBtnClick() {
+            var checkedIds = []
+            const checkboxes = $('#lstProduct  input[type=checkbox]:checked').each(function () {
+                checkedIds.push(this.value)
+            })
+
+            setTimeout(function () {
+                // close popup
+
+                // fill div
+                const div = $('#d')
+
+                div.empty()
+
+                div.append(checkedIds.map((id) => 'id:' + id))
+
+                $('#appmodal').modal('toggle')
+            })
+    }
+
+    function GetProductsByName() {
+
+        console.log("check fat lào !!!");
+        var _name = $("[name='k']").val();
+        var _code = $("[name='code']").val();
+        var _type = $("[name='ProductTypeId']").val();
+
+        var url = "/Product/GetProducts";
+        $.ajax({
+
+            url: url,
+            data: { typeId: _type, name: _name, code: _code },
+
+            success: function (data) {
+
+                $("#lstProduct").empty();
+
+                console.log(data);
+
+                var products = data.products;
+
+
+                for (var x = 0; x < products.length; x++) {
+                    var x = `<label class=\"mt-checkbox mt-checkbox-outline\">${products[x].name}<input type=\"checkbox\" value="${products[x].id}" name=\"RelatedProductIds\"/><span></span></label>`
+
+                    $("#lstProduct").append(x);
+
+                }
+
+                //init paging
+                const { totalPages, page } = data.pager
+                var paging = `<ul class="pagination">`;
+
+                for (let i = 1; i <= totalPages; i++) {
+
+                    paging += `<li class="${i === page && "active"}"><a href="#">${i}</a></li>`;
+                }
+
+                paging += `</ul>`;
+
+                $("#pager").empty();
+                $("#pager").append(paging);
+            },
+            error: function (reponse) {
+                console.log("error1");
+            }
+        });
+    }
+
+
+</script>.
+
+
